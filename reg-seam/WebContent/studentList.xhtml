@@ -1,0 +1,47 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+
+		<rich:panel>
+			<f:facet name="header">studentList</f:facet>
+
+			<div class="results"><h:outputText value="No student exists"
+				rendered="#{empty studentList.resultList}" /> <h:dataTable
+				id="studentList" var="student" value="#{studentList.resultList}"
+				rendered="#{not empty studentList.resultList}">
+				<h:column>
+					<f:facet name="header">Index</f:facet>
+                    #{student.index}
+                </h:column>
+				<h:column>
+					<f:facet name="header">Imię</f:facet>
+					<s:link id="student" value="#{student.imie}" propagation="none"
+						view="/addStudent.xhtml">
+						<f:param name="studentIndex" value="#{student.index}" />
+					</s:link>
+				</h:column>
+				<h:column>
+                    <f:facet name="header">Nazwisko</f:facet>
+                    #{student.nazwisko}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Grupa Dziekańska</f:facet>
+                    #{student.grupaDziekanska}
+                </h:column>
+			</h:dataTable></div>
+
+		</rich:panel>
+
+		<div class="actionButtons"><s:button id="done"
+			value="Dodaj studenta" view="/addStudent.xhtml" /></div>
+
+	</ui:define>
+
+</ui:composition>
