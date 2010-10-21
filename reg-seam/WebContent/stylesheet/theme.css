@@ -3,8 +3,18 @@ html {
 }
 
 body {
-	font-size: 12px;
+	font-size: 16px;
 	margin: 0px;
+	    /* fallback (Opera) */
+   /* background: #FFFFFF;*/
+    /* Mozilla: */
+    /*background: -moz-linear-gradient(top, #FFFFFF, #FF0000);*/
+    /* Chrome, Safari:*/
+   /* background: -webkit-gradient(linear,
+                left top, left bottom, from(#FFFFFF), to(#FF0000));*/
+    /* MSIE */
+   /* filter: progid:DXImageTransform.Microsoft.Gradient(
+                StartColorStr='#FFFFFF', EndColorStr='#FF0000', GradientType=0);*/
 }
 
 a img {
@@ -215,4 +225,38 @@ table.radio td {
 
 table.radio input[type=radio] {
    vertical-align: bottom;
+}
+#menu {
+	
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 12em;
+}
+#menu li {
+	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+#menu a {
+	
+	color: black;
+	
+	margin: 0;
+	
+	text-decoration: none;
+}
+#menu a:hover {
+	color: blue;
+	
+}
+#footer { 
+	
+	text-align:center; 
+	border-top: 1px solid #666666; 
+	text-indent: 8px;
+	margin: 20% 0 0 0;
+	padding: 0 0 10px 0
 }

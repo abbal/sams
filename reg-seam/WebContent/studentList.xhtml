@@ -5,55 +5,56 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+	xmlns:rich="http://richfaces.org/rich" 
+	template="layout/template.xhtml">
 
 	<ui:define name="body">
+<h:panelGrid columns="2">
+<rich:panel>
+		<h:form>
+			
 
-		<rich:panel>
-			<h:form>
-				<f:facet name="header">studentList</f:facet>
-
-				<div class="results">
-				    <h:outputText value="No student exists" rendered="#{empty studentList.resultList}" /> 
-				    <rich:dataTable id="studentList" var="student"
-					value="#{studentList.resultList}" rows="15" reRender="ds"
-					rendered="#{not empty studentList.resultList}">
-
-					<rich:column sortBy="#{student.index}">
-						<f:facet name="header">
-							<h:outputText value="Index" />
-						</f:facet>
-						<h:outputText value="#{student.index}" />
-					</rich:column>
-					<rich:column sortBy="#{student.imie}">
-						<f:facet name="header">
-							<h:outputText value="Imię" />
-						</f:facet>
-						<h:outputText value="#{student.imie}" />
-					</rich:column>
-					<rich:column sortBy="#{student.nazwisko}">
-						<f:facet name="header">
-							<h:outputText value="Nazwisko" />
-						</f:facet>
-						<h:outputText value="#{student.nazwisko}" />
-					</rich:column>
-					<rich:column sortBy="#{student.grupaDziekanska}">
-						<f:facet name="header">
-							<h:outputText value="Grupa dziekańska" />
-						</f:facet>
-						<h:outputText value="#{student.grupaDziekanska}" />
-					</rich:column>
-
-					<f:facet name="footer">
-						<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+			<div class="results"><h:outputText value="No student exists"
+				rendered="#{empty studentList.resultList}" /> 
+				<rich:dataTable id="studentList" var="student" value="#{studentList.resultList}" rows="15"
+				 reRender="ds" rendered="#{not empty studentList.resultList}" style=" width : 669px;">
+				<f:facet name="header">Lista Studentów</f:facet>
+				<rich:column sortBy="#{student.index}">
+					<f:facet name="header">
+					<h:outputText value="Index"/>
 					</f:facet>
-				</rich:dataTable></div>
-
-			</h:form>
-		</rich:panel>
+                    <h:outputText value="#{student.index}"/>
+                </rich:column>
+				<rich:column sortBy="#{student.imie}">
+					<f:facet name="header">
+					<h:outputText value="Imię"/>
+					</f:facet>
+                    <h:outputText value="#{student.imie}"/>
+                </rich:column>
+				<rich:column sortBy="#{student.nazwisko}">
+					<f:facet name="header">
+					<h:outputText value="Nazwisko"/>
+					</f:facet>
+                    <h:outputText value="#{student.nazwisko}"/>
+                </rich:column>
+                <rich:column sortBy="#{student.grupaDziekanska}">
+					<f:facet name="header">
+					<h:outputText value="Grupa dziekańska"/>
+					</f:facet>
+                    <h:outputText value="#{student.grupaDziekanska}"/>
+                </rich:column>
+                
+                 <f:facet name="footer">
+                <rich:datascroller id="ds" renderIfSinglePage="false"  ></rich:datascroller>
+            </f:facet>
+			</rich:dataTable>
+			</div>
 		<div class="actionButtons"><s:button id="done"
 			value="Dodaj studenta" view="/addStudent.xhtml" /></div>
+</h:form>
+</rich:panel>
 
+</h:panelGrid>
 	</ui:define>
 
 </ui:composition>
