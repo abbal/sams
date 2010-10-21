@@ -55,8 +55,8 @@ select {
 
 .footer {
 	text-align: center;
-	font-size: 11px;
-	margin-bottom: 10px;
+	font-size: 8px;
+	/*margin-bottom: 10px;*/
 }
 
 .rich-table {
