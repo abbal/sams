@@ -9,7 +9,7 @@
     template="layout/template.xhtml">
 
 <ui:define name="body">
-
+ <h:panelGrid columns="2">
     <h:form id="loginForm">
 
         <rich:panel>
@@ -34,14 +34,14 @@
             <p>
               <i>Note - </i> You may login with the username 'admin' and a blank password.
             </p>
-
-        </rich:panel>
-
         <div class="actionButtons">
             <h:commandButton id="submit" value="Login" action="#{identity.login}"/>
         </div>
+        </rich:panel>
+
+
 
     </h:form>
-
+</h:panelGrid>
  </ui:define>
 </ui:composition>

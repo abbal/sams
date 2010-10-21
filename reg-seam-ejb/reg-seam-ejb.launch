@@ -1,7 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Hibernate Console launch configuration -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.hibernate.eclipse.launch.ConsoleConfigurationLaunchConfigurationType">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="reg-seam-ejb"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="reg-seam-ejb"/>
-<stringAttribute key="org.hibernate.eclipse.launch.PROPERTY_FILE" value="/reg-seam-ejb/hibernate-console.properties"/>
 <stringAttribute key="org.hibernate.eclipse.launch.CONFIGURATION_FACTORY" value="JPA"/>
+<listAttribute key="org.hibernate.eclipse.launch.FILE_MAPPINGS"/>
+<stringAttribute key="org.hibernate.eclipse.launch.PROPERTY_FILE" value="/reg-seam-ejb/hibernate-console.properties"/>
 </launchConfiguration>

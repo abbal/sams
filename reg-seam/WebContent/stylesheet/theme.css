@@ -55,8 +55,8 @@ select {
 
 .footer {
 	text-align: center;
-	font-size: 11px;
-	margin-bottom: 10px;
+	font-size: 8px;
+	/*margin-bottom: 10px;*/
 }
 
 .rich-table {
@@ -83,11 +83,11 @@ select {
 	padding-left: 20px;
 	margin-left: 3px;
 }
-
+/*
 .message li.infomsg {
 	background-image: url(../img/msginfo.png);
 }
-
+*/
 .message li.errormsg {
 	background-image: url(../img/msgerror.png);
 }
