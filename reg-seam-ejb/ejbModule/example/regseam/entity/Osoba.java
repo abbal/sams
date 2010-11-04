@@ -40,7 +40,7 @@ public abstract class Osoba implements Serializable{
 		this.imie = imie;
 	}
 	
-	@Length(max = 25)
+	@Length(max = 30)
 	public String getNazwisko() {
 		return nazwisko;
 	}
