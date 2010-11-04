@@ -19,11 +19,11 @@
 				<rich:dataTable id="studentList" var="student" value="#{studentList.resultList}" rows="15"
 				 reRender="ds" rendered="#{not empty studentList.resultList}" style=" width : 669px;">
 				<f:facet name="header">Lista Studentów</f:facet>
-				<rich:column sortBy="#{student.index}">
+				<rich:column sortBy="#{student.indeks}">
 					<f:facet name="header">
 					<h:outputText value="Index"/>
 					</f:facet>
-                    <h:outputText value="#{student.index}"/>
+                    <h:outputText value="#{student.indeks}"/>
                 </rich:column>
 				<rich:column sortBy="#{student.imie}">
 					<f:facet name="header">

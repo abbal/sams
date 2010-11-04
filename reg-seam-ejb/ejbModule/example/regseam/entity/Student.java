@@ -14,15 +14,15 @@ public class Student extends Osoba {
 	private static final long serialVersionUID = 1L;
 	
     private String grupaDziekanska;
-    private String index;
+    private String indeks;
     private List<Grupa> grupy;
     
     @Length(max = 15)
-	public String getIndex() {
-		return index;
+	public String getIndeks() {
+		return indeks;
 	}
-	public void setIndex(String index) {
-		this.index = index;
+	public void setIndeks(String indeks) {
+		this.indeks = indeks;
 	}
 
 	@Length(max = 15)
