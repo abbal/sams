@@ -11,15 +11,15 @@ import javax.persistence.ManyToMany;
 public class Wykladowca extends Osoba {
 	private static final long serialVersionUID = 1L;
 	
-	private List<Grupa> grupy;
+	private List<Grupa> wykladowcyGrupy;
 	private String tytul;
 
 	@ManyToMany
-	public List<Grupa> getGrupy() {
-		return grupy;
+	public List<Grupa> getWykladowcyGrupy() {
+		return wykladowcyGrupy;
 	}
-	public void setGrupy(List<Grupa> grupy) {
-		this.grupy = grupy;
+	public void setWykladowcyGrupy(List<Grupa> wykladowcyGrupy) {
+		this.wykladowcyGrupy = wykladowcyGrupy;
 	}
 	
 	public String getTytul() {

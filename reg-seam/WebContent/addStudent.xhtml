@@ -25,35 +25,43 @@
                 <ui:define name="label">Nazwisko</ui:define>
                 <h:inputText id="nazwisko" required="true"
                              value="#{studentHome.instance.nazwisko}"/>
-
             </s:decorate>
-            <s:decorate id="poleGrupa" template="layout/edit.xhtml">
-                <ui:define name="label">Grupa dziekańska</ui:define>
-                <h:inputText id="grupa" required="true"
-                             value="#{studentHome.instance.grupaDziekanska}"/>
-            </s:decorate>
+					<s:decorate id="poleIndex" template="layout/edit.xhtml">
+						<ui:define name="label">Index</ui:define>
+						<h:inputText id="indeks" required="true"
+							value="#{studentHome.instance.indeks}" />
+					</s:decorate>
+					<s:decorate id="poleGrupa" template="layout/edit.xhtml">
+						<ui:define name="label">Grupa dziekańska</ui:define>
+						<h:selectOneMenu id="grupa" required="true"
+							value="#{studentHome.instance.grupaDziekanska}">
+							<s:selectItems value="#{grupaDziekanskaList.resultList}"
+								var="grupa" label="#{grupa.nazwa}" noSelectionLabel="Wybierz grupę" />
+							<s:convertEntity />
+						</h:selectOneMenu>
+					</s:decorate>
 
-            <div style="clear:both"/>
+					<div style="clear:both"/>
 
        
 
         <div class="actionButtons" style="margin-left: 15%;">
             <h:commandButton id="save"
-                          value="Save"
+                          value="Zapisz"
                          action="#{studentHome.persist}"
                        rendered="#{!studentHome.managed}"/>
             <h:commandButton id="update"
-                          value="Update"
+                          value="Popraw"
                          action="#{studentHome.update}"
                        rendered="#{studentHome.managed}"/>
             <h:commandButton id="delete"
-                          value="Delete"
+                          value="Usuń"
                          action="#{studentHome.remove}"
                       immediate="true"
                        rendered="#{studentHome.managed}"/>
             <s:button propagation="end"
                                id="finish"
-                            value="Finish"
+                            value="Zakończ"
                              view="/studentList.xhtml"/>
         </div>
 		 </rich:panel>

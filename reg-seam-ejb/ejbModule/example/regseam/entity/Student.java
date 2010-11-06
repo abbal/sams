@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.Length;
 
@@ -13,9 +14,9 @@ import org.hibernate.validator.Length;
 public class Student extends Osoba {
 	private static final long serialVersionUID = 1L;
 	
-    private String grupaDziekanska;
+    private GrupaDziekanska grupaDziekanska;
     private String indeks;
-    private List<Grupa> grupy;
+    private List<Grupa> studenciGrupy;
     
     @Length(max = 15)
 	public String getIndeks() {
@@ -25,20 +26,20 @@ public class Student extends Osoba {
 		this.indeks = indeks;
 	}
 
-	@Length(max = 15)
-	public String getGrupaDziekanska() {
+	@ManyToOne
+	public GrupaDziekanska getGrupaDziekanska() {
 		return grupaDziekanska;
 	}
-	public void setGrupaDziekanska(String grupaDziekanska) {
+	public void setGrupaDziekanska(GrupaDziekanska grupaDziekanska) {
 		this.grupaDziekanska = grupaDziekanska;
 	}
-	
+
 	@ManyToMany
-	public List<Grupa> getGrupy() {
-		return grupy;
+	public List<Grupa> getStudenciGrupy() {
+		return studenciGrupy;
 	}
-	public void setGrupy(List<Grupa> grupy) {
-		this.grupy = grupy;
+	public void setStudenciGrupy(List<Grupa> studenciGrupy) {
+		this.studenciGrupy = studenciGrupy;
 	}
 
 }

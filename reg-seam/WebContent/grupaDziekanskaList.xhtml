@@ -1,0 +1,41 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<rich:panel>
+				<h:form>
+					<div class="results"><h:outputText
+						value="Nie ma żadnych grup dziekańskich"
+						rendered="#{empty grupaDziekanskaList.resultList}" /> <rich:dataTable
+						id="grupaDziekanskaList" var="grupaDziekanska"
+						value="#{grupaDziekanskaList.resultList}" rows="15" reRender="ds"
+						rendered="#{not empty grupaDziekanskaList.resultList}"
+						style=" width : 200px;">
+						<f:facet name="header">Lista Grup Dziekańskich</f:facet>
+						<rich:column sortBy="#{grupaDziekanska.nazwa}">
+							<f:facet name="header">
+								<h:outputText value="Nazwa grupy" />
+							</f:facet>
+							<h:outputText value="#{grupaDziekanska.nazwa}" />
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+						</f:facet>
+					</rich:dataTable></div>
+					<div class="actionButtons"><s:button id="done"
+						value="Dodaj grupę dziekańską" view="/addGrupaDziekanska.xhtml" /></div>
+				</h:form>
+			</rich:panel>
+
+		</h:panelGrid>
+	</ui:define>
+
+</ui:composition>

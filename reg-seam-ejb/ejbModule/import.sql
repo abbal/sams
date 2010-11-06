@@ -1,4 +1,7 @@
 -- SQL statements which are executed at application startup if hibernate.hbm2ddl.auto is 'create' or 'create-drop'
+insert into grupadziekanska (id, nazwa) values (1, 'GID101');
+insert into grupadziekanska (id, nazwa) values (2, 'GID201');
+insert into grupadziekanska (id, nazwa) values (3, 'GID301');
 insert into osoba (id, imie, nazwisko) values (1, 'Jaś', 'Fasola');
 insert into osoba (id, imie, nazwisko) values (2, 'Bonawentura', 'Nowak');
 insert into osoba (id, imie, nazwisko) values (3, 'Delfina', 'Muc');
@@ -11,15 +14,15 @@ insert into osoba (id, imie, nazwisko) values (9, 'Wierzchosława', 'Złotopolsk
 insert into osoba (id, imie, nazwisko) values (10, 'Kunegunda', 'Sobieska');
 insert into osoba (id, imie, nazwisko) values (11, 'Leontyna', 'Dzierżyńska');
 insert into osoba (id, imie, nazwisko) values (12, 'Leontyna', 'Niesiołowska');
-insert into student (grupadziekanska, indeks, id) values ('GID101', 's1234', 1);
-insert into student (grupadziekanska, indeks, id) values ('GID101', 's1235', 2);
-insert into student (grupadziekanska, indeks, id) values ('GID101', 's1236', 3);
-insert into student (grupadziekanska, indeks, id) values ('GID101', 's1232', 4);
-insert into student (grupadziekanska, indeks, id) values ('GID101', 's1134', 5);
-insert into student (grupadziekanska, indeks, id) values ('GID101', 's4234', 6);
-insert into student (grupadziekanska, indeks, id) values ('GID201', 's5234', 7);
-insert into student (grupadziekanska, indeks, id) values ('GID201', 's6234', 8);
-insert into student (grupadziekanska, indeks, id) values ('GID201', 's7234', 9);
-insert into student (grupadziekanska, indeks, id) values ('GID201', 's8234', 10);
-insert into student (grupadziekanska, indeks, id) values ('GID201', 's9234', 11);
-insert into student (grupadziekanska, indeks, id) values ('GID201', 's1874', 12);
+insert into student (indeks, id, grupadziekanska_id) values ('s1234', 1, 1);
+insert into student (indeks, id, grupadziekanska_id) values ('s1235', 2, 2);
+insert into student (indeks, id, grupadziekanska_id) values ('s1236', 3, 3);
+insert into student (indeks, id, grupadziekanska_id) values ('s1232', 4, 1);
+insert into student (indeks, id, grupadziekanska_id) values ('s1134', 5, 2);
+insert into student (indeks, id, grupadziekanska_id) values ('s4234', 6, 3);
+insert into student (indeks, id, grupadziekanska_id) values ('s5234', 7, 1);
+insert into student (indeks, id, grupadziekanska_id) values ('s6234', 8, 2);
+insert into student (indeks, id, grupadziekanska_id) values ('s7234', 9, 3);
+insert into student (indeks, id, grupadziekanska_id) values ('s8234', 10, 1);
+insert into student (indeks, id, grupadziekanska_id) values ('s9234', 11, 2);
+insert into student (indeks, id, grupadziekanska_id) values ('s1874', 12, 3);

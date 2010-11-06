@@ -19,9 +19,11 @@ public class Grupa implements Serializable {
 	private Long id;
 	private String przedmiot;
 	private int semestr;
-	private Date godzinaStart;
-	private Date godzinaStop;
+	private long godzinaStart;
+	private long godzinaStop;
+	private int dzien;
 	private List<Student> studenci;
+	private List<Wykladowca> wykladowcy;
 
 	@Id
 	@GeneratedValue
@@ -49,25 +51,40 @@ public class Grupa implements Serializable {
 	}
 	
 	public Date getGodzinaStart() {
-		return godzinaStart;
+		return new Date(godzinaStart);
 	}
-	public void setGodzinaStart(Date godzinaStart) {
+	public void setGodzinaStart(long godzinaStart) {
 		this.godzinaStart = godzinaStart;
 	}
 	
 	public Date getGodzinaStop() {
-		return godzinaStop;
+		return new Date(godzinaStop);
 	}
-	public void setGodzinaStop(Date godzinaStop) {
+	public void setGodzinaStop(long godzinaStop) {
 		this.godzinaStop = godzinaStop;
 	}
-	
-	@ManyToMany(mappedBy="grupy")
+
+	public int getDzien() {
+		return dzien;
+	}
+	public void setDzien(int dzien) {
+		this.dzien = dzien;
+	}
+
+	@ManyToMany(mappedBy="studenciGrupy")
 	public List<Student> getStudenci() {
 		return studenci;
 	}	
 	public void setStudenci(List<Student> studenci) {
 		this.studenci = studenci;
+	}
+
+	@ManyToMany(mappedBy="wykladowcyGrupy")
+	public List<Wykladowca> getWykladowcy() {
+		return wykladowcy;
+	}
+	public void setWykladowcy(List<Wykladowca> wykladowcy) {
+		this.wykladowcy = wykladowcy;
 	}
 
 }
