@@ -1,0 +1,58 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<h:form id="grupaForm">
+
+				<rich:panel>
+
+					<f:facet name="header">Dodawanie Grupy</f:facet>
+					<s:decorate id="polePrzedmiot" template="layout/edit.xhtml">
+						<ui:define name="label">Nazwa przedmiotu</ui:define>
+						<h:inputText id="przedmiot" required="true"
+							value="#{grupaHome.instance.przedmiot}" />
+					</s:decorate>
+					<s:decorate id="poleNumer" template="layout/edit.xhtml">
+						<ui:define name="label">Numer grupy</ui:define>
+						<h:inputText id="numer" required="true"
+							value="#{grupaHome.instance.numerGrupy}" />
+					</s:decorate>
+					<s:decorate id="poleGodzinaStart" template="layout/edit.xhtml">
+						<ui:define name="label">Godzina rozpoczęcia</ui:define>
+						<h:inputText id="godzinaStart" required="true"
+							value="#{grupaHome.instance.godzinaStart}" />
+					</s:decorate>
+					<s:decorate id="poleGodzinaStop" template="layout/edit.xhtml">
+						<ui:define name="label">Godzina zakończenia</ui:define>
+						<h:inputText id="godzinaStop" required="true"
+							value="#{grupaHome.instance.godzinaStop}" />
+					</s:decorate>
+					<s:decorate id="poledzien" template="layout/edit.xhtml">
+						<ui:define name="label">Dzień tygodnia</ui:define>
+						<h:inputText id="dzien" required="true"
+							value="#{grupaHome.instance.dzien}" />
+					</s:decorate>
+
+					<div style="clear: both" />
+
+					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
+						id="save" value="Zapisz" action="#{grupaHome.persist}"
+						rendered="#{!grupaHome.managed}" /> <h:commandButton id="update"
+						value="Popraw" action="#{grupaHome.update}"
+						rendered="#{grupaHome.managed}" /> <h:commandButton id="delete"
+						value="Usuń" action="#{grupaHome.remove}" immediate="true"
+						rendered="#{grupaHome.managed}" /> <s:button propagation="end"
+						id="finish" value="Zakończ" view="/grupaList.xhtml" /></div>
+				</rich:panel>
+			</h:form>
+		</h:panelGrid>
+	</ui:define>
+
+</ui:composition>

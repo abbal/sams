@@ -26,3 +26,8 @@ insert into student (indeks, id, grupadziekanska_id) values ('s7234', 9, 3);
 insert into student (indeks, id, grupadziekanska_id) values ('s8234', 10, 1);
 insert into student (indeks, id, grupadziekanska_id) values ('s9234', 11, 2);
 insert into student (indeks, id, grupadziekanska_id) values ('s1874', 12, 3);
+insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot) values (1, 'Wtorek', '11:45', '14:30', 1, FALSE, 'Angielski');
+insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot) values (2, 'Środa', '10:15', '11:45', 1, FALSE, 'BYT');
+insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot) values (3, 'Czwartek', '15:30', '17:00', 1, FALSE, 'PRO');
+insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot) values (4, 'Wtorek', '11:45', '14:30', 2, FALSE, 'Angielski');
+

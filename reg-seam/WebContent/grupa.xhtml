@@ -1,52 +1,66 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:s="http://jboss.com/products/seam/taglib"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:rich="http://richfaces.org/rich"
-    template="layout/template.xhtml">
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
-<ui:define name="body">
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+		
+			<rich:panel>
+				<h:form>
+					<div class="results"><h:outputText
+						value="Nie ma żadnych grup"
+						rendered="#{empty grupaList.resultList}" /> <rich:dataTable
+						id="grupaList" var="grupa" value="#{grupaList.resultList}"
+						rows="15" reRender="ds"
+						rendered="#{not empty grupaList.resultList}"
+						style=" width : 769px;">
+						<f:facet name="header">Lista Grup</f:facet>
+						<rich:column sortBy="#{grupa.przedmiot}">
+							<f:facet name="header">
+								<h:outputText value="Nazwa przedmiotu" />
+							</f:facet>
+							<h:outputText value="#{grupa.przedmiot}" />
+						</rich:column>
+						<rich:column sortBy="#{grupa.numer}">
+							<f:facet name="header">
+								<h:outputText value="Numer grupy" />
+							</f:facet>
+							<h:outputText value="#{grupa.numer}" />
+						</rich:column>
+						<rich:column sortBy="#{grupa.godzinaStart}">
+							<f:facet name="header">
+								<h:outputText value="Godzina rozpoczęcia" />
+							</f:facet>
+							<h:outputText value="#{grupa.godzinaStart}" />
+						</rich:column>
+						<rich:column sortBy="#{grupa.godzinaStop}">
+							<f:facet name="header">
+								<h:outputText value="Godzina zakończenia" />
+							</f:facet>
+							<h:outputText value="#{grupa.godzinaStop}" />
+						</rich:column>
+						<rich:column sortBy="#{grupa.dzien}">
+							<f:facet name="header">
+								<h:outputText value="Dzień tygodnia" />
+							</f:facet>
+							<h:outputText value="#{grupa.dzien}" />
+						</rich:column>
 
-    <h:form id="grupaForm">
+						<f:facet name="footer">
+							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+						</f:facet>
+					</rich:dataTable></div>
+					<div class="actionButtons"><s:button id="done"
+						value="Dodaj grupę" view="/addGrupa.xhtml" /></div>
+				</h:form>
+			</rich:panel>
 
-        <rich:panel>
-            <f:facet name="header">grupa</f:facet>
-
-            <s:decorate id="nameField" template="layout/edit.xhtml">
-                <ui:define name="label">Name</ui:define>
-                <h:inputText id="name" required="true"
-                             value="#{grupaHome.instance.name}"/>
-            </s:decorate>
-
-            <div style="clear:both"/>
-
-        </rich:panel>
-
-        <div class="actionButtons">
-            <h:commandButton id="save"
-                          value="Save"
-                         action="#{grupaHome.persist}"
-                       rendered="#{!grupaHome.managed}"/>
-            <h:commandButton id="update"
-                          value="Save"
-                         action="#{grupaHome.update}"
-                       rendered="#{grupaHome.managed}"/>
-            <h:commandButton id="delete"
-                          value="Delete"
-                         action="#{grupaHome.remove}"
-                      immediate="true"
-                       rendered="#{grupaHome.managed}"/>
-            <s:button propagation="end"
-                               id="cancel"
-                            value="Cancel"
-                             view="/grupaList.xhtml"/>
-        </div>
-
-    </h:form>
-
-</ui:define>
+		</h:panelGrid>
+	</ui:define>
 
 </ui:composition>
