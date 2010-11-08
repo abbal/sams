@@ -231,9 +231,11 @@ table.radio input[type=radio] {
 	float: left;
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding-bottom: 30%;
+	padding-right: 5%;
 	text-align: center;
 	width: 12em;
+	height: 100%;
 }
 #menu li {
 	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;

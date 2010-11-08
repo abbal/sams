@@ -18,16 +18,17 @@
 			<h:outputText value="Numer grupy: " />
 			<h:outputText value="#{studentHome.instance.grupaDziekanska.nazwa}" />
 			<h:outputText value="Grupy: " />
-			<h:outputText value="" />
+			<tr></tr>
 			<ul>
 				<ui:repeat value="#{studentHome.instance.studenciGrupy}" var="grupa">
 					<li><h:outputText
 						value="#{grupa.przedmiot} #{grupa.numerGrupy}" escape="false" /></li>
 				</ui:repeat>
 			</ul>
-			<div class="actionButtons"><s:button id="back" value="Powrót"
-				view="/studentList.xhtml" /></div>
+
 		</h:panelGrid>
+					<div class="actionButtons"><s:button id="back" value="Powrót"
+				view="/studentList.xhtml" /></div>
 	</ui:define>
 
 </ui:composition>
