@@ -34,7 +34,7 @@ public class Student extends Osoba {
 		this.grupaDziekanska = grupaDziekanska;
 	}
 
-	@ManyToMany
+	@ManyToMany(mappedBy="studenci")
 	public List<Grupa> getStudenciGrupy() {
 		return studenciGrupy;
 	}

@@ -14,7 +14,7 @@ public class Wykladowca extends Osoba {
 	private List<Grupa> wykladowcyGrupy;
 	private String tytul;
 
-	@ManyToMany
+	@ManyToMany(mappedBy="wykladowcy")
 	public List<Grupa> getWykladowcyGrupy() {
 		return wykladowcyGrupy;
 	}
