@@ -105,7 +105,7 @@ public class Grupa implements Serializable {
 		this.open = open;
 	}
 
-	@ManyToMany(mappedBy="studenciGrupy")
+	@ManyToMany
 	public List<Student> getStudenci() {
 		return studenci;
 	}	
@@ -113,7 +113,7 @@ public class Grupa implements Serializable {
 		this.studenci = studenci;
 	}
 
-	@ManyToMany(mappedBy="wykladowcyGrupy")
+	@ManyToMany
 	public List<Wykladowca> getWykladowcy() {
 		return wykladowcy;
 	}

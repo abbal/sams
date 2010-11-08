@@ -23,7 +23,10 @@
 							<f:facet name="header">
 								<h:outputText value="Nazwa przedmiotu" />
 							</f:facet>
-							<h:outputText value="#{grupa.przedmiot}" />
+							<s:link id="grupa" value="#{grupa.przedmiot}" propagation="none"
+								view="/grupa.xhtml">
+								<f:param name="grupaId" value="#{grupa.id}" />
+							</s:link>
 						</rich:column>
 						<rich:column sortBy="#{grupa.numerGrupy}">
 							<f:facet name="header">

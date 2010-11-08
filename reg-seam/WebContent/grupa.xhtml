@@ -9,46 +9,50 @@
 
 	<ui:define name="body">
 		<h:panelGrid columns="2">
-		
+			<h:outputText value="Nazwa przedmiotu: " />
+			<h:outputText value="#{grupaHome.instance.przedmiot}" />
+			<h:outputText value="Numer grupy: " />
+			<h:outputText value="#{grupaHome.instance.numerGrupy}" />
+			<h:outputText value="Czas: " />
+			<h:outputText value="od #{grupaHome.instance.godzinaStart} do #{grupaHome.instance.godzinaStop}" />
+			<h:outputText value="Numer grupy: " />
+			<h:outputText value="#{grupaHome.instance.dzien}" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="1">
 			<rich:panel>
 				<h:form>
 					<div class="results"><h:outputText
-						value="Nie ma żadnych grup"
-						rendered="#{empty grupaList.resultList}" /> <rich:dataTable
-						id="grupaList" var="grupa" value="#{grupaList.resultList}"
-						rows="15" reRender="ds"
-						rendered="#{not empty grupaList.resultList}"
-						style=" width : 769px;">
-						<f:facet name="header">Lista Grup</f:facet>
-						<rich:column sortBy="#{grupa.przedmiot}">
+						value="Nie ma żadnych studentów"
+						rendered="#{empty grupaHome.instance.studenci}" /> <rich:dataTable
+						id="studentList" var="student"
+						value="#{grupaHome.instance.studenci}" rows="15" reRender="ds"
+						rendered="#{not empty grupaHome.instance.studenci}"
+						style=" width : 669px;">
+						<f:facet name="header">Lista Studentów</f:facet>
+						<rich:column sortBy="#{student.indeks}">
 							<f:facet name="header">
-								<h:outputText value="Nazwa przedmiotu" />
+								<h:outputText value="Index" />
 							</f:facet>
-							<h:outputText value="#{grupa.przedmiot}" />
+							<h:outputText value="#{student.indeks}" />
 						</rich:column>
-						<rich:column sortBy="#{grupa.numer}">
+						<rich:column sortBy="#{student.imie}">
 							<f:facet name="header">
-								<h:outputText value="Numer grupy" />
+								<h:outputText value="Imię" />
 							</f:facet>
-							<h:outputText value="#{grupa.numer}" />
+							<h:outputText value="#{student.imie}" />
 						</rich:column>
-						<rich:column sortBy="#{grupa.godzinaStart}">
+						<rich:column sortBy="#{student.nazwisko}">
 							<f:facet name="header">
-								<h:outputText value="Godzina rozpoczęcia" />
+								<h:outputText value="Nazwisko" />
 							</f:facet>
-							<h:outputText value="#{grupa.godzinaStart}" />
+							<h:outputText value="#{student.nazwisko}" />
 						</rich:column>
-						<rich:column sortBy="#{grupa.godzinaStop}">
+						<rich:column sortBy="#{student.grupaDziekanska.nazwa}">
 							<f:facet name="header">
-								<h:outputText value="Godzina zakończenia" />
+								<h:outputText value="Grupa dziekańska" />
 							</f:facet>
-							<h:outputText value="#{grupa.godzinaStop}" />
-						</rich:column>
-						<rich:column sortBy="#{grupa.dzien}">
-							<f:facet name="header">
-								<h:outputText value="Dzień tygodnia" />
-							</f:facet>
-							<h:outputText value="#{grupa.dzien}" />
+							<h:outputText value="#{student.grupaDziekanska.nazwa}" />
 						</rich:column>
 
 						<f:facet name="footer">
@@ -56,10 +60,10 @@
 						</f:facet>
 					</rich:dataTable></div>
 					<div class="actionButtons"><s:button id="done"
-						value="Dodaj grupę" view="/addGrupa.xhtml" /></div>
+						value="Dodaj studenta do grupy" view="/addStudentGroup.xhtml" />
+					<s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 				</h:form>
 			</rich:panel>
-
 		</h:panelGrid>
 	</ui:define>
 
