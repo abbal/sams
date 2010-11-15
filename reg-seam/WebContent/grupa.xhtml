@@ -14,19 +14,57 @@
 			<h:outputText value="Numer grupy: " />
 			<h:outputText value="#{grupaHome.instance.numerGrupy}" />
 			<h:outputText value="Czas: " />
-			<h:outputText value="od #{grupaHome.instance.godzinaStart} do #{grupaHome.instance.godzinaStop}" />
+			<h:outputText
+				value="od #{grupaHome.instance.godzinaStart} do #{grupaHome.instance.godzinaStop}" />
 			<h:outputText value="Numer grupy: " />
 			<h:outputText value="#{grupaHome.instance.dzien}" />
 		</h:panelGrid>
 
 		<h:panelGrid columns="1">
 			<rich:panel>
-				<h:form>
+				<h:form id="grupaViewFormW">
+					<div class="results"><h:outputText
+						value="Nie ma żadnych wykładowców"
+						rendered="#{empty grupaHome.instance.wykladowcy}" /> <rich:dataTable
+						id="grupaWykladowcaList" var="wykladowca"
+						value="#{grupaHome.instance.wykladowcy}"
+						rendered="#{not empty grupaHome.instance.wykladowcy}"
+						style=" width : 669px;">
+						<f:facet name="header">Lista Wykładowców</f:facet>
+						<rich:column sortBy="#{wykladowca.tytul}">
+							<f:facet name="header">
+								<h:outputText value="Tytuł" />
+							</f:facet>
+							<h:outputText value="#{wykladowca.tytul}" />
+						</rich:column>
+						<rich:column sortBy="#{wykladowca.imie}">
+							<f:facet name="header">
+								<h:outputText value="Imię" />
+							</f:facet>
+							<h:outputText value="#{wykladowca.imie}" />
+						</rich:column>
+						<rich:column sortBy="#{wykladowca.nazwisko}">
+							<f:facet name="header">
+								<h:outputText value="Nazwisko" />
+							</f:facet>
+							<h:outputText value="#{wykladowca.nazwisko}" />
+						</rich:column>
+					</rich:dataTable></div>
+					<div class="actionButtons"><s:button id="addW"
+						value="Dodaj wykładowcę do grupy" view="/addWykladowcaGroup.xhtml" />
+					<s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
+				</h:form>
+			</rich:panel>
+		</h:panelGrid>
+
+		<h:panelGrid columns="1">
+			<rich:panel>
+				<h:form id="grupaViewFormS">
 					<div class="results"><h:outputText
 						value="Nie ma żadnych studentów"
 						rendered="#{empty grupaHome.instance.studenci}" /> <rich:dataTable
-						id="studentList" var="student"
-						value="#{grupaHome.instance.studenci}" rows="15" reRender="ds"
+						id="grupaStudentList" var="student"
+						value="#{grupaHome.instance.studenci}" rows="15" reRender="dsS"
 						rendered="#{not empty grupaHome.instance.studenci}"
 						style=" width : 669px;">
 						<f:facet name="header">Lista Studentów</f:facet>
@@ -56,10 +94,11 @@
 						</rich:column>
 
 						<f:facet name="footer">
-							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+							<rich:datascroller id="dsS" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
 					</rich:dataTable></div>
-					<div class="actionButtons"><s:button id="done"
+
+					<div class="actionButtons"><s:button id="addS"
 						value="Dodaj studenta do grupy" view="/addStudentGroup.xhtml" />
 					<s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 				</h:form>

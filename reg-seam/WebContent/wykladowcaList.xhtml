@@ -1,52 +1,54 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:s="http://jboss.com/products/seam/taglib"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:rich="http://richfaces.org/rich"
-    template="layout/template.xhtml">
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
-<ui:define name="body">
-<h:panelGrid columns="2">
-    <rich:panel>
-        <f:facet name="header">wykladowcaList</f:facet>
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<rich:panel>
+				<h:form>
+					<div class="results"><h:outputText
+						value="Nie ma żadnych wykładowców"
+						rendered="#{empty wykladowcaList.resultList}" /> <rich:dataTable
+						id="wykladowcaList" var="wykladowca" value="#{wykladowcaList.resultList}"
+						rows="15" reRender="ds"
+						rendered="#{not empty wykladowcaList.resultList}"
+						style=" width : 669px;">
+						<f:facet name="header">Lista Wykładowców</f:facet>
+						<rich:column sortBy="#{wykladowca.tytul}">
+							<f:facet name="header">
+								<h:outputText value="Tytuł" />
+							</f:facet>
+							<s:link id="wykladowca" value="#{wykladowca.tytul}" propagation="none"
+								view="/wykladowca.xhtml">
+								<f:param name="wykladowcaId" value="#{wykladowca.id}" />
+							</s:link>
+						</rich:column>
+						<rich:column sortBy="#{wykladowca.imie}">
+							<f:facet name="header">
+								<h:outputText value="Imię" />
+							</f:facet>
+							<h:outputText value="#{wykladowca.imie}" />
+						</rich:column>
+						<rich:column sortBy="#{wykladowca.nazwisko}">
+							<f:facet name="header">
+								<h:outputText value="Nazwisko" />
+							</f:facet>
+							<h:outputText value="#{wykladowca.nazwisko}" />
+						</rich:column>
 
-        <div class="results">
-
-            <h:outputText value="No wykladowca exists"
-                       rendered="#{empty wykladowcaList.resultList}"/>
-
-            <h:dataTable id="wykladowcaList" var="wykladowca"
-                      value="#{wykladowcaList.resultList}"
-                   rendered="#{not empty wykladowcaList.resultList}">
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    #{wykladowca.id}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Name</f:facet>
-                    <s:link id="wykladowca"
-                         value="#{wykladowca.name}"
-                   propagation="none"
-                         view="/wykladowca.xhtml">
-                        <f:param name="wykladowcaId"
-                                value="#{wykladowca.id}"/>
-                    </s:link>
-                </h:column>
-            </h:dataTable>
-
-        </div>
-    <div class="actionButtons">
-        <s:button id="done"
-               value="Create wykladowca"
-                view="/wykladowca.xhtml"/>
-    </div>
-    </rich:panel>
-</h:panelGrid>
-
-
-</ui:define>
-
+						<f:facet name="footer">
+							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+						</f:facet>
+					</rich:dataTable></div>
+					<div class="actionButtons"><s:button id="done"
+						value="Dodaj wykladowcę" view="/addWykladowca.xhtml" /></div>
+				</h:form>
+			</rich:panel>
+		</h:panelGrid>
+	</ui:define>
 </ui:composition>

@@ -1,52 +1,49 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:s="http://jboss.com/products/seam/taglib"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:rich="http://richfaces.org/rich"
-    template="layout/template.xhtml">
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
-<ui:define name="body">
-<h:panelGrid columns="2">
-    <rich:panel>
-        <f:facet name="header">dziekanatList</f:facet>
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<rich:panel>
+				<h:form>
+					<div class="results"><h:outputText
+						value="Nie ma żadnych pracowników dziekanatu"
+						rendered="#{empty dziekanatList.resultList}" /> <rich:dataTable
+						id="dziekanatList" var="dziekanat" value="#{dziekanatList.resultList}"
+						rows="15" reRender="ds"
+						rendered="#{not empty dziekanatList.resultList}"
+						style=" width : 669px;">
+						<f:facet name="header">Lista Pracowników Dziekanatu</f:facet>
+						<rich:column sortBy="#{dziekanat.imie}">
+							<f:facet name="header">
+								<h:outputText value="Imię" />
+							</f:facet>
+							<s:link id="dziekanat" value="#{dziekanat.imie}" propagation="none"
+								view="/dziekanat.xhtml">
+								<f:param name="dziekanatId" value="#{dziekanat.id}" />
+							</s:link>
+						</rich:column>
+						<rich:column sortBy="#{dziekanat.nazwisko}">
+							<f:facet name="header">
+								<h:outputText value="Nazwisko" />
+							</f:facet>
+							<h:outputText value="#{dziekanat.nazwisko}" />
+						</rich:column>
 
-        <div class="results">
-
-            <h:outputText value="No dziekanat exists"
-                       rendered="#{empty dziekanatList.resultList}"/>
-
-            <h:dataTable id="dziekanatList" var="dziekanat"
-                      value="#{dziekanatList.resultList}"
-                   rendered="#{not empty dziekanatList.resultList}">
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    #{dziekanat.id}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Name</f:facet>
-                    <s:link id="dziekanat"
-                         value="#{dziekanat.name}"
-                   propagation="none"
-                         view="/dziekanat.xhtml">
-                        <f:param name="dziekanatId"
-                                value="#{dziekanat.id}"/>
-                    </s:link>
-                </h:column>
-            </h:dataTable>
-
-        </div>
-    <div class="actionButtons">
-        <s:button id="done"
-               value="Create dziekanat"
-                view="/dziekanat.xhtml"/>
-    </div>
-    </rich:panel>
-
-
-</h:panelGrid>
-</ui:define>
-
+						<f:facet name="footer">
+							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+						</f:facet>
+					</rich:dataTable></div>
+					<div class="actionButtons"><s:button id="done"
+						value="Dodaj pracownika dziekanatu" view="/addDziekanat.xhtml" /></div>
+				</h:form>
+			</rich:panel>
+		</h:panelGrid>
+	</ui:define>
 </ui:composition>
+

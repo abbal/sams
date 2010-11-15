@@ -11,17 +11,18 @@
 		<h:panelGrid columns="2">
 			<h:form id="studentGrupaForm">
 				<rich:panel>
-					<f:facet name="header">Dodawanie Studenta do Grupy</f:facet>
-					<s:decorate id="poleStudent" template="layout/edit.xhtml">
-						<h:selectManyCheckbox id="studentDoGrupy" required="true"
-							value="#{grupaHome.instance.studenci}" layout="pageDirection">
-							<s:selectItems value="#{studentList.resultList}"
-								var="student" label="#{student.imie} #{student.nazwisko}" />
+					<f:facet name="header">Dodawanie Wykladowcy do Grupy</f:facet>
+					<s:decorate id="poleWykladowcza" template="layout/edit.xhtml">
+						<h:selectManyCheckbox id="wykladowcaDoGrupy" required="true"
+							value="#{grupaHome.instance.wykladowcy}" layout="pageDirection">
+							<s:selectItems value="#{wykladowcaList.resultList}" var="wykladowca"
+								label="#{wykladowca.tytul} #{wykladowca.imie} #{wykladowca.nazwisko}" />
 							<s:convertEntity />
 						</h:selectManyCheckbox>
 					</s:decorate>
 
 					<div style="clear: both" />
+
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
 						id="save" value="Zapisz" action="#{grupaHome.persist}"
 						rendered="#{!grupaHome.managed}" /> <h:commandButton id="update"
