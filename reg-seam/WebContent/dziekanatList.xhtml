@@ -9,7 +9,7 @@
     template="layout/template.xhtml">
 
 <ui:define name="body">
-
+<h:panelGrid columns="2">
     <rich:panel>
         <f:facet name="header">dziekanatList</f:facet>
 
@@ -38,15 +38,15 @@
             </h:dataTable>
 
         </div>
-
-    </rich:panel>
-
     <div class="actionButtons">
         <s:button id="done"
                value="Create dziekanat"
                 view="/dziekanat.xhtml"/>
     </div>
+    </rich:panel>
 
+
+</h:panelGrid>
 </ui:define>
 
 </ui:composition>

@@ -235,7 +235,7 @@ table.radio input[type=radio] {
 	padding-right: 5%;
 	text-align: center;
 	width: 12em;
-	height: 100%;
+	
 }
 #menu li {
 	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
@@ -243,11 +243,7 @@ table.radio input[type=radio] {
 	padding: 0;
 }
 #menu a {
-	
 	color: black;
-	
-	margin: 0;
-	
 	text-decoration: none;
 }
 #menu a:hover {
@@ -257,8 +253,7 @@ table.radio input[type=radio] {
 #footer { 
 	
 	text-align:center; 
-	border-top: 1px solid #666666; 
+	width:100%;
 	text-indent: 8px;
-	margin: 20% 0 0 0;
-	padding: 0 0 10px 0
+	position: fixed; bottom: 0px;
 }

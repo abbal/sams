@@ -25,8 +25,8 @@
          
 				<li><h5><a href="home.seam" title="Home">Home</a></h5></li>
 				<li><h5><a href="studentList.seam" title="Student">Studenci</a></h5></li>
-				<li><h5><a href="#" title="Dziekanat">Dziekanat</a></h5></li>
-				<li><h5><a href="#" title="Wykładowcy">Wykładowcy</a></h5></li>
+				<li><h5><a href="dziekanatList.seam" title="Dziekanat">Dziekanat</a></h5></li>
+				<li><h5><a href="wykladowcaList.seam" title="Wykładowcy">Wykładowcy</a></h5></li>
 				<li><h5><a href="grupaList.seam" title="Grupa">Grupy</a></h5></li>
 				<li><h5><a href="grupaDziekanskaList.seam" title="GrupaDziekanska">Grupy Dziekańskie</a></h5></li>
 			</ul> 
@@ -40,13 +40,15 @@
          
 
          <ui:insert name="body"/>
-
       </div>
-         <div id="footer">
-         Powered by <a  href="http://seamframework.org">Seam</a> #{org.jboss.seam.version} and <a href="http://www.jboss.org/jbossrichfaces">RichFaces</a>.
-          <h:graphicImage  value="/img/PJWSTK_f.gif" alt = "pjwstk footer" style="width : 42px; height : 39px;"/>
+      	
+        	 <div id="footer">
+        	 <hr></hr>
+         	Powered by <a  href="http://seamframework.org">Seam</a> #{org.jboss.seam.version} and <a href="http://www.jboss.org/jbossrichfaces">RichFaces</a>.
+          	<h:graphicImage  value="/img/PJWSTK_f.gif" alt = "pjwstk footer" style="width : 42px; height : 39px;"/>
+      	
       </div>
-   </body>
-
+   
+</body>
 </html>
 </f:view>

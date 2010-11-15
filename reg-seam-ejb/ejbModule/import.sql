@@ -2,8 +2,8 @@
 insert into grupadziekanska (id, nazwa) values (1, 'GID101');
 insert into grupadziekanska (id, nazwa) values (2, 'GID201');
 insert into grupadziekanska (id, nazwa) values (3, 'GID301');
-insert into osoba (id, haslo, imie, login, nazwisko) values (1,'haslo', 'Jaś','login', 'Fasola');
-insert into osoba (id, haslo, imie, login, nazwisko) values (2,'nowak', 'Bonawentura','nowak', 'Nowak');
+insert into osoba (id, haslo, imie, login, nazwisko) values (1, 'haslo', 'Jaś', 'login', 'Fasola');
+insert into osoba (id, haslo, imie, login, nazwisko) values (2, 'nowak', 'Bonawentura', 'nowak', 'Nowak');
 insert into osoba (id, imie, nazwisko) values (3, 'Delfina', 'Muc');
 insert into osoba (id, imie, nazwisko) values (4, 'Emeryk', 'Robak');
 insert into osoba (id, imie, nazwisko) values (5, 'Filipina', 'Gazda');
