@@ -1,52 +1,31 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:s="http://jboss.com/products/seam/taglib"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:rich="http://richfaces.org/rich"
-    template="layout/template.xhtml">
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
-<ui:define name="body">
-
-    <h:form id="wykladowcaForm">
-
-        <rich:panel>
-            <f:facet name="header">wykladowca</f:facet>
-
-            <s:decorate id="nameField" template="layout/edit.xhtml">
-                <ui:define name="label">Name</ui:define>
-                <h:inputText id="name" required="true"
-                             value="#{wykladowcaHome.instance.name}"/>
-            </s:decorate>
-
-            <div style="clear:both"/>
-
-        </rich:panel>
-
-        <div class="actionButtons">
-            <h:commandButton id="save"
-                          value="Save"
-                         action="#{wykladowcaHome.persist}"
-                       rendered="#{!wykladowcaHome.managed}"/>
-            <h:commandButton id="update"
-                          value="Save"
-                         action="#{wykladowcaHome.update}"
-                       rendered="#{wykladowcaHome.managed}"/>
-            <h:commandButton id="delete"
-                          value="Delete"
-                         action="#{wykladowcaHome.remove}"
-                      immediate="true"
-                       rendered="#{wykladowcaHome.managed}"/>
-            <s:button propagation="end"
-                               id="cancel"
-                            value="Cancel"
-                             view="/wykladowcaList.xhtml"/>
-        </div>
-
-    </h:form>
-
-</ui:define>
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<h:outputText value="Tytuł: " />
+			<h:outputText value="#{wykladowcaHome.instance.tytul}" />
+			<h:outputText value="Imię: " />
+			<h:outputText value="#{wykladowcaHome.instance.imie}" />
+			<h:outputText value="Nazwisko: " />
+			<h:outputText value="#{wykladowcaHome.instance.nazwisko}" />
+			<h:outputText value="Grupy: " />
+			<h:outputText value="" />
+			<ul>
+				<ui:repeat value="#{wykladowcaHome.instance.wykladowcyGrupy}" var="grupa">
+					<li><h:outputText
+						value="#{grupa.przedmiot} #{grupa.numerGrupy}" escape="false" /></li>
+				</ui:repeat>
+			</ul>
+			<div class="actionButtons"><s:button id="back" value="Powrót"
+				view="/wykladowcaList.xhtml" /></div>
+		</h:panelGrid>
+	</ui:define>
 
 </ui:composition>
