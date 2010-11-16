@@ -10,6 +10,7 @@ import example.regseam.entity.Grupa;
 @Name("grupaHome")
 public class GrupaHome extends EntityHome<Grupa>
 {
+	
     @RequestParameter Long grupaId;
 
     @Override

@@ -17,22 +17,23 @@
       <ui:insert name="head"/>
    </head>
    <body>
+   <div id="menufix">
          <ui:include src="menu.xhtml">
          <ui:param name="projectName" value="reg-seam"/>
       </ui:include>
+      </div>
    <div id="menu">
-         	<ul id="menu">
-         
-				<li><h5><a href="home.seam" title="Home">Home</a></h5></li>
-				<li><h5><a href="studentList.seam" title="Student">Studenci</a></h5></li>
-				<li><h5><a href="dziekanatList.seam" title="Dziekanat">Dziekanat</a></h5></li>
-				<li><h5><a href="wykladowcaList.seam" title="Wykładowcy">Wykładowcy</a></h5></li>
-				<li><h5><a href="grupaList.seam" title="Grupa">Grupy</a></h5></li>
-				<li><h5><a href="grupaDziekanskaList.seam" title="GrupaDziekanska">Grupy Dziekańskie</a></h5></li>
-			</ul> 
-		</div>
+		<ul>
+				<li><a href="home.seam" title="Home"><h5>Home</h5></a></li>
+				<li><a href="studentList.seam" title="Student"><h5>Studenci</h5></a></li>
+				<li><a href="dziekanatList.seam" title="Dziekanat"><h5>Dziekanat</h5></a></li>
+				<li><a href="wykladowcaList.seam" title="Wykładowcy"><h5>Wykładowcy</h5></a></li>
+				<li><a href="grupaList.seam" title="Grupa"><h5>Grupy</h5></a></li>
+				<li><a href="grupaDziekanskaList.seam" title="GrupaDziekanska"><h5>Grupy Dziekańskie</h5></a></li>		
+		</ul>		
+  </div>
 
-      <div class="body">
+      <div id="body">
          <h:messages id="messages" globalOnly="true" styleClass="message"
             errorClass="errormsg" infoClass="infomsg" warnClass="warnmsg"
             rendered="#{showGlobalMessages != 'false'}"/>
@@ -44,9 +45,13 @@
       	
         	 <div id="footer">
         	 <hr></hr>
-         	Powered by <a  href="http://seamframework.org">Seam</a> #{org.jboss.seam.version} and <a href="http://www.jboss.org/jbossrichfaces">RichFaces</a>.
-          	<h:graphicImage  value="/img/PJWSTK_f.gif" alt = "pjwstk footer" style="width : 42px; height : 39px;"/>
-      	
+         	<a href="http://www.seamframework.org/"><img
+    		 src="http://www.seamframework.org/themes/sfwkorg/img/runningon_seamlogo_white.gif" 
+   			  border="0" alt="Created with and running on Seam" width="200" height="50"/></a>
+          	<a href="http://gdansk.pjwstk.edu.pl/"><h:graphicImage  value="/img/PJWSTK_f.gif" alt = "pjwstk footer" 
+          	style="float: right; margin-right: 50px; width: 50px; height:50px;"/></a>
+          	<a href="http://gdansk.pjwstk.edu.pl/"><h:graphicImage  value="/img/PJWSTK_f.gif" alt = "pjwstk footer2" 
+          	style="float: left; margin-left: 50px; width:50px; height:50px;"/></a>	
       </div>
    
 </body>

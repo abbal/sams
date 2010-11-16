@@ -9,6 +9,7 @@
 
 	<ui:define name="body">
 		<h:panelGrid columns="2">
+		
 			<h:outputText value="Imię: " />
 			<h:outputText value="#{studentHome.instance.imie}" />
 			<h:outputText value="Nazwisko: " />
@@ -25,10 +26,10 @@
 						value="#{grupa.przedmiot} #{grupa.numerGrupy}" escape="false" /></li>
 				</ui:repeat>
 			</ul>
-
-		</h:panelGrid>
-					<div class="actionButtons"><s:button id="back" value="Powrót"
+								<div class="actionButtons"><s:button id="back" value="Powrót"
 				view="/studentList.xhtml" /></div>
+		</h:panelGrid>
+
 	</ui:define>
 
 </ui:composition>

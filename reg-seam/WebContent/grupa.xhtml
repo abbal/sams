@@ -18,9 +18,9 @@
 				value="od #{grupaHome.instance.godzinaStart} do #{grupaHome.instance.godzinaStop}" />
 			<h:outputText value="Numer grupy: " />
 			<h:outputText value="#{grupaHome.instance.dzien}" />
+		
 		</h:panelGrid>
-
-		<h:panelGrid columns="1">
+		<h:panelGrid columns="2">
 			<rich:panel>
 				<h:form id="grupaViewFormW">
 					<div class="results"><h:outputText
@@ -55,9 +55,7 @@
 					<s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 				</h:form>
 			</rich:panel>
-		</h:panelGrid>
-
-		<h:panelGrid columns="1">
+		
 			<rich:panel>
 				<h:form id="grupaViewFormS">
 					<div class="results"><h:outputText
