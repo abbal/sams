@@ -1,8 +1,5 @@
 package example.regseam.session;
 
-import org.jboss.seam.annotations.Name;
-
-@Name("dzienTygodnia")
 public enum DzienTygodnia {
 	NIEDZIELA(0, "Niedziela"), 
 	PONIEDZIALEK (1, "Poniedziałek"), 

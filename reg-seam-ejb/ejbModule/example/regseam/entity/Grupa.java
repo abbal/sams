@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import org.hibernate.validator.Digits;
 import org.hibernate.validator.Length;
 
+import example.regseam.session.DzienTygodnia;
+
 @Entity
 public class Grupa implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,7 +27,7 @@ public class Grupa implements Serializable {
 	private int numerGrupy;
 	private long godzinaStart;
 	private long godzinaStop;
-	private String dzien;
+	private DzienTygodnia dzien;
 	private boolean open;
 	private List<Student> studenci;
 	private List<Wykladowca> wykladowcy;
@@ -91,10 +93,10 @@ public class Grupa implements Serializable {
 		this.godzinaStop = godz.getTime();
 	}
 
-	public String getDzien() {
+	public DzienTygodnia getDzien() {
 		return dzien;
 	}
-	public void setDzien(String dzien) {
+	public void setDzien(DzienTygodnia dzien) {
 		this.dzien = dzien;
 	}
 
