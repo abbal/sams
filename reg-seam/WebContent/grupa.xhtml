@@ -51,8 +51,9 @@
 						</rich:column>
 					</rich:dataTable></div>
 					<div class="actionButtons"><s:button id="addW"
-						value="Dodaj wykładowcę do grupy" view="/addWykladowcaGroup.xhtml" />
-					<s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
+						value="Dodaj wykładowcę do grupy" view="/addWykladowcaGroup.xhtml">
+						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+					</s:button> <s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 				</h:form>
 			</rich:panel>
 		
@@ -97,8 +98,9 @@
 					</rich:dataTable></div>
 
 					<div class="actionButtons"><s:button id="addS"
-						value="Dodaj studenta do grupy" view="/addStudentGroup.xhtml" />
-					<s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
+						value="Dodaj studenta do grupy" view="/addStudentGroup.xhtml">
+						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+					</s:button> <s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 				</h:form>
 			</rich:panel>
 		</h:panelGrid>
