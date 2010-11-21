@@ -34,11 +34,27 @@
 					</s:decorate>
 					
 					
-					<s:decorate id="poledzien" template="layout/edit.xhtml">
-						<ui:define name="label">Dzień tygodnia</ui:define>
-						<h:inputText id="dzien" required="true"
-							value="#{grupaHome.instance.dzien}" />
-				</s:decorate>
+				<s:decorate id="poledzien" template="layout/edit.xhtml">
+				<ui:define name="label">Dzień tygodnia</ui:define>
+           <h:selectOneMenu id="dzien" required="true" value="#{grupaHome.instance.dzien}">
+
+             <f:selectItem itemValue="Poniedziałek" itemLabel="Poniedziałek" />
+             <f:selectItem itemValue="Wtorek" itemLabel="Wtorek" />
+             <f:selectItem itemValue="Środa" itemLabel="Środa" />
+             <f:selectItem itemValue="Czwartek" itemLabel="Czwartek" />
+             <f:selectItem itemValue="Piątek" itemLabel="Piątek" />
+             <f:selectItem itemValue="Sobota" itemLabel="Sobota" />
+             <f:selectItem itemValue="Niedziela" itemLabel="Niedziela" />
+
+           </h:selectOneMenu>
+        </s:decorate>
+
+					
+<!--					<s:decorate id="poledzien" template="layout/edit.xhtml">-->
+<!--						<ui:define name="label">Dzień tygodnia</ui:define>-->
+<!--						<h:inputText id="dzien" required="true"-->
+<!--							value="#{grupaHome.instance.dzien}" />-->
+<!--				</s:decorate>-->
 
 
 					<div style="clear: both" />
