@@ -247,8 +247,8 @@ border-bottom-right-radius:20px;
 -webkit-border-top-right-radius:20px;
 -webkit-border-bottom-right-radius:20px;
 
--khtml-border-top-right-radius:15px;
--khtml-border-bottom-right-radius:15px;
+-khtml-border-top-right-radius:20px;
+-khtml-border-bottom-right-radius:20px;
 	border-bottom-color:#E8E8E8;
 	border-right-color:#E8E8E8;
 	border-top-color:#E8E8E8;
@@ -291,7 +291,6 @@ h5{
 -moz-border-radius-bottomleft:50px;
 
 border-top-left-radius:50px;
-
 border-bottom-left-radius:50px;
 
 -icab-border-top-left-radius:50px;
@@ -338,7 +337,12 @@ border-bottom-left-radius:50px;
 #menufix a{
 	text-decoration: none;
 	font-size: 16px;
+	color: black;
+	text-shadow: black;
+	}
+#menufix a:HOVER{
 	color: blue;
+	text-shadow: blue;
 	}
 	
 #j_id21, #j_id37, #j_id12, #j_id36{
@@ -350,5 +354,13 @@ border-bottom-left-radius:50px;
 	-webkit-border-radius:20px;
 	-khtml-border-radius:20px;
 	}
-	
-	
+/*header do add cos */
+.dr-pnl-h, .dr-table-footercell{
+	background-color: #C80000;
+	background-image: none;
+	border-color: #C80000;
+}
+.dr-pnl, #j_id5{
+	border: solid 2px;
+	border-color: #C80000;
+	}
