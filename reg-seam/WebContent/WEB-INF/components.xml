@@ -39,7 +39,7 @@
 
    <security:rule-based-permission-resolver security-rules="#{securityRules}"/>
 
-   <security:identity authenticate-method="#{authenticator.authenticate}" remember-me="true"/>
+   <security:identity authenticate-method="#{authenticator.authenticate}"/>
 
    <event type="org.jboss.seam.security.notLoggedIn">
       <action execute="#{redirect.captureCurrentView}"/>
