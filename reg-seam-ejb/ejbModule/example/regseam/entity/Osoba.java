@@ -9,7 +9,10 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import org.hibernate.validator.Length;
+import org.hibernate.validator.NotNull;
 import org.jboss.security.integration.password.Password;
+import org.jboss.seam.annotations.security.management.UserPassword;
+import org.jboss.seam.security.management.PasswordHash;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -20,7 +23,10 @@ public abstract class Osoba implements Serializable{
 	private String imie;
 	private String nazwisko; 
 	private String login; 
-	private String haslo;     
+/*	 @NotNull  
+	 @Length(min = 8)  
+	 @UserPassword(hash = "md5")*/
+	private String haslo;
 	
 	 
     @Id
@@ -63,5 +69,4 @@ public abstract class Osoba implements Serializable{
 	public void setHaslo(String haslo) {
 		this.haslo = haslo;
 	} 
-    
 }

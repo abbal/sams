@@ -317,7 +317,6 @@ border-bottom-left-radius:50px;
 	background-color: white;
 	text-align: center; 
 	width: 100%;
-	margin-top: 60px;
 	text-indent: 8px;
 	position: fixed; bottom: 0px;
 	}
@@ -345,7 +344,7 @@ border-bottom-left-radius:50px;
 	text-shadow: blue;
 	}
 	
-#j_id21, #j_id37, #j_id12, #j_id36{
+#j_id21, #j_id37, #j_id12, #j_id36, #j_id38{
 	border-color: #C80000;
 	-moz-border-radius:20px;
 	border-radius:20px 20px;
@@ -361,6 +360,6 @@ border-bottom-left-radius:50px;
 	border-color: #C80000;
 }
 .dr-pnl, #j_id5{
-	border: solid 2px;
+	border: solid 1px;
 	border-color: #C80000;
 	}

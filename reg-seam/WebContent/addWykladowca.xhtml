@@ -14,8 +14,13 @@
 					<f:facet name="header">Dodawanie Wykladowcy</f:facet>
 					<s:decorate id="poleTytuł" template="layout/edit.xhtml">
 						<ui:define name="label">Tytuł</ui:define>
-						<h:inputText id="tytul" required="true"
-							value="#{wykladowcaHome.instance.tytul}" />
+						<h:selectOneMenu id="tytul" required="true"
+							value="#{wykladowcaHome.instance.tytul}">
+							<s:selectItems value="#{tytulyNaukoweList.tytulyNaukowe}"
+								var="tytul" label="#{tytul.label}"
+								noSelectionLabel="Wybierz..." />
+							<s:convertEnum />
+						</h:selectOneMenu>
 					</s:decorate>
 					<s:decorate id="poleImie" template="layout/edit.xhtml">
 						<ui:define name="label">Imię</ui:define>

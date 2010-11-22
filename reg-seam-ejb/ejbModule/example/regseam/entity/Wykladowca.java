@@ -6,13 +6,15 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
+import example.regseam.session.TytulyNaukowe;
+
 @Entity
 @DiscriminatorValue("W")
 public class Wykladowca extends Osoba {
 	private static final long serialVersionUID = 1L;
 	
 	private List<Grupa> wykladowcyGrupy;
-	private String tytul;
+	private TytulyNaukowe tytul;
 
 	@ManyToMany(mappedBy="wykladowcy")
 	public List<Grupa> getWykladowcyGrupy() {
@@ -22,10 +24,10 @@ public class Wykladowca extends Osoba {
 		this.wykladowcyGrupy = wykladowcyGrupy;
 	}
 	
-	public String getTytul() {
+	public TytulyNaukowe getTytul() {
 		return tytul;
 	}
-	public void setTytul(String tytul) {
+	public void setTytul(TytulyNaukowe tytul) {
 		this.tytul = tytul;
 	}
 	
