@@ -38,8 +38,7 @@ public class Authenticator {
         if (null!=osoba) {
         	if (osoba.getHaslo().equals(credentials.getPassword())) {
         		loggedIn = osoba;
-        		
-        		//identity.addRole(osoba.getRole());
+        		identity.addRole(osoba.getRola());
         		
         		return true;
         	}

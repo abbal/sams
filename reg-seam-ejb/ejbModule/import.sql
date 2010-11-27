@@ -2,8 +2,8 @@
 insert into grupadziekanska (id, nazwa) values (1, 'GID101');
 insert into grupadziekanska (id, nazwa) values (2, 'GID201');
 insert into grupadziekanska (id, nazwa) values (3, 'GID301');
-insert into osoba (id, haslo, imie, login, nazwisko) values (1, 'haslo', 'Jaś', 'login', 'Fasola');
-insert into osoba (id, haslo, imie, login, nazwisko) values (2, 'nowak', 'Bonawentura', 'nowak', 'Nowak');
+insert into osoba (id, haslo, imie, login, nazwisko, rola) values (1, 'haslo', 'Jaś', 'login', 'Fasola', 'S');
+insert into osoba (id, haslo, imie, login, nazwisko, rola) values (2, 'nowak', 'Bonawentura', 'nowak', 'Nowak', 'S');
 insert into osoba (id, imie, nazwisko) values (3, 'Delfina', 'Muc');
 insert into osoba (id, imie, nazwisko) values (4, 'Emeryk', 'Robak');
 insert into osoba (id, imie, nazwisko) values (5, 'Filipina', 'Gazda');
@@ -14,7 +14,7 @@ insert into osoba (id, imie, nazwisko) values (9, 'Wierzchosława', 'Złotopolsk
 insert into osoba (id, imie, nazwisko) values (10, 'Kunegunda', 'Sobieska');
 insert into osoba (id, imie, nazwisko) values (11, 'Leontyna', 'Dzierżyńska');
 insert into osoba (id, imie, nazwisko) values (12, 'Leontyna', 'Niesiołowska');
-insert into osoba (id, imie, nazwisko) values (13, 'Stanisław', 'Szejko');
+insert into osoba (id, haslo, imie, login, nazwisko, rola) values (13, 'szejko','Stanisław','szejko', 'Szejko', 'W');
 insert into osoba (id, imie, nazwisko) values (14, 'Jakub', 'Neumann');
 insert into osoba (id, imie, nazwisko) values (15, 'Adam', 'Muc');
 insert into osoba (id, imie, nazwisko) values (16, 'Alina', 'Swebocka');

@@ -27,9 +27,16 @@ public abstract class Osoba implements Serializable{
 	 @Length(min = 8)  
 	 @UserPassword(hash = "md5")*/
 	private String haslo;
+	private String rola;
 	
 	 
-    @Id
+    public String getRola() {
+		return rola;
+	}
+	public void setRola(String rola) {
+		this.rola = rola;
+	}
+	@Id
     @GeneratedValue
     public long getId() {
 		return id;

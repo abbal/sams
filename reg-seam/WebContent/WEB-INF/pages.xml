@@ -21,8 +21,10 @@
  <page login-required="true" view-id="/osobaList.xhtml"/>
  <page login-required="true" view-id="/student.xhtml"/>
  <page login-required="true" view-id="/studentList.xhtml"/>
- <page login-required="true" view-id="/wykladowca.xhtml"/>
+ <page login-required="true" view-id="/wykladowca.xhtml">  
+ <restrict>#{s:hasRole('W')}</restrict> </page>
  <page login-required="true" view-id="/wykladowcaList.xhtml"/>
+
  
  <!--<page view-id="*">
         <navigation>
