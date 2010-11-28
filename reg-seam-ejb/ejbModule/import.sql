@@ -18,7 +18,7 @@ insert into osoba (id, haslo, imie, login, nazwisko, rola) values (13, 'szejko',
 insert into osoba (id, imie, nazwisko) values (14, 'Jakub', 'Neumann');
 insert into osoba (id, imie, nazwisko) values (15, 'Adam', 'Muc');
 insert into osoba (id, imie, nazwisko) values (16, 'Alina', 'Swebocka');
-insert into osoba (id, imie, nazwisko) values (17, 'Ewa', 'Cytawa');
+insert into osoba (id, haslo, imie, login, nazwisko, rola) values (17, 'ewa', 'Ewa', 'ewa', 'Cytawa', 'D');
 insert into student (indeks, id, grupadziekanska_id) values ('s1234', 1, 1);
 insert into student (indeks, id, grupadziekanska_id) values ('s1235', 2, 2);
 insert into student (indeks, id, grupadziekanska_id) values ('s1236', 3, 3);

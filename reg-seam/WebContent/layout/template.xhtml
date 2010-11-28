@@ -25,11 +25,16 @@
    <div id="menu">
 		<ul>
 				<li><a href="home.seam" title="Home">Home</a></li>
-				<li><a href="studentList.seam" title="Student">Studenci</a></li>
-				<li><a href="dziekanatList.seam" title="Dziekanat">Dziekanat</a></li>
-				<li><a href="wykladowcaList.seam" title="Wykładowcy">Wykładowcy</a></li>
-				<li><a href="grupaList.seam" title="Grupa">Grupy</a></li>
-				<li><a href="grupaDziekanskaList.seam" title="GrupaDziekanska">Grupy Dziekańskie</a></li>		
+				<li><s:link view="/studentList.seam" value="Studenci" propagation="none" rendered="#{identity.loggedIn and s:hasRole('W') or s:hasRole('D')}" /></li>
+<!--				<li><a href="studentList.seam" title="Student">Studenci</a></li>-->
+				<li><s:link view="/dziekanatList.seam" value="Dziekanat" propagation="none" rendered="#{identity.loggedIn and s:hasRole('D')}" /></li>
+<!--				<li><a href="dziekanatList.seam" title="Dziekanat">Dziekanat</a></li>-->
+				<li><s:link view="/wykladowcaList.seam" value="Wykładowcy" propagation="none" rendered="#{identity.loggedIn and s:hasRole('D')}" /></li>
+<!--				<li><a href="wykladowcaList.seam" title="Wykładowcy">Wykładowcy</a></li>-->
+				<li><s:link view="/grupaList.seam" value="Grupy" propagation="none" rendered="#{identity.loggedIn and s:hasRole('D') or s:hasRole('W')}" /></li>
+<!--				<li><a href="grupaList.seam" title="Grupa">Grupy</a></li>-->
+				<li><s:link view="/grupaDziekanskaList.seam" value="Grupy Dziekańskie" propagation="none" rendered="#{identity.loggedIn and s:hasRole('D') or s:hasRole('W')}" /></li>
+<!--				<li><a href="grupaDziekanskaList.seam" title="GrupaDziekanska">Grupy Dziekańskie</a></li>		-->
 		</ul>		
   </div>
 
