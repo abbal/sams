@@ -8,27 +8,36 @@ import org.jboss.seam.framework.EntityHome;
 import example.regseam.entity.Grupa;
 
 @Name("grupaHome")
-public class GrupaHome extends EntityHome<Grupa>
-{
-	
-    @RequestParameter Long grupaId;
+public class GrupaHome extends EntityHome<Grupa> {
+	private static final long serialVersionUID = 1L;
 
-    @Override
-    public Object getId()
-    {
-        if (grupaId == null)
-        {
-            return super.getId();
-        }
-        else
-        {
-            return grupaId;
-        }
-    }
+	@RequestParameter
+	Long grupaId;
 
-    @Override @Begin
-    public void create() {
-        super.create();
-    }
+	public void change() {
+		Grupa grupa = super.getInstance();
+		if (grupa.isOpen()) {
+			grupa.setOpen(false);
+		}
+		else {
+			grupa.setOpen(true);
+		}
+		super.update();
+	}
+
+	@Override
+	public Object getId() {
+		if (grupaId == null) {
+			return super.getId();
+		} else {
+			return grupaId;
+		}
+	}
+
+	@Override
+	@Begin
+	public void create() {
+		super.create();
+	}
 
 }

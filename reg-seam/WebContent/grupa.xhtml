@@ -18,8 +18,13 @@
 				value="od #{grupaHome.instance.godzinaStart} do #{grupaHome.instance.godzinaStop}" />
 			<h:outputText value="Numer grupy: " />
 			<h:outputText value="#{grupaHome.instance.dzien}" />
-		
+			<h:outputText value="Lista obecności: " />
+			<h:outputText value="#{grupaHome.instance.open}" />
+			<s:button value="Zmień" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W')}">
+			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button>
 		</h:panelGrid>
+
 		<h:panelGrid columns="1">
 			<rich:panel>
 				<h:form id="grupaViewFormW">
