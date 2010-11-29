@@ -20,7 +20,9 @@
 			<h:outputText value="#{grupaHome.instance.dzien}" />
 			<h:outputText value="Lista obecności: " />
 			<h:outputText value="#{grupaHome.instance.open}" />
-			<s:button value="Zmień" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W')}"/>
+			<s:button value="Zmień" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W')}">
+			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button>
 		</h:panelGrid>
 
 		<h:panelGrid columns="1">

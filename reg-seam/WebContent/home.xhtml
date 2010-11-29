@@ -22,7 +22,8 @@
 					rendered="#{grupa.open}">
 					<f:param name="grupaId" value="#{grupa.id}" />
 					<f:param name="studentId" value="#{loggedIn.id}" />
-					</s:link></li>
+					</s:link>
+					<h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" rendered="#{!grupa.open}" /></li>
 			</ui:repeat>
 		</ul>
 		</div>

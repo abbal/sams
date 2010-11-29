@@ -43,4 +43,5 @@ insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przed
 insert into grupa_wykladowca (wykladowcygrupy_id, wykladowcy_id) values (2, 13);
 insert into grupa_student (studencigrupy_id, studenci_id) values (2, 1);
 insert into grupa_student (studencigrupy_id, studenci_id) values (2, 2);
+insert into grupa_student (studencigrupy_id, studenci_id) values (1, 1);
 

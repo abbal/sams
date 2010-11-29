@@ -15,11 +15,11 @@ public class ListaObecnosciList extends EntityQuery<ListaObecnosci> {
 		setEjbql("select listaObecnosci from ListaObecnosci listaObecnosci");
 	}
 
-	public List<ListaObecnosci> listaStudenta(long id) {
+	public List<ListaObecnosci> listaStudenta(long studentId) {
 		List<ListaObecnosci> lista = super.getResultList();
 		List<ListaObecnosci> student = new ArrayList<ListaObecnosci>();
 		for (ListaObecnosci lo : lista) {
-			if (lo.getId() == id) {
+			if (lo.getStudent().getId() == studentId) {
 				student.add(lo);
 			}
 		}
