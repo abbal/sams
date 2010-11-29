@@ -35,6 +35,7 @@
 <!--				<li><a href="grupaList.seam" title="Grupa">Grupy</a></li>-->
 				<li><s:link view="/grupaDziekanskaList.seam" value="Grupy Dziekańskie" propagation="none" rendered="#{identity.loggedIn and s:hasRole('D') or s:hasRole('W')}" /></li>
 <!--				<li><a href="grupaDziekanskaList.seam" title="GrupaDziekanska">Grupy Dziekańskie</a></li>		-->
+		        <li><s:link view="/listaObecnosciList.seam" value="Obecność studenta" propagation="none" rendered="#{identity.loggedIn and s:hasRole('S')}" /></li>
 		</ul>		
   </div>
 

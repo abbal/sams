@@ -6,6 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.Length;
 
@@ -17,6 +18,7 @@ public class Student extends Osoba {
     private GrupaDziekanska grupaDziekanska;
     private String indeks;
     private List<Grupa> studenciGrupy;
+    private List<ListaObecnosci> obecnosci;
     
     @Length(max = 15)
 	public String getIndeks() {
@@ -40,6 +42,14 @@ public class Student extends Osoba {
 	}
 	public void setStudenciGrupy(List<Grupa> studenciGrupy) {
 		this.studenciGrupy = studenciGrupy;
+	}
+
+	@OneToMany(mappedBy="student")
+	public List<ListaObecnosci> getObecnosci() {
+		return obecnosci;
+	}
+	public void setObecnosci(List<ListaObecnosci> obecnosci) {
+		this.obecnosci = obecnosci;
 	}
 
 }

@@ -1,7 +1,6 @@
 package org.domain.regseam.session;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Logger;

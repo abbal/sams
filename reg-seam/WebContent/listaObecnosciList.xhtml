@@ -1,52 +1,54 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:s="http://jboss.com/products/seam/taglib"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:rich="http://richfaces.org/rich"
-    template="layout/template.xhtml">
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j">
 
-<ui:define name="body">
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<rich:panel>
+				<h:form>
+					<div class="results"><h:outputText
+						value="Lista obecności jest pusta"
+						rendered="#{empty listaObecnosciList.listaStudenta(loggedIn.id)}" />
+					<rich:dataTable id="listaObecnosciList" var="obecnosc"
+						value="#{listaObecnosciList.listaStudenta(loggedIn.id)}" rows="15"
+						reRender="ds"
+						rendered="#{not empty listaObecnosciList.listaStudenta(loggedIn.id)}"
+						style=" width : 669px;">
+						<f:facet name="header">Obecność Studenta</f:facet>
+						<rich:column sortBy="#{obecnosc.grupa.przedmiot}">
+							<f:facet name="header">
+								<h:outputText value="Grupa" />
+							</f:facet>
+							<h:outputText
+								value="#{obecnosc.grupa.przedmiot} #{obecnosc.grupa.numerGrupy}" />
+						</rich:column>
+						<rich:column sortBy="#{obecnosc.data}">
+							<f:facet name="header">
+								<h:outputText value="data" />
+							</f:facet>
+							<h:outputText value="#{obecnosc.data}" />
+						</rich:column>
+						<rich:column sortBy="#{obecnosc.usprawiedliwienie}">
+							<f:facet name="header">
+								<h:outputText value="Usprawiedliwienie" />
+							</f:facet>
+							<h:outputText value="#{obecnosc.usprawiedliwienie}" />
+						</rich:column>
 
-    <rich:panel>
-        <f:facet name="header">listaObecnosciList</f:facet>
+						<f:facet name="footer">
+							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+						</f:facet>
+					</rich:dataTable></div>
+				</h:form>
+			</rich:panel>
 
-        <div class="results">
-
-            <h:outputText value="No listaObecnosci exists"
-                       rendered="#{empty listaObecnosciList.resultList}"/>
-
-            <h:dataTable id="listaObecnosciList" var="listaObecnosci"
-                      value="#{listaObecnosciList.resultList}"
-                   rendered="#{not empty listaObecnosciList.resultList}">
-                <h:column>
-                    <f:facet name="header">Id</f:facet>
-                    #{listaObecnosci.id}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Name</f:facet>
-                    <s:link id="listaObecnosci"
-                         value="#{listaObecnosci.name}"
-                   propagation="none"
-                         view="/listaObecnosci.xhtml">
-                        <f:param name="listaObecnosciId"
-                                value="#{listaObecnosci.id}"/>
-                    </s:link>
-                </h:column>
-            </h:dataTable>
-
-        </div>
-
-    </rich:panel>
-
-    <div class="actionButtons">
-        <s:button id="done"
-               value="Create listaObecnosci"
-                view="/listaObecnosci.xhtml"/>
-    </div>
-
-</ui:define>
+		</h:panelGrid>
+	</ui:define>
 
 </ui:composition>
