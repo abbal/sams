@@ -45,6 +45,7 @@ public class ListaObecnosci implements Serializable {
 		this.id = id;
 	}
 
+	@ManyToOne
 	public Grupa getGrupa() {
 		return grupa;
 	}
@@ -52,7 +53,7 @@ public class ListaObecnosci implements Serializable {
 		this.grupa = grupa;
 	}
 
-	public long getData() {
+	public Long getData() {
 		return data;
 	}
 	public void setData(Long data) {

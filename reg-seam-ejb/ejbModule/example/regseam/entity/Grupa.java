@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.Digits;
 import org.hibernate.validator.Length;
@@ -31,6 +32,7 @@ public class Grupa implements Serializable {
 	private boolean open;
 	private List<Student> studenci;
 	private List<Wykladowca> wykladowcy;
+    private List<ListaObecnosci> obecnosci;
 
 	@Id
 	@GeneratedValue
@@ -105,6 +107,14 @@ public class Grupa implements Serializable {
 	}
 	public void setOpen(boolean open) {
 		this.open = open;
+	}
+
+	@OneToMany(mappedBy="grupa")
+	public List<ListaObecnosci> getObecnosci() {
+		return obecnosci;
+	}
+	public void setObecnosci(List<ListaObecnosci> obecnosci) {
+		this.obecnosci = obecnosci;
 	}
 
 	@ManyToMany

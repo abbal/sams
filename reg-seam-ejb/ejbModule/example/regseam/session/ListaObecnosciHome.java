@@ -17,14 +17,27 @@ public class ListaObecnosciHome extends EntityHome<ListaObecnosci> {
 
 	@RequestParameter
 	Long listaObecnosciId;
+	
+	@RequestParameter
+	Long studentId;
+	
+	@RequestParameter
+	Long grupaId;
 
-	public void obecny(Student student, Grupa grupa) {
-		ListaObecnosci lista = new ListaObecnosci(); //.getInstance();
-		lista.setStudent(student);
-		lista.setGrupa(grupa);
-		lista.setData((new Date().getTime()));
-		super.persist();
-	}
+	public void obecny() {
+		Student student = null;
+        ListaObecnosci lista = super.getInstance(); //new ListaObecnosci();
+        lista.setStudent(student);
+        for (Grupa g : student.getStudenciGrupy()) {
+                if (g.getId() == grupaId) {
+                        lista.setGrupa(g);
+                        break;
+                }
+        }
+        lista.setData((new Date().getTime()));
+        super.persist();
+}
+
 
 	@Override
 	public Object getId() {

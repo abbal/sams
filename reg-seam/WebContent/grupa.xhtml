@@ -20,7 +20,7 @@
 			<h:outputText value="#{grupaHome.instance.dzien}" />
 			<h:outputText value="Lista obecności: " />
 			<h:outputText value="#{grupaHome.instance.open}" />
-			<s:button value="Zmień" action="#{grupaHome.change}" />
+			<s:button value="Zmień" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W')}"/>
 		</h:panelGrid>
 
 		<h:panelGrid columns="1">

@@ -16,7 +16,7 @@
  <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
  </page>
  <page login-required="true" view-id="/addStudentGroup.xhtml">
- <restrict>#{s:hasRole('D')} </restrict>
+ <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
  </page>
  <page login-required="true" view-id="/addWykladowca.xhtml">
  <restrict>#{s:hasRole('D')} </restrict>

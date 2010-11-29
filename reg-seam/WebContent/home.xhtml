@@ -17,10 +17,12 @@
 			<ui:repeat
 				value="#{studentHome.getCurrent(loggedIn.id).studenciGrupy}"
 				var="grupa" rendered="#{identity.loggedIn and s:hasRole('S')}">
-				<f:attribute name="lista" value="#{listaObecnosciHome.instance}"/>
+				
 				<li><s:link value="#{grupa.przedmiot} #{grupa.numerGrupy}"
-					action="#{listaObecnosciHome.obecny(studentHome.getCurrent(loggedIn.id), grupa)}"
-					rendered="#{grupa.open}" /></li>
+					action="#{listaObecnosciHome.obecny}"
+					rendered="#{grupa.open}">
+					<f:param name="grupaId" value="#{grupa.id}"/> 
+					<f:param name="studentId" value="#{loggedIn.id}"/></s:link></li>
 			</ui:repeat>
 		</ul>
 		</div>
