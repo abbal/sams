@@ -5,60 +5,62 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.2.xsd">
  <!--    <page view-id="/home.xhtml" action="#{authenticator.authenticate}" login-required="false"/>-->
  <page login-required="true" view-id="/addDziekanat.xhtml">
- <restrict>#{s:hasRole('D')}</restrict> </page>
+  <restrict>#{s:hasRole('D')}</restrict>
+ </page>
  <page login-required="true" view-id="/addGrupa.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/addGrupaDziekanska.xhtml">
- <restrict>#{s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/addStudent.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/addStudentGroup.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/addWykladowca.xhtml">
- <restrict>#{s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/addWykladowcaGroup.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/dziekanat.xhtml">
- <restrict>#{s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/dziekanatList.xhtml">
- <restrict>#{s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/grupa.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/grupaDziekanska.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/grupaDziekanskaList.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/grupaList.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/osoba.xhtml">
- <restrict>#{s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/osobaList.xhtml">
- <restrict>#{s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/student.xhtml">
- <restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
  <page login-required="true" view-id="/studentList.xhtml">
- 	<restrict>#{s:hasRole('W') or s:hasRole('D')} </restrict>
+  <restrict>#{s:hasRole('W') or s:hasRole('D')}</restrict>
  </page>
- <page login-required="true" view-id="/wykladowca.xhtml">  
- <restrict>#{s:hasRole('D')}</restrict> </page>
+ <page login-required="true" view-id="/wykladowca.xhtml">
+  <restrict>#{s:hasRole('D')}</restrict>
+ </page>
  <page login-required="true" view-id="/wykladowcaList.xhtml">
-<restrict>#{s:hasRole('D')}</restrict> </page>
- 
+  <restrict>#{s:hasRole('D')}</restrict>
+ </page>
  <!--<page view-id="*">
         <navigation>
             <rule if-outcome="home">
