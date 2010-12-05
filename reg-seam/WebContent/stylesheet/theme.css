@@ -307,10 +307,9 @@ border-bottom-left-radius:50px;
 	margin-bottom: 8px;
 	margin-top: 8px;
 	display: block; 
-	font: bold;
+	
 }
 #menu a:hover {
-	font: bold;
 	color: #C80000;
 }
 
