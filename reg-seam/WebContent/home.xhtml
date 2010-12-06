@@ -19,11 +19,11 @@
 				var="grupa" rendered="#{identity.loggedIn and s:hasRole('S')}">
 				<li><s:link value="#{grupa.przedmiot} #{grupa.numerGrupy}"
 					action="#{listaObecnosciHome.obecny}"
-					rendered="#{grupa.open}">
+					rendered="#{grupa.open and listaObecnosciHome.isEmpty(loggedIn.id)}">
 					<f:param name="grupaId" value="#{grupa.id}" />
 					<f:param name="studentId" value="#{loggedIn.id}" />
 					</s:link>
-					<h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" rendered="#{!grupa.open}" /></li>
+					<h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" rendered="#{!grupa.open or !listaObecnosciHome.isEmpty(loggedIn.id)}" /></li>
 			</ui:repeat>
 		</ul>
 		</div>

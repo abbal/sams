@@ -1,15 +1,11 @@
 package example.regseam.entity;
 
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
-
-import example.regseam.session.DzienTygodnia;
 
 @Entity
 public class ListaObecnosci implements Serializable {
@@ -60,18 +56,4 @@ public class ListaObecnosci implements Serializable {
 		this.data = data;
 	}
 
-//	public String getGodzina() {
-//		Calendar godz = Calendar.getInstance();
-//		godz.setTime(new Date(data));
-//		String h = godz.get(Calendar.HOUR_OF_DAY) < 10 ? "0" + godz.get(Calendar.HOUR_OF_DAY) : "" + godz.get(Calendar.HOUR_OF_DAY);
-//		String m = godz.get(Calendar.MINUTE) < 10 ? "0" + godz.get(Calendar.MINUTE) : "" + godz.get(Calendar.MINUTE);
-//		return h + ":" + m;
-//	}
-//
-//	public String getDzien() {
-//		Calendar godz = Calendar.getInstance();
-//		godz.setTime(new Date(data));
-//		String dzien = DzienTygodnia.values()[godz.get(Calendar.DAY_OF_WEEK)].toString();
-//		return dzien;
-//	}
 }
