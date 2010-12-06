@@ -1,6 +1,7 @@
 package example.regseam.session;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.jboss.seam.annotations.Name;
@@ -25,4 +26,15 @@ public class ListaObecnosciList extends EntityQuery<ListaObecnosci> {
 		}
 		return student;
 	}
+
+	public String godzina(long listaId) {
+		List<ListaObecnosci> lista = super.getResultList();
+		for (ListaObecnosci lo : lista) {
+			if (lo.getId() == listaId) {
+				return (new Date(lo.getData())).toString();
+			}
+		}
+		return null;
+	}
+
 }

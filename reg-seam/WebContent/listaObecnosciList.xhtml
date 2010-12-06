@@ -28,17 +28,18 @@
 							<h:outputText
 								value="#{obecnosc.grupa.przedmiot} #{obecnosc.grupa.numerGrupy}" />
 						</rich:column>
-						<rich:column sortBy="#{obecnosc.data}">
+						<rich:column sortBy="#{listaObecnosciList.godzina(obecnosc.id)}">
 							<f:facet name="header">
 								<h:outputText value="data" />
 							</f:facet>
-							<h:outputText value="#{obecnosc.data}" />
+							<h:outputText value="#{listaObecnosciList.godzina(obecnosc.id)}" />
 						</rich:column>
 						<rich:column sortBy="#{obecnosc.usprawiedliwienie}">
 							<f:facet name="header">
 								<h:outputText value="Usprawiedliwienie" />
 							</f:facet>
-							<h:outputText value="#{obecnosc.usprawiedliwienie}" />
+							<h:outputText value="#{obecnosc.usprawiedliwienie}" rendered="#{obecnosc.usprawiedliwienie}"/>
+							<h:outputText value="―" rendered="#{!obecnosc.usprawiedliwienie}"/>
 						</rich:column>
 
 						<f:facet name="footer">

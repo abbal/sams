@@ -1,6 +1,9 @@
 package example.regseam.session;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
@@ -32,6 +35,36 @@ public class ListaObecnosciHome extends EntityHome<ListaObecnosci> {
 		lista.setGrupa(grupa);
 		lista.setData((new Date().getTime()));
 		super.persist();
+	}
+
+	public boolean isEmpty(long studentID) {
+		Student student = (Student) super.getEntityManager().createQuery("select student from Student student where student.id = :sId").setParameter("sId", studentID).getSingleResult();
+		List<Grupa> grupy = student.getStudenciGrupy();
+		List<Grupa> otwarte = new ArrayList<Grupa>();
+		for (Grupa grupa : grupy) {
+			if (grupa.isOpen()) {
+				otwarte.add(grupa);
+			}
+		}
+		List<?> lista = super.getEntityManager().createQuery("select listaobecnosci from ListaObecnosci listaobecnosci where listaobecnosci.student= :stud").setParameter("stud", student).getResultList();
+		for (Object item : lista) {
+			ListaObecnosci obecnosc = (ListaObecnosci) item;
+			Calendar dzisiaj = Calendar.getInstance();
+			dzisiaj.setTime(new Date());
+			for (Grupa grupa : otwarte) {
+				if (obecnosc.getGrupa().equals(grupa)) {
+					Calendar dzien = Calendar.getInstance();
+					dzien.setTime(new Date(obecnosc.getData()));
+					boolean rok = dzien.get(Calendar.YEAR) == dzisiaj.get(Calendar.YEAR) ? true : false;
+					boolean miesiac = dzien.get(Calendar.MONTH) == dzisiaj.get(Calendar.MONTH) ? true : false;
+					boolean dni = dzien.get(Calendar.DATE) == dzisiaj.get(Calendar.DATE) ? true : false;
+					if (rok && miesiac && dni) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	@Override
