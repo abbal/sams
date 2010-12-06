@@ -2,6 +2,7 @@ package example.regseam.session;
 
 import javax.persistence.EntityManager;
 
+import org.jboss.seam.annotations.End;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -36,5 +37,16 @@ public class StudentHome extends EntityHome<Student> {
 	public void create() {
 		super.create();
 	}
+	@Override
+	@End
+	public String remove() {
+		try {
+			super.remove();
+			} catch (Exception e) {
+			return null;
+			}
+
+			return "done";
+		}
 
 }

@@ -226,12 +226,13 @@ th, .dr-table-headercell{
 	text-align: center;
 	width: 12em;
 	margin-bottom: 70px;
+	margin-left: -20px;
 }
 #menu ul{
 	background-color:#C80000;
 	border-bottom: solid 1px;
 	border-top: solid 1px;
-	margin-left: -20px;
+	
 	display: block;
 	margin: 0;
 	padding-top: 5px;
@@ -343,15 +344,17 @@ border-bottom-left-radius:50px;
 	color: black;
 	}
 	
-#j_id21, #j_id37, #j_id12, #j_id36, #j_id38{
+#j_id21, #j_id37, #j_id12, #j_id36, #j_id38, #j_id54, #j_id24{
 	margin-top: 15px;
 	border-color: #C80000;
+	
 	-moz-border-radius:20px;
 	border-radius:20px 20px;
 	-khtml-border-radius:20px;
 	-icab-border-radius:20px;
 	-webkit-border-radius:20px;
 	-khtml-border-radius:20px;
+	
 	}
 /*header do add cos */
 .dr-pnl-h, .dr-table-footercell{
@@ -367,6 +370,6 @@ border-bottom-left-radius:50px;
 	border: solid 1px;
 	border-color: #C80000;
 	}
-.dr-toolbar-int{
+.dr-toolbar-int, .dr-table-sortable-header{
 	color: #efefef;
 	}

@@ -16,7 +16,7 @@
 			<h:outputText value="Nazwisko: " />
 			<h:outputText value="#{wykladowcaHome.instance.nazwisko}" />
 			<h:outputText value="Grupy: " />
-			<h:outputText value="" />
+			
 			<ul>
 				<ui:repeat value="#{wykladowcaHome.instance.wykladowcyGrupy}" var="grupa">
 					<li><h:outputText
@@ -24,7 +24,11 @@
 				</ui:repeat>
 			</ul>
 			<div class="actionButtons"><s:button id="back" value="Powrót"
-				view="/wykladowcaList.xhtml" /></div>
+				view="/wykladowcaList.xhtml" />
+				<s:button id="edit" value="edit"
+				view="/editWykladowca.xhtml" />
+			</div>
+			
 		</h:panelGrid>
 	</ui:define>
 
