@@ -18,9 +18,11 @@ public class GrupaHome extends EntityHome<Grupa> {
 		Grupa grupa = super.getInstance();
 		if (grupa.isOpen()) {
 			grupa.setOpen(false);
+			
 		}
 		else {
 			grupa.setOpen(true);
+			
 		}
 		super.update();
 	}

@@ -45,7 +45,6 @@ public class StudentHome extends EntityHome<Student> {
 			} catch (Exception e) {
 			return null;
 			}
-
 			return "done";
 		}
 

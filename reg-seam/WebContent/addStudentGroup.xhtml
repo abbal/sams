@@ -26,9 +26,7 @@
 						id="save" value="Zapisz" action="#{grupaHome.persist}"
 						rendered="#{!grupaHome.managed}" /> <h:commandButton id="update"
 						value="Popraw" action="#{grupaHome.update}"
-						rendered="#{grupaHome.managed}" /> <h:commandButton id="delete"
-						value="Usuń" action="#{grupaHome.remove}" immediate="true"
-						rendered="#{grupaHome.managed}" /> <s:button propagation="end"
+						rendered="#{grupaHome.managed}" /><s:button propagation="end"
 						id="finish" value="Zakończ" view="/grupa.xhtml" /></div>
 				</rich:panel>
 			</h:form>

@@ -323,7 +323,7 @@ border-bottom-left-radius:50px;
 	}
 #footer p {
 	font-size: 10px;
-	padding: 0px;	
+	padding: 0;	
 	}
 	
 #menufix{
@@ -344,9 +344,7 @@ border-bottom-left-radius:50px;
 	}
 	
 #j_id21, #j_id37, #j_id12, #j_id36, #j_id38, #j_id54, #j_id24{
-	margin-top: 15px;
-	border-color: #C80000;
-	
+	border-color: #C80000;	
 	-moz-border-radius:20px;
 	border-radius:20px 20px;
 	-khtml-border-radius:20px;
@@ -372,3 +370,4 @@ border-bottom-left-radius:50px;
 .dr-toolbar-int, .dr-table-sortable-header{
 	color: #efefef;
 	}
+	

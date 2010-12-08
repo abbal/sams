@@ -17,8 +17,7 @@
 						<h:selectOneMenu id="tytul" required="true"
 							value="#{wykladowcaHome.instance.tytul}">
 							<s:selectItems value="#{tytulyNaukoweList.tytulyNaukowe}"
-								var="tytul" label="#{tytul.label}"
-								noSelectionLabel="Wybierz..." />
+								var="tytul" label="#{tytul.label}" noSelectionLabel="Wybierz..." />
 							<s:convertEnum />
 						</h:selectOneMenu>
 					</s:decorate>
@@ -36,10 +35,8 @@
 
 					<div class="actionButtons" style="margin-left: 15%;"><s:button
 						id="update" value="Popraw" action="#{wykladowcaHome.update}"
-						rendered="#{wykladowcaHome.managed}" view="/wykladowcaList.xhtml"/> <s:button
-						id="delete" value="Usuń" action="#{wykladowcaHome.remove}"
-						immediate="true" rendered="#{wykladowcaHome.managed}" view="/wykladowcaList.xhtml"/> 
-						<s:button propagation="end" id="finish" value="Zakończ"
+						rendered="#{wykladowcaHome.managed}" view="/wykladowcaList.xhtml" />
+					<s:button propagation="end" id="finish" value="Zakończ"
 						view="/wykladowcaList.xhtml" /></div>
 				</rich:panel>
 			</h:form>

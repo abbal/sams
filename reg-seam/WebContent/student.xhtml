@@ -26,12 +26,14 @@
 						value="#{grupa.przedmiot} #{grupa.numerGrupy}" escape="false" /></li>
 				</ui:repeat>
 			</ul>
-			<div class="actionButtons"><s:button id="back" value="Powrót"
-				view="/studentList.xhtml" />
-				<s:button id="done"
-				value="Edit" view="/editStudent.xhtml"/>
-			</div>
-						
+				<div class="actionButtons"> <s:button id="done" value="Edit"
+					view="/editStudent.xhtml" /> <s:button propagation="end"
+					id="delete" value="Usuń" 
+					immediate="true" action="#{studentHome.remove}"
+					view="/studentList.xhtml"
+					onclick="if (!confirm('Czy napewno chcesz usunąć tego studenta z listy?')) return false;">
+
+				</s:button></div>
 		</h:panelGrid>
 
 	</ui:define>

@@ -27,6 +27,13 @@
 				view="/wykladowcaList.xhtml" />
 				<s:button id="edit" value="edit"
 				view="/editWykladowca.xhtml" />
+				<s:button propagation="end"
+					id="delete" value="Usuń" rendered="#{wykladowcaHome.managed}"
+					immediate="true" action="#{wykladowcaHome.remove}"
+					view="/wykladowcaList.xhtml"
+					onclick="if (!confirm('Czy napewno chcesz usunąć tego wykładowcę z listy?')) return false;">
+
+				</s:button>
 			</div>
 			
 		</h:panelGrid>

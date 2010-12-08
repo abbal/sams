@@ -14,8 +14,8 @@
 					<div class="results"><h:outputText
 						value="Nie ma żadnych wykładowców"
 						rendered="#{empty wykladowcaList.resultList}" /> <rich:dataTable
-						id="wykladowcaList" var="wykladowca" value="#{wykladowcaList.resultList}"
-						rows="15" reRender="ds"
+						id="wykladowcaList" var="wykladowca"
+						value="#{wykladowcaList.resultList}" rows="15" reRender="ds"
 						rendered="#{not empty wykladowcaList.resultList}"
 						style=" width : 669px;">
 						<f:facet name="header">Lista Wykładowców</f:facet>
@@ -23,8 +23,9 @@
 							<f:facet name="header">
 								<h:outputText value="Tytuł" />
 							</f:facet>
-							<s:link id="wykladowca" value="#{wykladowca.tytul}" propagation="none"
-								view="/wykladowca.xhtml">
+							<s:link id="wykladowcaT" value="#{wykladowca.tytul}"
+								propagation="none" view="/wykladowca.xhtml"
+								style="color: black; text-decoration: none;">
 								<f:param name="wykladowcaId" value="#{wykladowca.id}" />
 							</s:link>
 						</rich:column>
@@ -32,13 +33,21 @@
 							<f:facet name="header">
 								<h:outputText value="Imię" />
 							</f:facet>
-							<h:outputText value="#{wykladowca.imie}" />
+							<s:link id="wykladowcaI" value="#{wykladowca.imie}"
+								propagation="none" view="/wykladowca.xhtml"
+								style="color: black; text-decoration: none;">
+								<f:param name="wykladowcaId" value="#{wykladowca.id}" />
+							</s:link>
 						</rich:column>
 						<rich:column sortBy="#{wykladowca.nazwisko}">
 							<f:facet name="header">
 								<h:outputText value="Nazwisko" />
 							</f:facet>
-							<h:outputText value="#{wykladowca.nazwisko}" />
+							<s:link id="wykladowcaN" value="#{wykladowca.nazwisko}"
+								propagation="none" view="/wykladowca.xhtml"
+								style="color: black; text-decoration: none;">
+								<f:param name="wykladowcaId" value="#{wykladowca.id}" />
+							</s:link>
 						</rich:column>
 
 						<f:facet name="footer">
