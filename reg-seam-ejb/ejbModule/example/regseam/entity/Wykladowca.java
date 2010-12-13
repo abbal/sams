@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import example.regseam.session.TytulyNaukowe;
 
@@ -16,7 +16,7 @@ public class Wykladowca extends Osoba {
 	private List<Grupa> wykladowcyGrupy;
 	private TytulyNaukowe tytul;
 
-	@ManyToMany(mappedBy="wykladowcy")
+	@OneToMany(mappedBy="wykladowca")
 	public List<Grupa> getWykladowcyGrupy() {
 		return wykladowcyGrupy;
 	}

@@ -37,7 +37,7 @@ public class ListaObecnosciHome extends EntityHome<ListaObecnosci> {
 		super.persist();
 	}
 
-	public boolean isEmpty(long studentID, long grupaID) {
+	public boolean isEmpty(long studentID) {
 		Student student = (Student) super.getEntityManager().createQuery("select student from Student student where student.id = :sId").setParameter("sId", studentID).getSingleResult();
 		List<Grupa> grupy = student.getStudenciGrupy();
 		List<Grupa> otwarte = new ArrayList<Grupa>();

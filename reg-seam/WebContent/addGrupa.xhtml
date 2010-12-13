@@ -56,7 +56,7 @@
 					<div style="clear: both" />
 
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
-						id="save" value="Zapisz" action="#{grupaHome.persist}"
+						id="save" value="Zapisz" action="#{grupaHome.persist(loggedIn.id)}"
 						rendered="#{!grupaHome.managed}" /> <h:commandButton id="update"
 						value="Popraw" action="#{grupaHome.update}"
 						rendered="#{grupaHome.managed}" /> <h:commandButton id="delete"

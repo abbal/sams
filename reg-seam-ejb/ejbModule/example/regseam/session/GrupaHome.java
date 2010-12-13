@@ -6,6 +6,7 @@ import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
 
 import example.regseam.entity.Grupa;
+import example.regseam.entity.Wykladowca;
 
 @Name("grupaHome")
 public class GrupaHome extends EntityHome<Grupa> {
@@ -25,6 +26,15 @@ public class GrupaHome extends EntityHome<Grupa> {
 			
 		}
 		super.update();
+	}
+	
+	public String persist(long id) {
+		Grupa grupa = super.getInstance();
+		WykladowcaHome wh = new WykladowcaHome();
+		Wykladowca wykladowca = wh.getCurrent(id);
+		grupa.setWykladowca(wykladowca);
+		super.persist();
+		return null;
 	}
 
 	@Override

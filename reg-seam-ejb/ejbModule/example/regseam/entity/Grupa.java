@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.validator.Digits;
@@ -31,7 +32,7 @@ public class Grupa implements Serializable {
 	private DzienTygodnia dzien;
 	private boolean open;
 	private List<Student> studenci;
-	private List<Wykladowca> wykladowcy;
+	private Wykladowca wykladowca;
     private List<ListaObecnosci> obecnosci;
 
 	@Id
@@ -125,12 +126,12 @@ public class Grupa implements Serializable {
 		this.studenci = studenci;
 	}
 
-	@ManyToMany
-	public List<Wykladowca> getWykladowcy() {
-		return wykladowcy;
+	@ManyToOne
+	public Wykladowca getWykladowca() {
+		return wykladowca;
 	}
-	public void setWykladowcy(List<Wykladowca> wykladowcy) {
-		this.wykladowcy = wykladowcy;
+	public void setWykladowca(Wykladowca wykladowca) {
+		this.wykladowca = wykladowca;
 	}
 
 }
