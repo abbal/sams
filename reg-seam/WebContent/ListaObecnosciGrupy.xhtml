@@ -1,0 +1,66 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<rich:panel>
+				<h:form>
+					<div class="results"><h:outputText
+						value="Lista obecności jest pusta"
+						rendered="#{empty listaObecnosciList.listaGrupy(grupaHome.instance.id)}" />
+					<rich:dataTable id="listaObecnosciList" var="obecnosc"
+						value="#{listaObecnosciList.listaGrupy(grupaHome.instance.id)}" rows="15"
+						reRender="ds"
+						rendered="#{not empty listaObecnosciList.listaGrupy(grupaHome.instance.id)}"
+						style=" width : 669px;">
+						<f:facet name="header">Obecność w Grupie</f:facet>
+						<rich:column sortBy="#{obecnosc.student.imie}">
+							<f:facet name="header">
+								<h:outputText value="Imie" />
+							</f:facet>
+							<h:outputText
+								value="#{obecnosc.student.imie}" />
+						</rich:column>
+						<rich:column sortBy="#{obecnosc.student.nazwisko}">
+							<f:facet name="header">
+								<h:outputText value="Nazwisko" />
+							</f:facet>
+							<h:outputText
+								value="#{obecnosc.student.nazwisko}" />
+						</rich:column>
+						<rich:column sortBy="#{listaObecnosciList.godzina(obecnosc.id)}">
+							<f:facet name="header">
+								<h:outputText value="data" />
+							</f:facet>
+							<h:outputText value="#{listaObecnosciList.godzina(obecnosc.id)}" />
+						</rich:column>
+						<rich:column sortBy="#{obecnosc.usprawiedliwienie}">
+							<f:facet name="header">
+								<h:outputText value="Usprawiedliwienie" />
+							</f:facet>
+							<h:outputText value="#{obecnosc.usprawiedliwienie}" rendered="#{obecnosc.usprawiedliwienie}"/>
+							<h:outputText value="―" rendered="#{!obecnosc.usprawiedliwienie}"/>
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+						</f:facet>
+					</rich:dataTable></div>
+				</h:form>
+			</rich:panel>
+			<div class="actionButtons"> 
+			<s:button id="back" value="Powrót" view="/grupa.xhtml" >
+				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button>
+			</div>
+		</h:panelGrid>
+	</ui:define>
+
+</ui:composition>

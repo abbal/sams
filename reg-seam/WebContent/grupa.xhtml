@@ -25,6 +25,10 @@
 			<s:button value="Zmień" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W')}">
 			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
+			<h:outputText value="" />
+			<s:link view="/ListaObecnosciGrupy.seam" value="Obecność grupy" propagation="none" >
+				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:link>
 		</h:panelGrid>
 
 		<h:panelGrid columns="1">

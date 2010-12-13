@@ -1,0 +1,35 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<rich:panel>
+				<h:form>
+					<div class="results"><h:outputText
+						value="Lista obecności jest pusta"
+						rendered="#{empty listaObecnosciList.listaGrupy(grupaHome.instance.id)}" />
+					<ui:repeat id="listaObecnosciList" var="obecnosc"
+						value="#{listaObecnosciList.listaGrupy(grupaHome.instance.id)}"
+						rendered="#{not empty listaObecnosciList.listaGrupy(grupaHome.instance.id)}"
+						style=" width : 669px;">
+						<s:link value="#{listaObecnosciList.godzina(obecnosc.id)}"
+							view="/grupaList.xhtml" >
+							<f:param name="grupaId" value="#{obecnosc.id}" />
+						</s:link>
+						
+
+					</ui:repeat></div>
+				</h:form>
+			</rich:panel>
+
+		</h:panelGrid>
+	</ui:define>
+
+</ui:composition>
