@@ -28,12 +28,19 @@ public class ListaObecnosciHome extends EntityHome<ListaObecnosci> {
 	Long grupaId;
 
 	public void obecny() {
-		Student student = (Student) super.getEntityManager().createQuery("select student from Student student where student.id = :sId").setParameter("sId", studentId).getSingleResult();
-		Grupa grupa = (Grupa) super.getEntityManager().createQuery("select grupa from Grupa grupa where grupa.id = :gId").setParameter("gId", grupaId).getSingleResult();
+		long teraz = new Date().getTime();
+		long pozniej = teraz + 1800;
+		String query = "select listaObecnosci from ListaObecnosci listaObecnosci where listaObecnosci.studentid" + studentId + " and listaObecnosci.grupaid=" + grupaId + " and data>" + teraz + " and data<" + pozniej;
+//		Student student = (Student) super.getEntityManager().createQuery("select student from Student student where student.id = :sId").setParameter("sId", studentId).getSingleResult();
+//		Grupa grupa = (Grupa) super.getEntityManager().createQuery("select grupa from Grupa grupa where grupa.id = :gId").setParameter("gId", grupaId).getSingleResult();
+		ListaObecnosci listaObecnosci = (ListaObecnosci) super.getEntityManager().createQuery(query).getSingleResult();
+//		ListaObecnosci lista = super.getInstance();
+//		lista.setStudent(student);
+//		lista.setGrupa(grupa);
+//		lista.setData((new Date().getTime()));
+		super.setInstance(listaObecnosci);
 		ListaObecnosci lista = super.getInstance();
-		lista.setStudent(student);
-		lista.setGrupa(grupa);
-		lista.setData((new Date().getTime()));
+		lista.setUsprawiedliwienie("obecny");
 		super.persist();
 	}
 
