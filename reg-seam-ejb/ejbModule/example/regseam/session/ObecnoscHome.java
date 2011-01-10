@@ -1,6 +1,5 @@
 package example.regseam.session;
 
-import java.util.ArrayList;
 import java.sql.Date;
 
 import org.jboss.seam.annotations.Name;
@@ -13,50 +12,44 @@ import example.regseam.entity.ListaObecnosci;
 import example.regseam.entity.Obecnosc;
 import example.regseam.entity.Student;
 
-@Name("listaObecnosciHome")
-public class ListaObecnosciHome extends EntityHome<ListaObecnosci> {
+@Name("obecnoscHome")
+public class ObecnoscHome extends EntityHome<Obecnosc> {
 	private static final long serialVersionUID = 1L;
 
 	@RequestParameter
-	Long listaObecnosciId;
+	Long obecnoscId;
+
+	@RequestParameter
+	Long studentId;
 
 	@RequestParameter
 	Long grupaId;
 
-	public void nowa() {
+	public void obecny() {
+		Student student = (Student) super.getEntityManager().createQuery("select student from Student student where student.id = :sId").setParameter("sId", studentId).getSingleResult();
 		Grupa grupa = (Grupa) super.getEntityManager().createQuery("select grupa from Grupa grupa where grupa.id = :gId").setParameter("gId", grupaId).getSingleResult();
-		ListaObecnosci lista = super.getInstance();
-		lista.setObecnosci(new ArrayList<Obecnosc>());
-		lista.setGrupa(grupa);
+		ListaObecnosci lista = null;
 		java.util.Date dzisiaj = new java.util.Date();
-		lista.setData(new Date(dzisiaj.getTime()));
+		for (ListaObecnosci l : grupa.getObecnosci()) {
+			if (l.getData().toString().equals(new Date(dzisiaj.getTime()).toString())) {
+				lista = l;
+				break;
+			}
+		}
+
+		Obecnosc obecnosc = super.getInstance();
+		obecnosc.setStudent(student);
+		obecnosc.setListaObecnosci(lista);
+		obecnosc.setUsprawiedliwienie("jest");
 		super.persist();
-
-		for (Student s : grupa.getStudenci()) {
-			ObecnoscHome oh = new ObecnoscHome();
-			Obecnosc o = oh.getInstance();
-			o.setListaObecnosci(super.getInstance());
-			o.setStudent(s);
-			o.setUsprawiedliwienie("nieobecny");
-			super.getEntityManager().persist(o);
-		}
-
-		if (grupa.isOpen()) {
-			grupa.setOpen(false);
-			
-		}
-		else {
-			grupa.setOpen(true);
-		}
-		super.getEntityManager().persist(grupa);
 	}
 
 	@Override
 	public Object getId() {
-		if (listaObecnosciId == null) {
+		if (obecnoscId == null) {
 			return super.getId();
 		} else {
-			return listaObecnosciId;
+			return obecnoscId;
 		}
 	}
 

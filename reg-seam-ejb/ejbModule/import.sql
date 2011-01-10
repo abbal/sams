@@ -37,7 +37,7 @@ insert into wykladowca (id, tytul)values (15, 2);
 insert into wykladowca (id, tytul)values (16, 1);
 insert into dziekanat (id) values(17);
 insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot, wykladowca_id) values (1, 2, '11:45', '14:30', 1, FALSE, 'Angielski', 16);
-insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot, wykladowca_id) values (2, 3, '10:15', '11:45', 1, TRUE, 'BYT', 13);
+insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot, wykladowca_id) values (2, 3, '10:15', '11:45', 1, FALSE, 'BYT', 13);
 insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot, wykladowca_id) values (3, 4, '15:30', '17:00', 1, FALSE, 'PRO', 13);
 insert into grupa (id, dzien, godzinastart, godzinastop, numergrupy, open, przedmiot, wykladowca_id) values (4, 2, '11:45', '14:30', 2, FALSE, 'Angielski', 16);
 insert into grupa_student (studencigrupy_id, studenci_id) values (2, 1);

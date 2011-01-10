@@ -22,11 +22,11 @@
             <h:outputText value="#{grupaHome.instance.wykladowca.tytul} #{grupaHome.instance.wykladowca.imie} #{grupaHome.instance.wykladowca.nazwisko}" />
 			<h:outputText value="Lista obecności: " />
 			<h:outputText value="#{grupaHome.instance.open}" />
-			<s:button value="Zmień" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W')}">
+			<s:button value="Zmień" action="#{listaObecnosciHome.nowa}" rendered="#{identity.loggedIn and s:hasRole('W')}">
 			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
 			<h:outputText value="" />
-			<s:link view="/ListaObecnosciGrupy.seam" value="Obecność grupy" propagation="none" >
+			<s:link view="/ListaObecnosciGrupyList.seam" value="Obecność grupy" propagation="none" >
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:link>
 		</h:panelGrid>
