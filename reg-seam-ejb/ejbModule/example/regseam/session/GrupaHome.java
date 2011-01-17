@@ -28,17 +28,17 @@ public class GrupaHome extends EntityHome<Grupa> {
 		}
 		else {
 			grupa.setOpen(true);
-			ListaObecnosciHome obecnosc = new ListaObecnosciHome();
-			ListaObecnosci instance = new ListaObecnosci();
-			long czas = new Date().getTime();
-			for (Student s : grupa.getStudenci()) {
-				instance = new ListaObecnosci();
-				instance.setData(czas);
-				instance.setGrupa(grupa);
-				instance.setStudent(s);
-				instance.setUsprawiedliwienie("nieobecny");
-			}
-			obecnosc.setInstance(instance);
+//			ListaObecnosciHome obecnosc = new ListaObecnosciHome();
+//			ListaObecnosci instance = new ListaObecnosci();
+//			long czas = new Date().getTime();
+//			for (Student s : grupa.getStudenci()) {
+//				instance = new ListaObecnosci();
+//				instance.setData(czas);
+//				instance.setGrupa(grupa);
+//				instance.setStudent(s);
+//				instance.setUsprawiedliwienie("nieobecny");
+//			}
+//			obecnosc.setInstance(instance);
 		}
 		super.update();
 	}

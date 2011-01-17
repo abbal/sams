@@ -45,10 +45,15 @@
 							<f:facet name="header">
 								<h:outputText value="Usprawiedliwienie" />
 							</f:facet>
-							<h:outputText value="#{obecnosc.usprawiedliwienie}" rendered="#{obecnosc.usprawiedliwienie}"/>
-							<h:outputText value="―" rendered="#{!obecnosc.usprawiedliwienie}"/>
+							<h:outputText value="#{obecnosc.usprawiedliwienie}"/>
+							<h:selectOneMenu id="usprawiedliwienia" required="true"
+							value="#{obecnosc.usprawiedliwienie}">
+							<s:selectItems value="#{usprawiedliwieniaList.usprawiedliwienia}"
+								var="usp" label="#{usp.label}"
+								noSelectionLabel="-----" />
+							<s:convertEnum />
+						</h:selectOneMenu>
 						</rich:column>
-
 						<f:facet name="footer">
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>

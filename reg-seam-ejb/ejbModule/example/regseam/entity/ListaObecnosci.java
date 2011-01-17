@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
 
+import example.regseam.session.Usprawiedliwienia;
+
 @Entity
 public class ListaObecnosci implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -15,7 +17,7 @@ public class ListaObecnosci implements Serializable {
 	private Student student;
 	private Grupa grupa;
 	private Long data;
-	private String usprawiedliwienie;
+	private Usprawiedliwienia usprawiedliwienia;
 
 	@ManyToOne
 	public Student getStudent() {
@@ -25,11 +27,11 @@ public class ListaObecnosci implements Serializable {
 		this.student = student;
 	}
 
-	public String getUsprawiedliwienie() {
-		return usprawiedliwienie;
+	public Usprawiedliwienia getUsprawiedliwienie() {
+		return usprawiedliwienia;
 	}
-	public void setUsprawiedliwienie(String usprawiedliwienie) {
-		this.usprawiedliwienie = usprawiedliwienie;
+	public void setUsprawiedliwienie(Usprawiedliwienia usprawiedliwienie) {
+		this.usprawiedliwienia = usprawiedliwienie;
 	}
 
 	@Id

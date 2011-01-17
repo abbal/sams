@@ -342,17 +342,15 @@ border-bottom-left-radius:50px;
 #menufix a:HOVER{
 	color: black;
 	}
-	
-#j_id21, #j_id37, #j_id12, #j_id42, #j_id38, #j_id54, #j_id24{
+/* Tabelki np. lista obecnosci lista studentow itp */
+#j_id21, #j_id12, #j_id42, #j_id38, #j_id54, #j_id24, #j_id45{
 	border-color: #C80000;	
-
 	-moz-border-radius:20px;
 	border-radius:20px 20px;
 	-khtml-border-radius:20px;
 	-icab-border-radius:20px;
 	-webkit-border-radius:20px;
 	-khtml-border-radius:20px;
-	
 	}
 /*header do add cos */
 .dr-pnl-h, .dr-table-footercell{

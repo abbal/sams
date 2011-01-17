@@ -25,7 +25,8 @@ public class GrupaDziekanskaHome extends EntityHome<GrupaDziekanska>
         }
     }
 
-    @Override @Begin
+    @Override 
+    @Begin(join=true)
     public void create() {
         super.create();
     }
