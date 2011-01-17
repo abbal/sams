@@ -1,18 +1,11 @@
 package example.regseam.session;
 
-import java.text.DateFormat;
-import java.util.Date;
-
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
-import org.jboss.seam.security.Identity;
 
 import example.regseam.entity.Grupa;
-import example.regseam.entity.ListaObecnosci;
-import example.regseam.entity.Obecnosc;
-import example.regseam.entity.Student;
 import example.regseam.entity.Wykladowca;
 
 @Name("grupaHome")
@@ -22,29 +15,6 @@ public class GrupaHome extends EntityHome<Grupa> {
 	@RequestParameter
 	Long grupaId;
 
-	@RequestParameter
-	Long studentId;
-
-	public boolean isEmpty(Long grId) {
-		//TODO Poprawić
-/*		this.grupaId = grId;
-		//Grupa grupa = super.getInstance();
-		//Grupa gr = (Grupa) super.getEntityManager().createQuery("select grupa from Grupa grupa where grupa.id = :gId").setParameter("gId", grId).getSingleResult();
-		Grupa grupa = super.getEntityManager().find(Grupa.class, grupaId);
-		java.util.Date dzisiaj = new java.util.Date();
-		for (ListaObecnosci l : grupa.getObecnosci()) {
-			if (l.getData().toString().equals(new Date(dzisiaj.getTime()).toString())) {
-				for (Obecnosc o : l.getObecnosci()) {
-					if (o.getStudent().getId() == studentId) {
-						return false;
-					}
-				}
-				break;
-			}
-		}
-*/		return true;
-	}
-	
 	public String persist(long id) {
 		Grupa grupa = super.getInstance();
 		WykladowcaHome wh = new WykladowcaHome();
