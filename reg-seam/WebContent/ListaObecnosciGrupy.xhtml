@@ -16,11 +16,14 @@
 						value="Lista obecności jest pusta"
 						rendered="#{empty listaObecnosciHome.instance.obecnosci}" />
 					<rich:dataTable id="listaObecnosciList" var="obecnosc"
-						value="#{llistaObecnosciHome.instance.obecnosci}" rows="15"
+						value="#{listaObecnosciHome.instance.obecnosci}" rows="15"
 						reRender="ds"
 						rendered="#{not empty listaObecnosciHome.instance.obecnosci}"
 						style=" width : 669px;">
-						<f:facet name="header">Obecność w Grupie<h:outputText value="#{listaObecnosciHome.instance.data}" /></f:facet>
+						<f:facet name="header">
+							<h:outputText
+								value="Obecność w grupie #{listaObecnosciHome.instance.grupa.przedmiot}#{listaObecnosciHome.instance.grupa.numerGrupy} dnia #{listaObecnosciHome.instance.data}" />
+						</f:facet>
 						<rich:column sortBy="#{obecnosc.student.imie}">
 							<f:facet name="header">
 								<h:outputText value="Imie" />
