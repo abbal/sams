@@ -1,18 +1,11 @@
 package example.regseam.session;
 
-import java.text.DateFormat;
-import java.util.Date;
-
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
-import org.jboss.seam.security.Identity;
 
 import example.regseam.entity.Grupa;
-import example.regseam.entity.ListaObecnosci;
-import example.regseam.entity.Obecnosc;
-import example.regseam.entity.Student;
 import example.regseam.entity.Wykladowca;
 
 @Name("grupaHome")
@@ -21,6 +14,7 @@ public class GrupaHome extends EntityHome<Grupa> {
 
 	@RequestParameter
 	Long grupaId;
+
 /*
 	public void change() {
 		Grupa grupa = super.getInstance();

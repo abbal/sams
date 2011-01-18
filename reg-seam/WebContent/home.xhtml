@@ -14,17 +14,17 @@
 
 		<div>
 		<ul>
-			<ui:repeat
-				value="#{studentHome.getCurrent(loggedIn.id).studenciGrupy}"
-				var="grupa" rendered="#{identity.loggedIn and s:hasRole('S')}">
-				<li><s:link value="#{grupa.przedmiot} #{grupa.numerGrupy}"
+			<ui:repeat var="obecnosc"
+				value="#{studentHome.obecnyDzis(loggedIn.id)}"
+				rendered="#{identity.isLoggedIn() and s:hasRole('S')}">
+				<li><s:link
+					value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}"
 					action="#{obecnoscHome.obecny}"
-					rendered="#{grupa.open and grupaHome.isEmpty(grupa.id)}">
-					<f:param name="grupaId" value="#{grupa.id}" />
+					rendered="#{obecnosc.listaObecnosci.grupa.open and obecnosc.usprawiedliwienie eq 'nieobecny'}">
+					<f:param name="grupaId" value="#{obecnosc.listaObecnosci.grupa.id}" />
 					<f:param name="studentId" value="#{loggedIn.id}" />
-					</s:link>
-					<h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" 
-					rendered="#{!grupa.open or !grupaHome.isEmpty(grupa.id)}" /></li>
+				</s:link> <h:outputText value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}"
+					rendered="#{!obecnosc.listaObecnosci.grupa.open or obecnosc.usprawiedliwienie ne 'nieobecny'}" /></li>
 			</ui:repeat>
 		</ul>
 		</div>

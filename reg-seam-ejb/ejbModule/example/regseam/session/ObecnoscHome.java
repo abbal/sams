@@ -26,22 +26,19 @@ public class ObecnoscHome extends EntityHome<Obecnosc> {
 	Long grupaId;
 
 	public void obecny() {
-		Student student = (Student) super.getEntityManager().createQuery("select student from Student student where student.id = :sId").setParameter("sId", studentId).getSingleResult();
 		Grupa grupa = (Grupa) super.getEntityManager().createQuery("select grupa from Grupa grupa where grupa.id = :gId").setParameter("gId", grupaId).getSingleResult();
-		ListaObecnosci lista = null;
 		java.util.Date dzisiaj = new java.util.Date();
 		for (ListaObecnosci l : grupa.getObecnosci()) {
 			if (l.getData().toString().equals(new Date(dzisiaj.getTime()).toString())) {
-				lista = l;
-				break;
+				for (Obecnosc o : l.getObecnosci()) {
+					if (o.getStudent().getId() == studentId) {
+						o.setUsprawiedliwienie("jest");
+						super.getEntityManager().persist(o);
+						return;
+					}
+				}
 			}
 		}
-
-		Obecnosc obecnosc = super.getInstance();
-		obecnosc.setStudent(student);
-		obecnosc.setListaObecnosci(lista);
-		obecnosc.setUsprawiedliwienie("jest");
-		super.persist();
 	}
 
 	@Override
