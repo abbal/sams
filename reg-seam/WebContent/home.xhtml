@@ -18,12 +18,13 @@
 				value="#{studentHome.getCurrent(loggedIn.id).studenciGrupy}"
 				var="grupa" rendered="#{identity.loggedIn and s:hasRole('S')}">
 				<li><s:link value="#{grupa.przedmiot} #{grupa.numerGrupy}"
-					action="#{listaObecnosciHome.obecny}"
-					rendered="#{grupa.open and listaObecnosciHome.isEmpty(loggedIn.id)}">
+					action="#{obecnoscHome.obecny}"
+					rendered="#{grupa.open and grupaHome.isEmpty(grupa.id)}">
 					<f:param name="grupaId" value="#{grupa.id}" />
 					<f:param name="studentId" value="#{loggedIn.id}" />
 					</s:link>
-					<h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" rendered="#{!grupa.open or !listaObecnosciHome.isEmpty(loggedIn.id)}" /></li>
+					<h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" 
+					rendered="#{!grupa.open or !grupaHome.isEmpty(grupa.id)}" /></li>
 			</ui:repeat>
 		</ul>
 		</div>

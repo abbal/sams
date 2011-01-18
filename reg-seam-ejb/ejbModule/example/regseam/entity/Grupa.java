@@ -33,7 +33,7 @@ public class Grupa implements Serializable {
 	private boolean open;
 	private List<Student> studenci;
 	private Wykladowca wykladowca;
-    private List<ListaObecnosci> obecnosci;
+	private List<ListaObecnosci> obecnosci;
 
 	@Id
 	@GeneratedValue

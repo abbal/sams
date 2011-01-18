@@ -14,13 +14,13 @@ import org.hibernate.validator.Length;
 @DiscriminatorValue("S")
 public class Student extends Osoba {
 	private static final long serialVersionUID = 1L;
-	
-    private GrupaDziekanska grupaDziekanska;
-    private String indeks;
-    private List<Grupa> studenciGrupy;
-    private List<ListaObecnosci> obecnosci;
-    
-    @Length(max = 15)
+
+	private GrupaDziekanska grupaDziekanska;
+	private String indeks;
+	private List<Grupa> studenciGrupy;
+	private List<Obecnosc> obecnosci;
+
+	@Length(max = 15)
 	public String getIndeks() {
 		return indeks;
 	}
@@ -36,7 +36,7 @@ public class Student extends Osoba {
 		this.grupaDziekanska = grupaDziekanska;
 	}
 
-	@ManyToMany(mappedBy="studenci")
+	@ManyToMany(mappedBy = "studenci")
 	public List<Grupa> getStudenciGrupy() {
 		return studenciGrupy;
 	}
@@ -44,12 +44,15 @@ public class Student extends Osoba {
 		this.studenciGrupy = studenciGrupy;
 	}
 
-	@OneToMany(mappedBy="student")
-	public List<ListaObecnosci> getObecnosci() {
+	@OneToMany(mappedBy = "student")
+	public List<Obecnosc> getObecnosci() {
 		return obecnosci;
 	}
-	public void setObecnosci(List<ListaObecnosci> obecnosci) {
+	public void setObecnosci(List<Obecnosc> obecnosci) {
 		this.obecnosci = obecnosci;
 	}
-
+	public void addByGrupa(){
+		
+		
+	}
 }

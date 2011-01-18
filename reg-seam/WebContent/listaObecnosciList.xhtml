@@ -14,25 +14,25 @@
 				<h:form>
 					<div class="results"><h:outputText
 						value="Lista obecności jest pusta"
-						rendered="#{empty listaObecnosciList.listaStudenta(loggedIn.id)}" />
+						rendered="#{empty studentHome.getCurrent(loggedIn.id).obecnosci}" />
 					<rich:dataTable id="listaObecnosciList" var="obecnosc"
-						value="#{listaObecnosciList.listaStudenta(loggedIn.id)}" rows="15"
+						value="#{studentHome.getCurrent(loggedIn.id).obecnosci}" rows="15"
 						reRender="ds"
-						rendered="#{not empty listaObecnosciList.listaStudenta(loggedIn.id)}"
+						rendered="#{not empty studentHome.getCurrent(loggedIn.id).obecnosci}"
 						style=" width : 669px;">
 						<f:facet name="header">Obecność Studenta</f:facet>
-						<rich:column sortBy="#{obecnosc.grupa.przedmiot}">
+						<rich:column sortBy="#{obecnosc.listaObecnosci.grupa.przedmiot}">
 							<f:facet name="header">
 								<h:outputText value="Grupa" />
 							</f:facet>
 							<h:outputText
-								value="#{obecnosc.grupa.przedmiot} #{obecnosc.grupa.numerGrupy}" />
+								value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}" />
 						</rich:column>
-						<rich:column sortBy="#{listaObecnosciList.godzina(obecnosc.id)}">
+						<rich:column sortBy="#{obecnosc.listaObecnosci.data}">
 							<f:facet name="header">
 								<h:outputText value="data" />
 							</f:facet>
-							<h:outputText value="#{listaObecnosciList.godzina(obecnosc.id)}" />
+							<h:outputText value="#{obecnosc.listaObecnosci.data}" />
 						</rich:column>
 						<rich:column sortBy="#{obecnosc.usprawiedliwienie}">
 							<f:facet name="header">

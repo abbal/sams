@@ -9,27 +9,21 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 
 	<ui:define name="body">
-		<h:panelGrid columns="2">
-			<rich:panel>
-				<h:form>
-					<div class="results"><h:outputText
-						value="Lista obecności jest pusta"
-						rendered="#{empty listaObecnosciList.listaGrupy(grupaHome.instance.id)}" />
-					<ui:repeat id="listaObecnosciList" var="obecnosc"
-						value="#{listaObecnosciList.listaGrupy(grupaHome.instance.id)}"
-						rendered="#{not empty listaObecnosciList.listaGrupy(grupaHome.instance.id)}"
-						style=" width : 669px;">
-						<s:link value="#{listaObecnosciList.godzina(obecnosc.id)}"
-							view="/grupaList.xhtml" >
-							<f:param name="grupaId" value="#{obecnosc.id}" />
-						</s:link>
-						
-
-					</ui:repeat></div>
-				</h:form>
-			</rich:panel>
-
-		</h:panelGrid>
+		<div>
+		<h:outputText value="Obecności w grupie " />
+		<h:outputText value="#{grupaHome.instance.przedmiot} " />
+		<h:outputText value="#{grupaHome.instance.numerGrupy}" />
+		</div><br />
+		<div class="results"><ui:repeat
+			value="#{grupaHome.instance.obecnosci}" var="obecnosc">
+			<s:link value="#{obecnosc.data} #{obecnosc.id}" action="/ListaObecnosciGrupy.seam">
+				<f:param name="listaObecnosciId" value="#{obecnosc.id}" />
+			</s:link>
+		</ui:repeat></div>
+		<div class="actionButtons"><s:button id="back" value="Powrót"
+			view="/grupa.xhtml">
+			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+		</s:button></div>
 	</ui:define>
 
 </ui:composition>

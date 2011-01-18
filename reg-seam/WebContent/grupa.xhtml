@@ -23,16 +23,12 @@
 			<h:outputText value="Lista obecności: " />
 			<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
 			<h:outputText value="Zamknięta" rendered="#{!grupaHome.instance.open}" />
-			<s:button value="Otwórz listę obecności" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open}"
-			view="/grupa.xhtml">
-			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<s:button value="Zamknij listę obecności" action="#{grupaHome.change}" rendered="#{identity.loggedIn and s:hasRole('W')and grupaHome.instance.open}"
-			view="/grupa.xhtml">
+			<s:button value="Zmień" action="#{listaObecnosciHome.nowa}" rendered="#{identity.loggedIn and s:hasRole('W')}">
+
 			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
 			<h:outputText value="" />
-			<s:link view="/ListaObecnosciGrupy.seam" value="Obecność grupy" propagation="none" >
+			<s:link view="/ListaObecnosciGrupyList.seam" value="Obecność grupy" propagation="none" >
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:link>
 		</h:panelGrid>
