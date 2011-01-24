@@ -9,26 +9,41 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 
 	<ui:define name="body">
-		<div><h:outputText value="Obecności w grupie " /> <h:outputText
-			value="#{grupaHome.instance.przedmiot} " /> <h:outputText
-			value="#{grupaHome.instance.numerGrupy}" /></div>
-		<br />
-		<rich:panel>
-			<h:outputText
-						value="Nie ma jeszcze żadnych obecności"
-						rendered="#{empty grupaHome.instance.obecnosci}" />
-			<div class="results"><ui:repeat
-				value="#{grupaHome.instance.obecnosci}" var="listaObecnosci" rendered="#{not empty grupaHome.instance.obecnosci}">
-				<s:link value="#{listaObecnosci.data}" propagation="none"
-					view="/ListaObecnosciGrupy.xhtml">
-					<f:param name="listaObecnosciId" value="#{listaObecnosci.id}" />
-				</s:link>
-			</ui:repeat></div>
-		</rich:panel>
-		<div class="actionButtons"><s:button id="back" value="Powrót"
-			view="/grupa.xhtml">
-			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-		</s:button></div>
+		<!-- <h:panelGrid columns="2">  -->
+
+			<div><h:outputText value="Obecności w grupie " /> <h:outputText
+				value="#{grupaHome.instance.przedmiot} " /> <h:outputText
+				value="#{grupaHome.instance.numerGrupy}" /></div>
+			<br />
+
+			<rich:panel>
+				<h:outputText value="Nie ma jeszcze żadnych obecności"
+					rendered="#{empty grupaHome.instance.obecnosci}" />
+				<f:facet name="header">
+					<h:outputText value="Listy Obecności" />
+				</f:facet>
+				<rich:column sortBy="#{listaObecnosciHome.instance.data}"
+					width="170px">
+					<f:facet name="header">
+						<h:outputText value="Data" />
+					</f:facet>
+					<div class="results"><ui:repeat
+						value="#{grupaHome.instance.obecnosci}" var="listaObecnosci"
+						rendered="#{not empty grupaHome.instance.obecnosci}">
+						<s:link value="#{listaObecnosci.data}" propagation="none"
+							view="/ListaObecnosciGrupy.xhtml">
+							<f:param name="listaObecnosciId" value="#{listaObecnosci.id}" />
+						</s:link>
+					</ui:repeat></div>
+					</rich:column>
+					</rich:panel>
+					<div class="actionButtons"><s:button id="back" value="Powrót"
+						view="/grupa.xhtml">
+						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+					</s:button></div>
+			
+
+		<!--</h:panelGrid> -->
 	</ui:define>
 
 </ui:composition>

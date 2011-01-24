@@ -70,7 +70,7 @@ public class StudentHome extends EntityHome<Student> {
 	}
 
 	@Override
-	@Begin
+	@Begin(join=true)
 	public void create() {
 		super.create();
 	}

@@ -14,8 +14,8 @@
 				<h:form>
 					<div class="results"><h:outputText
 						value="Lista obecności jest pusta"
-						rendered="#{empty listaObecnosciHome.instance.obecnosci}" />
-					<rich:dataTable id="listaObecnosciList" var="obecnosc"
+						rendered="#{empty listaObecnosciHome.instance.obecnosci}" /> <rich:dataTable
+						id="listaObecnosciList" var="obecnosc"
 						value="#{listaObecnosciHome.instance.obecnosci}" rows="15"
 						reRender="ds"
 						rendered="#{not empty listaObecnosciHome.instance.obecnosci}"
@@ -28,30 +28,24 @@
 							<f:facet name="header">
 								<h:outputText value="Imie" />
 							</f:facet>
-							<h:outputText
-								value="#{obecnosc.student.imie}" />
+							<h:outputText value="#{obecnosc.student.imie}" />
 						</rich:column>
 						<rich:column sortBy="#{obecnosc.student.nazwisko}">
 							<f:facet name="header">
 								<h:outputText value="Nazwisko" />
 							</f:facet>
-							<h:outputText
-								value="#{obecnosc.student.nazwisko}" />
+							<h:outputText value="#{obecnosc.student.nazwisko}" />
 						</rich:column>
 						<rich:column sortBy="#{obecnosc.usprawiedliwienie}">
 							<f:facet name="header">
 								<h:outputText value="Usprawiedliwienie" />
 							</f:facet>
-							<h:outputText value="#{obecnosc.usprawiedliwienie}"/>
-
-							<h:selectOneMenu id="usprawiedliwienia" required="true"
-							value="#{obecnosc.usprawiedliwienie}">
-							<s:selectItems value="#{usprawiedliwieniaList.usprawiedliwienia}"
-								var="usp" label="#{usp.label}"
-								noSelectionLabel="-----" />
-							<s:convertEnum />
-						</h:selectOneMenu>
-
+							<h:outputText value="#{obecnosc.usprawiedliwienie}" />
+							<div class="actionButtons"><s:button id="done" value="Edit" 
+								view="/editUsprawiedliwienia.xhtml">
+								<f:param name="studentId" value="#{obecnosc.student.id}"/>
+								<f:param name="obecnoscId" value="#{obecnosc.id}"/>
+								</s:button> </div>
 						</rich:column>
 						<f:facet name="footer">
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
@@ -59,11 +53,11 @@
 					</rich:dataTable></div>
 				</h:form>
 			</rich:panel>
-			<div class="actionButtons"> 
-			<s:button id="back" value="Powrót" view="/ListaObecnosciGrupyList.xhtml" >
-				<f:param name="grupaId" value="#{listaObecnosciHome.instance.grupa.id}" />
-			</s:button>
-			</div>
+			<div class="actionButtons"><s:button id="back" value="Powrót"
+				view="/ListaObecnosciGrupyList.xhtml">
+				<f:param name="grupaId"
+					value="#{listaObecnosciHome.instance.grupa.id}" />
+			</s:button></div>
 		</h:panelGrid>
 	</ui:define>
 

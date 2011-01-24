@@ -1,7 +1,7 @@
 package example.regseam.session;
 
 public enum Usprawiedliwienia{
-	USP ("usprawiedliwienie"),
+	USP ("usprawiedliwiony"),
 	SP ("spóźnienie"), 
 	UC ("ucieczka"), 
 	ODR ("odrobione");

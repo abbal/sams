@@ -22,7 +22,8 @@
 			<h:outputText value="#{grupaHome.instance.wykladowca.tytul} #{grupaHome.instance.wykladowca.imie} #{grupaHome.instance.wykladowca.nazwisko}" />
 			<h:outputText value="Lista obecności: " />
 
-			<h:outputText value="#{grupaHome.instance.open}" />
+			<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
+			<h:outputText value="Zamknięta" rendered="#{!grupaHome.instance.open}"/>
 			<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}" rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open}">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>

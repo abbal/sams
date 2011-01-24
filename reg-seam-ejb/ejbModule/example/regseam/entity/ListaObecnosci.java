@@ -18,7 +18,6 @@ public class ListaObecnosci implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Grupa grupa;
-	private Usprawiedliwienia usprawiedliwienia;
 /*
 	@ManyToOne
 	public Student getStudent() {
@@ -28,12 +27,6 @@ public class ListaObecnosci implements Serializable {
 		this.student = student;
 	}
 */
-	public Usprawiedliwienia getUsprawiedliwienie() {
-		return usprawiedliwienia;
-	}
-	public void setUsprawiedliwienie(Usprawiedliwienia usprawiedliwienie) {
-		this.usprawiedliwienia = usprawiedliwienie;
-	}
 
 	private Date data;
 	private List<Obecnosc> obecnosci;

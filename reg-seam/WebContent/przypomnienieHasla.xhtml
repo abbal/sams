@@ -1,0 +1,28 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h:panelGrid columns="1">
+			<h:form id="przypomnienieHaslaForm">
+				<rich:panel>
+					<f:facet name="header">Przypomnienie hasła</f:facet>
+
+					<div class="dialog"><h:outputLabel id="podaj">Podaj swój nr indexu : </h:outputLabel>
+					<h:inputText id="address" value="#{wyslijMaila.index}"/></div>
+					<h:messages infoStyle="info" errorStyle="error" fatalStyle="fatal"
+						warnStyle="warn" />
+					<div><h:commandButton id="wyślij" value="Wyślij"
+						action="#{wyslijMaila.send}"/> <s:button 
+						id="back" value="Wróć" view="/login.xhtml" /></div>
+					
+				</rich:panel>
+			</h:form>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>

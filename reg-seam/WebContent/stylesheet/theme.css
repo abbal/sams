@@ -12,13 +12,13 @@ h1 {
 	margin-top: 0;
 }
 
-input[type=submit], input[type=button] {
+input[type=submit],input[type=button] {
 	font-size: 11px;
 	margin: 5px 5px 5px 0;
 	cursor: pointer;
 }
 
-input[type=text], input[type=password], textarea {
+input[type=text],input[type=password],textarea {
 	font-size: 12px;
 	padding-left: 1px;
 }
@@ -27,7 +27,7 @@ select {
 	font-size: 13px;
 }
 
-.tableControl, .actionButtons {
+.tableControl,.actionButtons {
 	width: 100%;
 }
 
@@ -41,7 +41,6 @@ select {
 
 .rich-table {
 	width: 100%;
-	
 }
 
 #body {
@@ -50,6 +49,7 @@ select {
 	overflow: auto;
 	margin-bottom: 70px;
 }
+
 .message {
 	padding: 5px;
 	list-style: none;
@@ -67,6 +67,7 @@ select {
 	padding-left: 20px;
 	margin-left: 3px;
 }
+
 /*
 .message li.infomsg {
 	background-image: url(../img/msginfo.png);
@@ -109,7 +110,7 @@ img.errors {
 	padding-right: 5px;
 }
 
-.errors input, .errors textarea, .errors select {
+.errors input,.errors textarea,.errors select {
 	border: 1px solid red !important;
 }
 
@@ -120,8 +121,7 @@ img.errors {
 
 .rich-stglpanel-body {
 	overflow: auto;
-
-} 
+}
 
 /* the specificity here is necessary to override the defaults */
 /*
@@ -129,13 +129,13 @@ img.errors {
 .rich-stglpanel .rich-stglpanel-header {
 	padding: 2px 3px;
 }*/
-
-.rich-panel input[type=submit], .rich-panel input[type=button],
-.rich-tabpanel input[type=submit], .rich-tabpanel input[type=button] {
+.rich-panel input[type=submit],.rich-panel input[type=button],.rich-tabpanel input[type=submit],.rich-tabpanel input[type=button]
+	{
 	margin-bottom: 0;
 }
 
-.tableControl input[type=submit], .tableControl input[type=button], .tableControl select {
+.tableControl input[type=submit],.tableControl input[type=button],.tableControl select
+	{
 	margin: 5px 0 5px 5px;
 }
 
@@ -155,11 +155,7 @@ img.errors {
 	vertical-align: bottom;
 }
 
-.rich-toolbar-item a {
-	text-decoration: none;
-}
-
-.rich-toolbar-item a:hover, .rich-ddmenu-label-select {
+.rich-toolbar-item a:hover,.rich-ddmenu-label-select {
 	text-decoration: underline;
 }
 
@@ -202,77 +198,74 @@ td.action a {
 }
 
 table.radio {
-   border: 0;
+	border: 0;
 }
 
 table.radio td {
-   padding: 0 2px;
+	padding: 0 2px;
 }
 
 table.radio input[type=radio] {
-   vertical-align: bottom;
+	vertical-align: bottom;
 }
-th, .dr-table-headercell{
-	
+
+th,.dr-table-headercell {
 	background-color: #C80000;
 	color: #efefef;
 	font-size: 16px;
-	}
+}
+
 #menu {
 	display: block;
 	float: left;
-	height:100%;
+	height: 100%;
 	padding-right: 5%;
 	text-align: center;
 	width: 12em;
 	margin-bottom: 70px;
 	margin-left: -20px;
 }
-#menu ul{
-	background-color:#C80000;
+
+#menu ul {
+	background-color: #C80000;
 	border-bottom: solid 1px;
 	border-top: solid 1px;
-	
 	display: block;
 	margin: 0;
 	padding-top: 5px;
 	padding-bottom: 5px;
--moz-border-radius-topright:20px;
--moz-border-radius-bottomright:20px;
+	-moz-border-radius-topright: 20px;
+	-moz-border-radius-bottomright: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	-icab-border-top-right-radius: 20px;
+	-icab-border-bottom-right-radius: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	-khtml-border-top-right-radius: 20px;
+	-khtml-border-bottom-right-radius: 20px;
+	border-bottom-color: #E8E8E8;
+	border-right-color: #E8E8E8;
+	border-top-color: #E8E8E8;
+}
 
-border-top-right-radius:20px;
-border-bottom-right-radius:20px;
-
--icab-border-top-right-radius:20px;
--icab-border-bottom-right-radius:20px;
-
--webkit-border-top-right-radius:20px;
--webkit-border-bottom-right-radius:20px;
-
--khtml-border-top-right-radius:20px;
--khtml-border-bottom-right-radius:20px;
-	border-bottom-color:#E8E8E8;
-	border-right-color:#E8E8E8;
-	border-top-color:#E8E8E8;
-	}	
 #menu li {
 	list-style: none;
 	display: block;
 	text-align: center;
-	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+	font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;
 	margin: 0;
 	padding: 0;
-	
 	cursor: pointer;
 	display: block;
 }
 
-		
-	
-#menu li:hover{
+#menu li:hover {
 	color: red;
 	display: block;
-	background-color:white ;
+	background-color: white;
 	/*
 	-moz-border-radius:50px;
 	border-radius:50px 50px;
@@ -281,21 +274,17 @@ border-bottom-right-radius:20px;
 	-webkit-border-radius:50px;
 	-khtml-border-radius:50px;
 	*/
--moz-border-radius-topleft:50px;
--moz-border-radius-bottomleft:50px;
-
-border-top-left-radius:50px;
-border-bottom-left-radius:50px;
-
--icab-border-top-left-radius:50px;
--icab-border-bottom-left-radius:50px;
-
--webkit-border-top-left-radius:50px;
--webkit-border-bottom-left-radius:50px;
-
--khtml-border-top-left-radius:50px;
--khtml-border-bottom-left-radius:50px;
-	}
+	-moz-border-radius-topleft: 50px;
+	-moz-border-radius-bottomleft: 50px;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	-icab-border-top-left-radius: 50px;
+	-icab-border-bottom-left-radius: 50px;
+	-webkit-border-top-left-radius: 50px;
+	-webkit-border-bottom-left-radius: 50px;
+	-khtml-border-top-left-radius: 50px;
+	-khtml-border-bottom-left-radius: 50px;
+}
 
 #menu a {
 	display: block;
@@ -306,67 +295,86 @@ border-bottom-left-radius:50px;
 	padding-top: 8px;
 	margin-bottom: 8px;
 	margin-top: 8px;
-	display: block; 
-	
+	display: block;
 }
+
 #menu a:hover {
 	color: #C80000;
 }
 
-	
-#footer { 
+#footer {
 	background-color: white;
-	text-align: center; 
+	text-align: center;
 	width: 100%;
 	text-indent: 8px;
-	position: fixed; bottom: 0px;
-	}
+	position: fixed;
+	bottom: 0px;
+}
+
 #footer p {
 	font-size: 10px;
-	padding: 0;	
-	}
-	
-#menufix{
-	position: fixed; top: 0px;
+	padding: 0;
+}
+
+#menufix {
+	position: fixed;
+	top: 0px;
 	width: 100%;
-	
-	}
-#menufix tr{
+}
+
+#menufix tr {
 	background-color: #C80000;
-	}
-#menufix a{
+}
+#menufix a {
 	text-decoration: none;
-	font-size: 16px;
-	color:#efefef;
-	}
-#menufix a:HOVER{
+	color: #efefef;
+}
+
+#menufix a:HOVER {
 	color: black;
-	}
+}
+
 /* Tabelki np. lista obecnosci lista studentow itp */
-#j_id21, #j_id12, #j_id42, #j_id38, #j_id54, #j_id24, #j_id45{
-	border-color: #C80000;	
-	-moz-border-radius:20px;
-	border-radius:20px 20px;
-	-khtml-border-radius:20px;
-	-icab-border-radius:20px;
-	-webkit-border-radius:20px;
-	-khtml-border-radius:20px;
-	}
+#j_id21,#j_id12,#j_id42,#j_id38,#j_id54,#j_id24,#j_id45,#j_id26,#j_id49
+	{
+	border-color: #C80000;
+	-moz-border-radius: 20px;
+	border-radius: 20px 20px;
+	-khtml-border-radius: 20px;
+	-icab-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-khtml-border-radius: 20px;
+}
+
 /*header do add cos */
-.dr-pnl-h, .dr-table-footercell{
+.dr-pnl-h,.dr-table-footercell {
 	background-color: #C80000;
 	background-image: none;
 	border-color: #C80000;
 	color: #efefef;
 	font-size: 16px;
 }
-.dr-pnl, #j_id5{
+
+.dr-pnl,#j_id5 {
 	color: #efefef;
 	font-size: 16px;
 	border: solid 1px;
 	border-color: #C80000;
-	}
-.dr-toolbar-int, .dr-table-sortable-header{
+}
+
+.dr-toolbar-int,.dr-table-sortable-header {
 	color: #efefef;
-	}
-	
+}
+
+.dr-toolbar-int #rich-toolbar-item {
+	color: #efefef;
+	text-align: 11px;
+}
+
+#j_id46 {
+	text-decoration: none;
+	font-size: 18px;
+	color: #C80000;
+	border: 1px;
+	border-color: #C80000;
+}

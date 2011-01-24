@@ -11,6 +11,7 @@ import javax.persistence.InheritanceType;
 import org.hibernate.validator.Length;
 import org.hibernate.validator.NotNull;
 import org.jboss.security.integration.password.Password;
+import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.security.management.UserPassword;
 import org.jboss.seam.security.management.PasswordHash;
 

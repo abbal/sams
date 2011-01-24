@@ -8,6 +8,7 @@
             xmlns:mail="http://jboss.com/products/seam/mail"
             xmlns:web="http://jboss.com/products/seam/web"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            
             xsi:schemaLocation=
                 "http://jboss.com/products/seam/core http://jboss.com/products/seam/core-2.2.xsd
                  http://jboss.com/products/seam/persistence http://jboss.com/products/seam/persistence-2.2.xsd
@@ -47,9 +48,8 @@
    <event type="org.jboss.seam.security.loginSuccessful">
       <action execute="#{redirect.returnToCapturedView}"/>
    </event>
-
-   <mail:mail-session host="localhost" port="25"/>
-
+    <mail:mail-session host="smtp.gmail.com" port="465" ssl="true" username="s.a.m.s.pjwstk" password="samsadmin"/>
+     <!--   <mail:mail-session host="localhost" port="25"/>-->
    <!-- For use with jBPM pageflow or process management -->
    <!--
    <bpm:jbpm>
@@ -57,5 +57,6 @@
       <bpm:pageflow-definitions></bpm:pageflow-definitions>
    </bpm:jbpm>
    -->
+    
 
 </components>

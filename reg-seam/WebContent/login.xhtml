@@ -1,41 +1,37 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:s="http://jboss.com/products/seam/taglib"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:rich="http://richfaces.org/rich"
-    template="layout/template.xhtml">
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
-<ui:define name="body">
- <h:panelGrid columns="2">
-    <h:form id="loginForm">
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<h:form id="loginForm">
 
-        <rich:panel>
-            <f:facet name="header">Login</f:facet>
+				<rich:panel>
+					<f:facet name="header">Login</f:facet>
 
-            <p>Please login here</p>
+					<p>Please login here</p>
 
-            <div class="dialog">
-                <h:panelGrid columns="2" rowClasses="prop" columnClasses="name,value">
-                    <h:outputLabel for="username">Username</h:outputLabel>
-                    <h:inputText id="username"
-                              value="#{credentials.username}"/>
-                    <h:outputLabel for="password">Password</h:outputLabel>
-                    <h:inputSecret id="password"
-                                value="#{credentials.password}"/>
-                </h:panelGrid>
-            </div>
-
-        <div class="actionButtons">
-            <h:commandButton id="submit" value="Login" action="#{identity.login}"/>
-        </div>
-        </rich:panel>
+					<div class="dialog"><h:panelGrid columns="2"
+						rowClasses="prop" columnClasses="name,value">
+						<h:outputLabel for="username">Username</h:outputLabel>
+						<h:inputText id="username" value="#{credentials.username}" />
+						<h:outputLabel for="password">Password</h:outputLabel>
+						<h:inputSecret id="password" value="#{credentials.password}" />
+					</h:panelGrid></div>
+					<div><h:outputLabel value=" "/><s:link id="przypomnienie" value="Zapomniałem hasło" view="/przypomnienieHasla.xhtml">
+					</s:link></div>
+					<div class="actionButtons"><h:commandButton id="submit"
+						value="Login" action="#{identity.login}" /></div>
+				</rich:panel>
 
 
 
-    </h:form>
-</h:panelGrid>
- </ui:define>
+			</h:form>
+		</h:panelGrid>
+	</ui:define>
 </ui:composition>

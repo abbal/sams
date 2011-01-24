@@ -24,6 +24,13 @@ public class ObecnoscHome extends EntityHome<Obecnosc> {
 
 	@RequestParameter
 	Long grupaId;
+	
+	
+	public void usprawiedliw(String usp) {
+		Obecnosc obecnosc = super.getEntityManager().find(Obecnosc.class, obecnoscId);
+		obecnosc.setUsprawiedliwienie(usp);
+		super.getEntityManager().persist(obecnosc);
+	}
 
 	public void obecny() {
 		Grupa grupa = (Grupa) super.getEntityManager().createQuery("select grupa from Grupa grupa where grupa.id = :gId").setParameter("gId", grupaId).getSingleResult();
