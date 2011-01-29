@@ -14,9 +14,9 @@
 					<div class="results"><h:outputText
 						value="Nie ma żadnych grup"
 						rendered="#{empty grupaList.GrupyList(loggedIn.id)}" /> <rich:dataTable
-						id="grupaList" var="grupa" value="#{grupaList.GrupyList(loggedIn.id)}"
-						rows="15" reRender="ds"
-						rendered="#{!empty grupaList.resultList}"
+						id="grupaList" var="grupa"
+						value="#{grupaList.GrupyList(loggedIn.id)}" rows="15"
+						reRender="ds" rendered="#{!empty grupaList.resultList}"
 						style=" width : 769px;">
 						<f:facet name="header">Lista Grup</f:facet>
 						<rich:column sortBy="#{grupa.przedmiot}">
@@ -24,7 +24,7 @@
 								<h:outputText value="Nazwa przedmiotu" />
 							</f:facet>
 							<s:link id="grupa" value="#{grupa.przedmiot}" propagation="none"
-								view="/grupa.xhtml" style="color: black; text-decoration: none;" >
+								view="/grupa.xhtml" style="color: black; text-decoration: none;">
 								<f:param name="grupaId" value="#{grupa.id}" />
 							</s:link>
 						</rich:column>
@@ -57,11 +57,10 @@
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
 					</rich:dataTable></div>
-					<div class="actionButtons"><s:button id="done"
-						value="Dodaj grupę" view="/addGrupa.xhtml" /></div>
 				</h:form>
 			</rich:panel>
-
+			<div class="actionButtons"><s:button id="done"
+				value="Dodaj grupę" view="/addGrupa.xhtml" /></div>
 		</h:panelGrid>
 	</ui:define>
 

@@ -23,7 +23,7 @@
 						<h:outputLabel for="password">Password</h:outputLabel>
 						<h:inputSecret id="password" value="#{credentials.password}" />
 					</h:panelGrid></div>
-					<div><h:outputLabel value=" "/><s:link id="przypomnienie" value="Zapomniałem hasło" view="/przypomnienieHasla.xhtml">
+					<div id="czerwien"><h:outputLabel value=" "/><s:link id="przypomnienie" value="Zapomniałem hasło" view="/przypomnienieHasla.xhtml">
 					</s:link></div>
 					<div class="actionButtons"><h:commandButton id="submit"
 						value="Login" action="#{identity.login}" /></div>

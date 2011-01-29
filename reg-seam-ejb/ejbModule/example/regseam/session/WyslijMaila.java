@@ -1,5 +1,7 @@
 package example.regseam.session;
 
+import javax.persistence.EntityManager;
+
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Logger;
@@ -8,6 +10,8 @@ import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.faces.Renderer;
 import org.jboss.seam.log.Log;
+
+import example.regseam.entity.Osoba;
 
 @Name("wyslijMaila")
 
@@ -23,7 +27,17 @@ public class WyslijMaila {
 	private Renderer renderer;
 	private String index;
 	private String address;
+	private String pass;
+	@In EntityManager entityManager;
 	
+	
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		Osoba osoba = (Osoba)entityManager.createQuery("select haslo from Osoba haslo where student.indeks = :index");
+		this.pass = pass;
+	}
 	public String getAddress() {
 		return address;
 	}

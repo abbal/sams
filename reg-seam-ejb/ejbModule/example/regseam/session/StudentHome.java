@@ -53,7 +53,7 @@ public class StudentHome extends EntityHome<Student> {
 				listaTmp.setGrupa(g);
 				nieobecny = new Obecnosc();
 				nieobecny.setListaObecnosci(listaTmp);
-				nieobecny.setUsprawiedliwienie("nieobecny");
+				nieobecny.setUsprawiedliwienie("Nieobecny");
 				result.add(nieobecny);
 			}
 		}

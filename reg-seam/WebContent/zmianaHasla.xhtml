@@ -10,6 +10,7 @@
 
 	<ui:define name="body">
 		<h:panelGrid columns="2">
+		
 			<h:form id="zmienhaslo">
 				<rich:panel>
 					<f:facet name="header">Zmiana hasła</f:facet>
@@ -23,7 +24,6 @@
 					<div><h:outputLabel value="Powtórz nowe hasło  :" /> <h:inputSecret
 						id="passwoed2" required="true"
 						value="#{zmianaHasla.repeatedPassword}" /></div>
-
 				</rich:panel>
 
 				<div class="actionButtons"><h:commandButton

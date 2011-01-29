@@ -335,7 +335,7 @@ th,.dr-table-headercell {
 }
 
 /* Tabelki np. lista obecnosci lista studentow itp */
-#j_id21,#j_id12,#j_id42,#j_id38,#j_id54,#j_id24,#j_id45,#j_id26,#j_id49
+#j_id21,#j_id12,#j_id42,#j_id38,#j_id54,#j_id24,#j_id45,#j_id26,#j_id49, #j_id47
 	{
 	border-color: #C80000;
 	-moz-border-radius: 20px;
@@ -371,10 +371,20 @@ th,.dr-table-headercell {
 	text-align: 11px;
 }
 
-#j_id46 {
+#j_id44, #obecności a{
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 20px;
 	color: #C80000;
-	border: 1px;
-	border-color: #C80000;
+}
+#j_id44:HOVER, #obecności a:HOVER {
+	text-decoration: none;
+	font-size: 20px;
+	color: black;
+}
+#obecnosc_w_grupie{
+	font-size: 18px;
+}
+#czerwien a{
+	color: #C80000;
+	text-decoration: none;
 }

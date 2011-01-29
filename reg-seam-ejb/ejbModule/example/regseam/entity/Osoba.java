@@ -30,8 +30,16 @@ public abstract class Osoba implements Serializable{
 	private String haslo;
 	private String rola;
 	
+	private boolean flaga;
+	
 	 
-    public String getRola() {
+    public boolean isFlaga() {
+		return flaga;
+	}
+	public void setFlaga(boolean flaga) {
+		this.flaga = flaga;
+	}
+	public String getRola() {
 		return rola;
 	}
 	public void setRola(String rola) {

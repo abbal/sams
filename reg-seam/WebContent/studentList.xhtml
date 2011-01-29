@@ -9,7 +9,7 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 
 	<ui:define name="body">
-		<h:panelGrid columns="2">
+		<h:panelGrid columns="1">
 			<rich:panel>
 				<h:form>
 					<div class="results"><h:outputText
@@ -21,7 +21,7 @@
 						style=" width : 669px;">
 						<f:facet name="header">Lista Studentów</f:facet>
 
-						<rich:column sortBy="#{student.indeks}" width="50px" >
+						<rich:column sortBy="#{student.indeks}" width="50px">
 							<f:facet name="header">
 								<h:outputText value="Index" />
 							</f:facet>
@@ -37,7 +37,8 @@
 								<h:outputText value="Imię" />
 							</f:facet>
 							<s:link id="studentIm" value="#{student.imie}" propagation="none"
-								view="/student.xhtml" style="color: black; text-decoration: none;">
+								view="/student.xhtml"
+								style="color: black; text-decoration: none;">
 								<f:param name="studentId" value="#{student.id}" />
 							</s:link>
 						</rich:column>
@@ -46,8 +47,9 @@
 							<f:facet name="header">
 								<h:outputText value="Nazwisko" />
 							</f:facet>
-								<s:link id="studentN" value="#{student.nazwisko}" propagation="none"
-								view="/student.xhtml" style=" color: black; text-decoration: none;">
+							<s:link id="studentN" value="#{student.nazwisko}"
+								propagation="none" view="/student.xhtml"
+								style=" color: black; text-decoration: none;">
 								<f:param name="studentId" value="#{student.id}" />
 							</s:link>
 						</rich:column>
@@ -62,16 +64,14 @@
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
 					</rich:dataTable></div>
-					<div class="actionButtons">
-					<s:button id="done"
-						value="Dodaj studenta" view="/addStudent.xhtml" /> 
-						<s:button
-						 id="delete" value="Usuń studenta"
-						 view="/deleteStudent.xhtml" />
-						</div>
+
 				</h:form>
 			</rich:panel>
-
+			<h:column>
+				<div class="actionButtons"><s:button id="done"
+					value="Dodaj studenta" view="/addStudent.xhtml" /> <s:button
+					id="delete" value="Usuń studenta" view="/deleteStudent.xhtml" /></div>
+			</h:column>
 		</h:panelGrid>
 	</ui:define>
 

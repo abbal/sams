@@ -19,22 +19,28 @@
 			<h:outputText value="Numer grupy: " />
 			<h:outputText value="#{grupaHome.instance.dzien}" />
 			<h:outputText value="Wykładowca: " />
-			<h:outputText value="#{grupaHome.instance.wykladowca.tytul} #{grupaHome.instance.wykladowca.imie} #{grupaHome.instance.wykladowca.nazwisko}" />
+			<h:outputText
+				value="#{grupaHome.instance.wykladowca.tytul} #{grupaHome.instance.wykladowca.imie} #{grupaHome.instance.wykladowca.nazwisko}" />
 			<h:outputText value="Lista obecności: " />
 
 			<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
-			<h:outputText value="Zamknięta" rendered="#{!grupaHome.instance.open}"/>
-			<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}" rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open}">
+			<h:outputText value="Zamknięta"
+				rendered="#{!grupaHome.instance.open}" />
+			<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}"
+				rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open}">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
-			<s:button value="Zamknij" action="#{listaObecnosciHome.zamknij}" rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
+			<s:button value="Zamknij" action="#{listaObecnosciHome.zamknij}"
+				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
-			<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}" rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
+			<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}"
+				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
-			<h:outputText value="" rendered="#{!grupaHome.instance.open}"/>
-			<s:link view="/ListaObecnosciGrupyList.xhtml" value="Obecność grupy" propagation="none" >
+			<h:outputText value="" rendered="#{!grupaHome.instance.open}" />
+			<s:link view="/ListaObecnosciGrupyList.xhtml" value="Obecność grupy"
+				propagation="none">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:link>
 		</h:panelGrid>
@@ -80,16 +86,18 @@
 						</f:facet>
 					</rich:dataTable></div>
 
-					<div class="actionButtons"><s:button id="addG"
-						value="Dodaj/usuń grupę" view="/addStudentGroup2.xhtml">
-						<f:param name="grupaId" value="#{grupaHome.instance.id}" /></s:button> </div>
-						
-					<div class="actionButtons"><s:button id="addS"
-						value="Dodaj/usuń studenta" view="/addStudentGroup.xhtml">
-						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-					</s:button> <s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
+
 				</h:form>
 			</rich:panel>
+			<h:column>
+				<div class="actionButtons"><s:button id="addG"
+					value="Dodaj/usuń grupę" view="/addStudentGroup2.xhtml">
+					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+				</s:button> <s:button id="addS" value="Dodaj/usuń studenta"
+					view="/addStudentGroup.xhtml">
+					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+				</s:button> <s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
+			</h:column>
 		</h:panelGrid>
 	</ui:define>
 
