@@ -9,11 +9,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import org.hibernate.validator.Length;
-import org.hibernate.validator.NotNull;
+import org.hibernate.validator.Pattern;
 import org.jboss.security.integration.password.Password;
-import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.security.management.UserPassword;
-import org.jboss.seam.security.management.PasswordHash;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -24,9 +21,6 @@ public abstract class Osoba implements Serializable{
 	private String imie;
 	private String nazwisko; 
 	private String login; 
-/*	 @NotNull  
-	 @Length(min = 8)  
-	 @UserPassword(hash = "md5")*/
 	private String haslo;
 	private String rola;
 	
@@ -55,6 +49,7 @@ public abstract class Osoba implements Serializable{
 	}
 	
 	@Length(max = 15)
+	@Pattern(regex="^\\p{Lu}\\p{Ll}+", message="musi składać się z samych liter")
 	public String getImie() {
 		return imie;
 	}
@@ -63,6 +58,7 @@ public abstract class Osoba implements Serializable{
 	}
 	
 	@Length(max = 30)
+	@Pattern(regex="^[- (\\p{Lu}\\p{Ll}+)]+", message="musi składać się z samych liter")
 	public String getNazwisko() {
 		return nazwisko;
 	}

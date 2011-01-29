@@ -9,6 +9,7 @@ import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
+import org.jboss.seam.international.StatusMessages;
 
 import example.regseam.entity.Grupa;
 import example.regseam.entity.ListaObecnosci;
@@ -58,6 +59,20 @@ public class StudentHome extends EntityHome<Student> {
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public String persist() {
+		Student nowy = super.getInstance();
+		String index = nowy.getIndeks();
+		List<?> studenci = super.getEntityManager().createQuery("select student from Student student").getResultList();
+		for (Object student : studenci) {
+			if (((Student) student).getIndeks().equals(index)) {
+				StatusMessages.instance().add("Student o podanym indeksie już istnieje");
+				return null;
+			}
+		}
+		return super.persist();
 	}
 
 	@Override
