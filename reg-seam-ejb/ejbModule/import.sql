@@ -2,19 +2,11 @@
 insert into grupadziekanska (id, nazwa) values (1, 'GID101');
 insert into grupadziekanska (id, nazwa) values (2, 'GID201');
 insert into grupadziekanska (id, nazwa) values (3, 'GID301');
-<<<<<<< HEAD
-insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (1, TRUE, 'haslo', 'Jaś', 'login', 'Fasola', 'S');
-insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (2, TRUE, 'nowak', 'Bonawentura', 'nowak', 'Nowak', 'S');
-insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (3,FALSE, 'muc', 'Delfina','muc', 'Muc','S');
-insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (4,TRUE, 'robak', 'Emeryk','robak', 'Robak','S');
-insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (5,TRUE, 'gazda', 'Filipina', 'gazda', 'Gazda', 'S');
-=======
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (1, TRUE, 'pass1234', 'Jaś', 'login', 'Fasola', 'S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (2, TRUE, 'pass1234', 'Bonawentura', 'nowak', 'Nowak', 'S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (3,TRUE, 'pass1234', 'Delfina','muc', 'Muc','S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (4,TRUE, 'pass1234', 'Emeryk','robak', 'Robak','S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (5,TRUE, 'pass1234', 'Filipina', 'gazda', 'Gazda', 'S');
->>>>>>> Corrected editing and removing Objects.
 insert into osoba (id, flaga, imie, nazwisko) values (6, TRUE, 'Gracja', 'Roztocka');
 insert into osoba (id, flaga, imie, nazwisko) values (7, TRUE, 'Hildegarda', 'von Stolzenberg');
 insert into osoba (id, flaga, imie, nazwisko) values (8, TRUE, 'Idzi', 'Brzęczyszczykiewicz');
