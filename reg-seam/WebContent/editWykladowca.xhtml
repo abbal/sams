@@ -1,0 +1,47 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<h:form id="wykladowcaForm">
+				<rich:panel>
+					<f:facet name="header">Edycja</f:facet>
+					<s:decorate id="poleTytuł" template="layout/edit.xhtml">
+						<ui:define name="label">Tytuł</ui:define>
+						<h:selectOneMenu id="tytul" required="true"
+							value="#{wykladowcaHome.instance.tytul}">
+							<s:selectItems value="#{tytulyNaukoweList.tytulyNaukowe}"
+								var="tytul" label="#{tytul.label}" noSelectionLabel="Wybierz..." />
+							<s:convertEnum />
+						</h:selectOneMenu>
+					</s:decorate>
+					<s:decorate id="poleImie" template="layout/edit.xhtml">
+						<ui:define name="label">Imię</ui:define>
+						<h:inputText id="imie" required="true"
+							value="#{wykladowcaHome.instance.imie}" />
+					</s:decorate>
+					<s:decorate id="poleNazwisko" template="layout/edit.xhtml">
+						<ui:define name="label">Nazwisko</ui:define>
+						<h:inputText id="nazwisko" required="true"
+							value="#{wykladowcaHome.instance.nazwisko}" />
+					</s:decorate>
+					<div style="clear: both" />
+
+					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
+						id="update" value="Popraw" action="#{wykladowcaHome.update}"
+						rendered="#{wykladowcaHome.managed}" view="/wykladowcaList.xhtml" />
+					<s:button propagation="end" id="finish" value="Zakończ"
+						view="/wykladowcaList.xhtml" /></div>
+				</rich:panel>
+			</h:form>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<h:form id="studentForm">
+				<rich:panel>
+					<f:facet name="header">Edycja</f:facet>
+					<s:decorate id="poleImie" template="layout/edit.xhtml">
+						<ui:define name="label">Imię</ui:define>
+						<h:inputText id="imie" required="true"
+							value="#{studentHome.instance.imie}" />
+					</s:decorate>
+					<s:decorate id="poleNazwisko" template="layout/edit.xhtml">
+						<ui:define name="label">Nazwisko</ui:define>
+						<h:inputText id="nazwisko" required="true"
+							value="#{studentHome.instance.nazwisko}" />
+					</s:decorate>
+					<s:decorate id="poleIndex" template="layout/edit.xhtml">
+						<ui:define name="label">Index</ui:define>
+						<h:inputText id="indeks" required="true"
+							value="#{studentHome.instance.indeks}" />
+					</s:decorate>
+					<s:decorate id="poleGrupa" template="layout/edit.xhtml">
+						<ui:define name="label">Grupa dziekańska</ui:define>
+						<h:selectOneMenu id="grupa" required="true"
+							value="#{studentHome.instance.grupaDziekanska}">
+							<s:selectItems value="#{grupaDziekanskaList.resultList}"
+								var="grupa" label="#{grupa.nazwa}"
+								noSelectionLabel="Wybierz grupę" />
+							<s:convertEntity />
+						</h:selectOneMenu>
+					</s:decorate>
+
+					<div style="clear: both" />
+
+					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
+						propagation="end" id="update" value="Popraw"
+						action="#{studentHome.persist}" rendered="#{studentHome.managed}"
+						view="/studentList.xhtml" /> <s:button propagation="end"
+						id="finish" value="Zakończ" view="/studentList.xhtml" /></div>
+				</rich:panel>
+			</h:form>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
+
