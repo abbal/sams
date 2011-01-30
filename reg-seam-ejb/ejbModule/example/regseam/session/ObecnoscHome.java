@@ -2,6 +2,8 @@ package example.regseam.session;
 
 import java.sql.Date;
 
+import javax.persistence.EnumType;
+
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -26,9 +28,9 @@ public class ObecnoscHome extends EntityHome<Obecnosc> {
 	Long grupaId;
 	
 	
-	public void usprawiedliw(String usp) {
+	public void usprawiedliw(Komentarze usp) {
 		Obecnosc obecnosc = super.getEntityManager().find(Obecnosc.class, obecnoscId);
-		obecnosc.setUsprawiedliwienie(usp);
+		obecnosc.setKomentarz(usp);
 		super.getEntityManager().persist(obecnosc);
 	}
 
@@ -39,7 +41,7 @@ public class ObecnoscHome extends EntityHome<Obecnosc> {
 			if (l.getData().toString().equals(new Date(dzisiaj.getTime()).toString())) {
 				for (Obecnosc o : l.getObecnosci()) {
 					if (o.getStudent().getId() == studentId) {
-						o.setUsprawiedliwienie("jest");
+						o.setObecnosc("jest");
 						super.getEntityManager().persist(o);
 						return;
 					}

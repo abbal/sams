@@ -26,24 +26,23 @@
 					<s:decorate id="poleUsprawiedliwienie" template="layout/edit.xhtml">
 						<ui:define name="label">Usprawiedliwienie</ui:define>
 						<h:selectOneMenu id="usprawiedliwienia" required="true"
-							value="#{obecnoscHome.instance.usprawiedliwienie}">
-							<s:selectItems value="#{usprawiedliwieniaList.usprawiedliwienia}"
+							value="#{obecnoscHome.instance.komentarz}">
+							<s:selectItems value="#{komentarzeList.komentarze}"
 								var="usp" label="#{usp.label}" noSelectionLabel="-----" />
-							<s:convertEnum />
+							<s:convertEnum  />
 						</h:selectOneMenu>
 					</s:decorate>
 
 					<div style="clear: both" />
 
-					<div class="actionButtons" style="margin-left: 15%;"><s:button
+					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
 						propagation="end" id="update" value="Popraw"
-						action="#{obecnoscHome.persist}"
-						rendered="#{obecnoscHome.managed}"
+						action="#{obecnoscHome.update}" rendered="#{obecnoscHome.managed}"
 						view="/ListaObecnosciGrupy.xhtml">
 						<f:param name="obecnoscId" value="#{obecnoscHome.instance.id}" />
 						<f:param name="listaObecnosciId"
 							value="#{obecnoscHome.instance.listaObecnosci.id}" />
-					</s:button><s:button propagation="end" id="finish" value="Zakończ"
+					</h:commandButton><s:button propagation="end" id="finish" value="Zakończ"
 						view="/ListaObecnosciGrupy.xhtml">
 						<f:param name="listaObecnosciId"
 							value="#{obecnoscHome.instance.listaObecnosci.id}" />

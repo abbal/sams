@@ -64,7 +64,7 @@ public class ListaObecnosciHome extends EntityHome<ListaObecnosci> {
 				Obecnosc o = oh.getInstance();
 				o.setListaObecnosci(super.getInstance());
 				o.setStudent(s);
-				o.setUsprawiedliwienie("nieobecny");
+				o.setObecnosc("nieobecny");
 				super.getEntityManager().persist(o);
 			}
 			

@@ -36,11 +36,18 @@
 							</f:facet>
 							<h:outputText value="#{obecnosc.student.nazwisko}" />
 						</rich:column>
-						<rich:column sortBy="#{obecnosc.usprawiedliwienie}">
+						<rich:column sortBy="#{obecnosc.obecnosc}">
 							<f:facet name="header">
-								<h:outputText value="Usprawiedliwienie" />
+								<h:outputText value="Obecność" />
 							</f:facet>
-							<h:outputText value="#{obecnosc.usprawiedliwienie}" />
+							<h:outputText value="#{obecnosc.obecnosc}" />
+							
+						</rich:column>
+						<rich:column sortBy="#{obecnosc.obecnosc}">
+							<f:facet name="header">
+								<h:outputText value="Komentarz" />
+							</f:facet>
+							<h:outputText value="#{obecnosc.komentarz}" />
 							<div class="actionButtons"><s:button id="done" value="Edit" 
 								view="/editUsprawiedliwienia.xhtml">
 								<f:param name="studentId" value="#{obecnosc.student.id}"/>

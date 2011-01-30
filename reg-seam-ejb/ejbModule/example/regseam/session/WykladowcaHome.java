@@ -13,7 +13,9 @@ import example.regseam.entity.Wykladowca;
 @Name("wykladowcaHome")
 public class WykladowcaHome extends EntityHome<Wykladowca>
 {
-    @RequestParameter 
+
+	private static final long serialVersionUID = 1L;
+	@RequestParameter 
     Long wykladowcaId;
 
     public Wykladowca getCurrent(long id) {

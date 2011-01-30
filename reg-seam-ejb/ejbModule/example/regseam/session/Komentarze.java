@@ -1,19 +1,19 @@
 package example.regseam.session;
 
-public enum Usprawiedliwienia{
+public enum Komentarze{
 	USP ("usprawiedliwiony"),
 	SP ("spóźnienie"), 
 	UC ("ucieczka"), 
 	ODR ("odrobione");
 
 	
-	private String tnLabel = null;
+	private String aLabel;
 	
-	private Usprawiedliwienia(String aLabel) {
-		tnLabel = aLabel;
+	private Komentarze(String aLabel) {
+		this.aLabel = aLabel;
 	}
 	public String getLabel() {
-		return tnLabel;
+		return aLabel;
 	}
 	
 	@Override

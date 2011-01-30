@@ -40,9 +40,9 @@
 
 					<div style="clear: both" />
 
-					<div class="actionButtons" style="margin-left: 15%;"><s:button
+					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
 						propagation="end" id="update" value="Popraw"
-						action="#{studentHome.update}" rendered="#{studentHome.managed}"
+						action="#{studentHome.persist}" rendered="#{studentHome.managed}"
 						view="/studentList.xhtml" /> <s:button propagation="end"
 						id="finish" value="Zakończ" view="/studentList.xhtml" /></div>
 				</rich:panel>

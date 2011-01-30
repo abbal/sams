@@ -11,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import example.regseam.session.Usprawiedliwienia;
+import example.regseam.session.Komentarze;
 
 @Entity
 public class ListaObecnosci implements Serializable {

@@ -8,13 +8,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 import org.hibernate.validator.Length;
 
+import example.regseam.session.Komentarze;
+
 @Entity
 public class Obecnosc implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Student student;
-	private String usprawiedliwienie;
+	private Komentarze komentarz;
 	private ListaObecnosci listaObecnosci;
+	private String obecnosc;
 
 	@Id
 	@GeneratedValue
@@ -32,14 +35,19 @@ public class Obecnosc implements Serializable {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-
-	public String getUsprawiedliwienie() {
-		return usprawiedliwienie;
+	
+	public Komentarze getKomentarz() {
+		return komentarz;
 	}
-	public void setUsprawiedliwienie(String usprawiedliwienie) {
-		this.usprawiedliwienie = usprawiedliwienie;
+	public void setKomentarz(Komentarze komentarz) {
+		this.komentarz = komentarz;
 	}
-
+	public String getObecnosc() {
+		return obecnosc;
+	}
+	public void setObecnosc(String obecnosc) {
+		this.obecnosc = obecnosc;
+	}
 	@ManyToOne
 	public ListaObecnosci getListaObecnosci() {
 		return listaObecnosci;
@@ -47,5 +55,6 @@ public class Obecnosc implements Serializable {
 	public void setListaObecnosci(ListaObecnosci listaObecnosci) {
 		this.listaObecnosci = listaObecnosci;
 	}
+
 
 }
