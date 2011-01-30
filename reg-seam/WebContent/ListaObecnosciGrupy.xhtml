@@ -38,7 +38,7 @@
 						</rich:column>
 						<rich:column sortBy="#{obecnosc.obecnosc}">
 							<f:facet name="header">
-<<<<<<< HEAD
+
 								<h:outputText value="Obecność" />
 							</f:facet>
 							<h:outputText value="#{obecnosc.obecnosc}" />
@@ -49,13 +49,7 @@
 								<h:outputText value="Komentarz" />
 							</f:facet>
 							<h:outputText value="#{obecnosc.komentarz}" />
-							<div class="actionButtons"><s:button id="done" value="Edit" 
-=======
-								<h:outputText value="Status na zajęciach" />
-							</f:facet>
-							<h:outputText value="#{obecnosc.usprawiedliwienie}" />
 							<div class="actionButtons"><s:button id="done" value="Edytuj" 
->>>>>>> 6d188089eb0732a6cd126942791e4423eab74f62
 								view="/editUsprawiedliwienia.xhtml">
 								<f:param name="studentId" value="#{obecnosc.student.id}"/>
 								<f:param name="obecnoscId" value="#{obecnosc.id}"/>

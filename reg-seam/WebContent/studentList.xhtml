@@ -17,7 +17,7 @@
 						rendered="#{empty studentList.resultList}" /> <rich:dataTable
 						id="studentList" var="student" value="#{studentList.resultList}"
 						rows="15" reRender="ds"
-						rendered="#{not empty studentList.resultList and student.flaga != false}"
+						rendered="#{not empty studentList.resultList and student.flaga eq TRUE}"
 						style=" width : 669px;">
 						<f:facet name="header">Lista Studentów</f:facet>
 

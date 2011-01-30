@@ -27,7 +27,8 @@
 				</ui:repeat>
 			</ul>
 				<div class="actionButtons"> <s:button id="done" value="Edytuj"
-					view="/editStudent.xhtml" /> <s:button propagation="end"
+					view="/editStudent.xhtml" >
+					</s:button> <s:button propagation="end"
 					id="delete" value="Usuń" 
 					immediate="true" action="#{studentHome.remove}"
 					view="/studentList.xhtml"

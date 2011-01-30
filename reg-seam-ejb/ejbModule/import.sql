@@ -12,7 +12,7 @@ insert into osoba (id, flaga, imie, nazwisko) values (7, TRUE, 'Hildegarda', 'vo
 insert into osoba (id, flaga, imie, nazwisko) values (8, TRUE, 'Idzi', 'Brzęczyszczykiewicz');
 insert into osoba (id, flaga, imie, nazwisko) values (9, TRUE, 'Wierzchosława', 'Złotopolska-Aleksandrowicz');
 insert into osoba (id, flaga, imie, nazwisko) values (10, TRUE, 'Kunegunda', 'Sobieska');
-insert into osoba (id, flaga, imie, nazwisko) values (11, TRUE, 'Leontyna', 'Dzierżyńska');
+insert into osoba (id, flaga, imie, nazwisko) values (11, FALSE, 'Leontyna', 'Dzierżyńska');
 insert into osoba (id, flaga, imie, nazwisko) values (12, TRUE, 'Leontyna', 'Niesiołowska');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (13, TRUE, 'szejko','Stanisław','szejko', 'Szejko', 'W');
 insert into osoba (id, flaga, imie, nazwisko) values (14, TRUE, 'Jakub', 'Neumann');

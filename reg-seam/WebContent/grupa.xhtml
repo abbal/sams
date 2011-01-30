@@ -38,7 +38,7 @@
 				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
-			<h:outputText value="" rendered="#{!grupaHome.instance.open}" />
+			<div id="obecności"> <h:outputText value="" rendered="#{!grupaHome.instance.open}" /></div>
 			<s:link view="/ListaObecnosciGrupyList.xhtml" value="Obecność grupy"
 				propagation="none">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />

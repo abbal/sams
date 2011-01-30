@@ -27,7 +27,8 @@ public class GrupaDziekanskaHome extends EntityHome<GrupaDziekanska> {
 				.getResultList();
 		for (Object grupaDziekanska : grupyDziekanskie) {
 			if (((GrupaDziekanska) grupaDziekanska).getNazwa().equals(nazwa)) {
-				StatusMessages.instance().add("Grupa dziekańska o podanej nazwie już istnieje");
+				StatusMessages.instance().add(
+						"Grupa dziekańska o podanej nazwie już istnieje");
 				return null;
 			}
 		}
@@ -42,6 +43,8 @@ public class GrupaDziekanskaHome extends EntityHome<GrupaDziekanska> {
 			return grupaDziekanskaId;
 		}
 	}
+
+
 
 	@Override
 	@Begin(join = true)
