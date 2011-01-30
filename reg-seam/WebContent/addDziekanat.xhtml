@@ -34,7 +34,8 @@
 						<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
 					</h:commandButton> <h:commandButton id="delete" value="Usuń"
 						action="#{dziekanatHome.wyrzuc}"
-						rendered="#{dziekanatHome.managed}">
+						rendered="#{dziekanatHome.managed}"
+						onclick="if (!confirm('Czy napewno chcesz usunąć tego pracownika dziekanatu?')) return false;">
 						<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
 					</h:commandButton> <s:button propagation="end" id="finish" value="Zakończ"
 						view="/dziekanatList.xhtml" /></div>

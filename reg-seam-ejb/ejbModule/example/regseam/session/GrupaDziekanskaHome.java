@@ -20,6 +20,7 @@ public class GrupaDziekanskaHome extends EntityHome<GrupaDziekanska> {
 	public String persist() {
 		GrupaDziekanska nowy = super.getInstance();
 		String nazwa = nowy.getNazwa();
+		nowy.setFlaga(true);
 		List<?> grupyDziekanskie = super
 				.getEntityManager()
 				.createQuery(
@@ -32,6 +33,36 @@ public class GrupaDziekanskaHome extends EntityHome<GrupaDziekanska> {
 			}
 		}
 		return super.persist();
+	}
+
+	public String popraw() {
+		GrupaDziekanska poprawiany = super.getInstance();
+		String nazwa = poprawiany.getNazwa();
+		List<?> grupyDziekanskie = super
+				.getEntityManager()
+				.createQuery(
+						"select grupaDziekanska from GrupaDziekanska grupaDziekanska")
+				.getResultList();
+		for (Object grupaDziekanska : grupyDziekanskie) {
+			if (((GrupaDziekanska) grupaDziekanska).getNazwa().equals(nazwa)
+					&& ((GrupaDziekanska) grupaDziekanska).getId() != poprawiany.getId()) {
+				StatusMessages.instance().add(
+						"Grupa dziekańska o podanej nazwie już istnieje");
+				return null;
+			}
+		}
+		return super.update();
+	}
+
+	public String wyrzuc() {
+		GrupaDziekanska poprawiany = super.getInstance();
+		if (poprawiany == null) {
+			StatusMessages.instance().add("Nie udało się usunąć grupy dziekańskiej");
+			return null;
+		}
+		poprawiany.setFlaga(false);
+		super.getEntityManager().persist(poprawiany);
+		return super.update();
 	}
 
 	@Override

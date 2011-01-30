@@ -1,7 +1,7 @@
 -- SQL statements which are executed at application startup if hibernate.hbm2ddl.auto is 'create' or 'create-drop'
-insert into grupadziekanska (id, nazwa) values (1, 'GID101');
-insert into grupadziekanska (id, nazwa) values (2, 'GID201');
-insert into grupadziekanska (id, nazwa) values (3, 'GID301');
+insert into grupadziekanska (id, flaga, nazwa) values (1, TRUE, 'GID101');
+insert into grupadziekanska (id, flaga, nazwa) values (2, TRUE, 'GID201');
+insert into grupadziekanska (id, flaga, nazwa) values (3, TRUE, 'GID301');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (1, TRUE, 'pass1234', 'Jaś', 'login', 'Fasola', 'S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (2, TRUE, 'pass1234', 'Bonawentura', 'nowak', 'Nowak', 'S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (3,TRUE, 'pass1234', 'Delfina','muc', 'Muc','S');

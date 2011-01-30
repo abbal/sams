@@ -1,25 +1,27 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:s="http://jboss.com/products/seam/taglib"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:rich="http://richfaces.org/rich"
-    template="layout/template.xhtml">
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
-<ui:define name="body">
+	<ui:define name="body">
 
-    <h:form id="grupaDziekanskaForm">
+		<h:form id="grupaDziekanskaForm">
 
-       <rich:panel>
+			<h:outputText value="Grupa dziekańska " />
+			<h:outputText value="#{grupaDziekanskaHome.instance.nazwa}" />
+			<rich:panel>
 				<h:form>
 					<div class="results"><h:outputText
 						value="Nie ma żadnych studentów"
-						rendered="#{empty studentList.resultList}" /> <rich:dataTable
-						id="studentList" var="student" value="#{grupaDziekanskaHome.instance.studenci}"
-						rows="15" reRender="ds"
-						rendered="#{not empty studentList.resultList and student.flaga != false}"
+						rendered="#{empty grupaDziekanskaHome.instance.studenci}" /> <rich:dataTable
+						id="studentList" var="student"
+						value="#{grupaDziekanskaHome.instance.studenci}" rows="15"
+						reRender="ds"
+						rendered="#{not empty grupaDziekanskaHome.instance.studenci and student.flaga != false}"
 						style=" width : 669px;">
 						<f:facet name="header">Lista Studentów</f:facet>
 
@@ -63,15 +65,15 @@
 				</h:form>
 			</rich:panel>
 
-        <div class="actionButtons">
-                        <s:button propagation="end"
-                               id="cancel"
-                            value="Powrót"
-                             view="/grupaDziekanskaList.xhtml"/>
-        </div>
+			<div class="actionButtons"><s:button id="done" value="Edytuj"
+				view="/addGrupaDziekanska.xhtml">
+				<f:param name="grupaDziekanskaId"
+					value="#{grupaDziekanskaHome.instance.id}" />
+			</s:button> <s:button propagation="end" id="cancel" value="Powrót"
+				view="/grupaDziekanskaList.xhtml" /></div>
 
-    </h:form>
+		</h:form>
 
-</ui:define>
+	</ui:define>
 
 </ui:composition>

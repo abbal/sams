@@ -9,6 +9,6 @@ public class WykladowcaList extends EntityQuery<Wykladowca>
 {
     public WykladowcaList()
     {
-        setEjbql("select wykladowca from Wykladowca wykladowca");
+        setEjbql("select wykladowca from Wykladowca wykladowca  where wykladowca.flaga is true");
     }
 }
