@@ -60,7 +60,7 @@ public abstract class Osoba implements Serializable{
 	}
 	
 	@Length(max = 30)
-	@Pattern(regex="^[- (\\p{Lu}\\p{Ll}+)]+", message="musi składać się z samych liter")
+	@Pattern(regex="^(\\p{Lu}\\p{Ll}+)[- (\\p{Lu}\\p{Ll}+)]*", message="musi składać się z samych liter")
 	public String getNazwisko() {
 		return nazwisko;
 	}

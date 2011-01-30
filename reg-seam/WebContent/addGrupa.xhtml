@@ -57,13 +57,18 @@
 					<div style="clear: both" />
 
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
-						id="save" value="Zapisz" action="#{grupaHome.persist(loggedIn.id)}"
+						id="save" value="Zapisz"
+						action="#{grupaHome.persist(loggedIn.id)}"
 						rendered="#{!grupaHome.managed}" /> <h:commandButton id="update"
-						value="Popraw" action="#{grupaHome.update}"
-						rendered="#{grupaHome.managed}" /> <h:commandButton id="delete"
-						value="Usuń" action="#{grupaHome.remove}" immediate="true"
-						rendered="#{grupaHome.managed}" /> <s:button propagation="end"
-						id="finish" value="Zakończ" view="/grupaList.xhtml" /></div>
+						value="Popraw" action="#{grupaHome.popraw}"
+						rendered="#{grupaHome.managed}">
+						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+					</h:commandButton> <h:commandButton id="delete" value="Usuń"
+						action="#{grupaHome.wyrzuc}" rendered="#{grupaHome.managed}">
+						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+					</h:commandButton> <s:button propagation="end" id="finish" value="Zakończ"
+						view="/grupa.xhtml" >
+						<f:param name="grupaId" value="#{grupaHome.instance.id}" /></s:button></div>
 				</rich:panel>
 			</h:form>
 		</h:panelGrid>

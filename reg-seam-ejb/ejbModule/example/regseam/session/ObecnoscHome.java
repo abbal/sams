@@ -31,8 +31,10 @@ public class ObecnoscHome extends EntityHome<Obecnosc> {
 	public void usprawiedliw(Komentarze usp) {
 		Obecnosc obecnosc = super.getEntityManager().find(Obecnosc.class, obecnoscId);
 
+
 		obecnosc.setKomentarz(usp);
 		super.getEntityManager().persist(obecnosc);
+
 
 	}
 

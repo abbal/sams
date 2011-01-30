@@ -29,11 +29,15 @@
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
 						id="save" value="Zapisz" action="#{dziekanatHome.persist}"
 						rendered="#{!dziekanatHome.managed}" /> <h:commandButton
-						id="update" value="Popraw" action="#{dziekanatHome.update}"
-						rendered="#{dziekanatHome.managed}" /> <h:commandButton id="delete"
-						value="Usuń" action="#{dziekanatHome.remove}" immediate="true"
-						rendered="#{dziekanatHome.managed}" /> <s:button propagation="end"
-						id="finish" value="Zakończ" view="/dziekanatList.xhtml" /></div>
+						id="update" value="Popraw" action="#{dziekanatHome.popraw}"
+						rendered="#{dziekanatHome.managed}">
+						<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
+					</h:commandButton> <h:commandButton id="delete" value="Usuń"
+						action="#{dziekanatHome.wyrzuc}"
+						rendered="#{dziekanatHome.managed}">
+						<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
+					</h:commandButton> <s:button propagation="end" id="finish" value="Zakończ"
+						view="/dziekanatList.xhtml" /></div>
 				</rich:panel>
 			</h:form>
 		</h:panelGrid>

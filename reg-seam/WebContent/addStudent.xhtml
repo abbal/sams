@@ -43,8 +43,16 @@
 
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
 						id="save" value="Zapisz" action="#{studentHome.persist}"
-						rendered="#{!studentHome.managed}" />
-						<s:button propagation="end" id="finish" value="Zakończ" view="/studentList.xhtml" /></div>
+						rendered="#{!studentHome.managed}" /> <h:commandButton
+						id="update" value="Popraw" action="#{studentHome.popraw}"
+						rendered="#{studentHome.managed}">
+						<f:param name="studentId" value="#{studentHome.instance.id}" />
+					</h:commandButton> <h:commandButton id="delete" value="Usuń"
+						action="#{studentHome.wyrzuc}" rendered="#{studentHome.managed}"
+						onclick="if (!confirm('Czy napewno chcesz usunąć tego studenta z listy?')) return false;">
+						<f:param name="studentId" value="#{studentHome.instance.id}" />
+					</h:commandButton> <s:button propagation="end" id="finish" value="Zakończ"
+						view="/studentList.xhtml" /></div>
 				</rich:panel>
 			</h:form>
 		</h:panelGrid>
