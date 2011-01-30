@@ -96,7 +96,11 @@
 				</s:button> <s:button id="addS" value="Dodaj/usuń studenta"
 					view="/addStudentGroup.xhtml">
 					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-				</s:button> <s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
+				</s:button> 
+				<s:button id="done" value="Edytuj"
+				view="/addGrupa.xhtml">
+				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button><s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 			</h:column>
 		</h:panelGrid>
 	</ui:define>

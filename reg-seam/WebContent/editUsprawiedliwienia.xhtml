@@ -37,12 +37,8 @@
 
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
 						propagation="end" id="update" value="Popraw"
-<<<<<<< HEAD
-						action="#{obecnoscHome.update}" rendered="#{obecnoscHome.managed}"
-=======
 						action="#{obecnoscHome.usprawiedliw(usp.getLabel)}"
 						rendered="#{obecnoscHome.managed}"
->>>>>>> 6d188089eb0732a6cd126942791e4423eab74f62
 						view="/ListaObecnosciGrupy.xhtml">
 						<f:param name="obecnoscId" value="#{obecnoscHome.instance.id}" />
 						<f:param name="listaObecnosciId"

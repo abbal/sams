@@ -10,22 +10,14 @@ import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
 import org.jboss.seam.international.StatusMessages;
 
+import example.regseam.entity.Student;
 import example.regseam.entity.Wykladowca;
 
 @Name("wykladowcaHome")
-<<<<<<< HEAD
-public class WykladowcaHome extends EntityHome<Wykladowca>
-{
-
-	private static final long serialVersionUID = 1L;
-	@RequestParameter 
-    Long wykladowcaId;
-=======
 public class WykladowcaHome extends EntityHome<Wykladowca> {
 	private static final long serialVersionUID = 1L;
 	@RequestParameter
 	Long wykladowcaId;
->>>>>>> 6d188089eb0732a6cd126942791e4423eab74f62
 
 	public Wykladowca getCurrent(long id) {
 		EntityManager em = super.getEntityManager();
@@ -52,6 +44,35 @@ public class WykladowcaHome extends EntityHome<Wykladowca> {
 			}
 		}
 		return super.persist();
+	}
+
+	public String popraw() {
+		Wykladowca poprawiany = super.getInstance();
+		String imie = poprawiany.getImie();
+		String nazwisko = poprawiany.getNazwisko();
+		List<?> wykladowcy = super.getEntityManager()
+				.createQuery("select wykladowca from Wykladowca wykladowca")
+				.getResultList();
+		for (Object wykladowca : wykladowcy) {
+			if (((Wykladowca) wykladowca).getImie().equals(imie)
+					&& ((Wykladowca) wykladowca).getNazwisko().equals(nazwisko) 
+					&& ((Wykladowca) wykladowca).getId() != poprawiany.getId()) {
+				StatusMessages.instance().add("Taki wykładowca już istnieje");
+				return null;
+			}
+		}
+		return super.update();
+	}
+
+	public String wyrzuc() {
+		Wykladowca poprawiany = super.getInstance();
+		if (poprawiany == null) {
+			StatusMessages.instance().add("Nie udało się usunąć wykładowcy");
+			return null;
+		}
+		poprawiany.setFlaga(false);
+		super.getEntityManager().persist(poprawiany);
+		return super.update();
 	}
 
 	@Override

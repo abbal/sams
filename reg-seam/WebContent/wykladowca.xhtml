@@ -25,15 +25,8 @@
 			</ul>
 			<div class="actionButtons"><s:button id="back" value="Powrót"
 				view="/wykladowcaList.xhtml" />
-				<s:button id="edit" value="edit"
-				view="/editWykladowca.xhtml" />
-				<s:button propagation="end"
-					id="delete" value="Usuń" rendered="#{wykladowcaHome.managed}"
-					immediate="true" action="#{wykladowcaHome.remove}"
-					view="/wykladowcaList.xhtml"
-					onclick="if (!confirm('Czy napewno chcesz usunąć tego wykładowcę z listy?')) return false;">
-
-				</s:button>
+				<s:button id="edit" value="Edytuj" view="/addWykladowca.xhtml" >
+				<f:param name="wykladowcaId" value="#{wykladowcaHome.instance.id}" /></s:button>
 			</div>
 			
 		</h:panelGrid>

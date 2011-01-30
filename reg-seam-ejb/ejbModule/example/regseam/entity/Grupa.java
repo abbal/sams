@@ -15,12 +15,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.validator.Digits;
 import org.hibernate.validator.Length;
 import org.hibernate.validator.Max;
 import org.hibernate.validator.Min;
 import org.hibernate.validator.Pattern;
-import org.jboss.beans.metadata.api.annotations.Value;
 
 import example.regseam.session.DzienTygodnia;
 
@@ -38,6 +36,7 @@ public class Grupa implements Serializable {
 	private List<Student> studenci;
 	private Wykladowca wykladowca;
 	private List<ListaObecnosci> obecnosci;
+	private boolean flaga;
 
 	@Id
 	@GeneratedValue
@@ -49,7 +48,7 @@ public class Grupa implements Serializable {
 	}
 
 	@Length(max = 20)
-	@Pattern(regex="^\\p{Lu}\\p{Ll}+[- \\p{L}]*$", message="tylko litery")
+	@Pattern(regex="^\\p{L}+[- \\p{L}]*$", message="tylko litery")
 	public String getPrzedmiot() {
 		return przedmiot;
 	}
@@ -140,6 +139,13 @@ public class Grupa implements Serializable {
 	}
 	public void setWykladowca(Wykladowca wykladowca) {
 		this.wykladowca = wykladowca;
+	}
+
+	public boolean isFlaga() {
+		return flaga;
+	}
+	public void setFlaga(boolean flaga) {
+		this.flaga = flaga;
 	}
 
 }
