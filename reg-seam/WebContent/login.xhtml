@@ -16,12 +16,13 @@
 
 					<div class="dialog"><h:panelGrid columns="2"
 						rowClasses="prop" columnClasses="name,value">
-						<h:outputLabel for="username">Login :</h:outputLabel>
+						<h:outputLabel for="username">Nazwa użytkownika</h:outputLabel>
 						<h:inputText id="username" value="#{credentials.username}" required="true"/>
-						<h:outputLabel for="password">Hasło :</h:outputLabel>
+						<h:outputLabel for="password">Hasło</h:outputLabel>
 						<h:inputSecret id="password" value="#{credentials.password}" required="true"/>
 						<h:messages infoStyle="info" errorStyle="error" fatalStyle="fatal"
 						warnStyle="warn" />
+
 					</h:panelGrid></div>
 					<div id="czerwien"><h:outputLabel value=" "/><s:link id="przypomnienie" value="Zapomniałem hasło" view="/przypomnienieHasla.xhtml">
 					</s:link></div>
