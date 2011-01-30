@@ -12,15 +12,15 @@
 			<h:form id="loginForm">
 
 				<rich:panel>
-					<f:facet name="header">Login</f:facet>
+					<f:facet name="header">Logowanie</f:facet>
 
-					<p>Please login here</p>
+					<p>Podaj nazwę użytkownika i hasło</p>
 
 					<div class="dialog"><h:panelGrid columns="2"
 						rowClasses="prop" columnClasses="name,value">
-						<h:outputLabel for="username">Username</h:outputLabel>
+						<h:outputLabel for="username">Nazwa użytkownika</h:outputLabel>
 						<h:inputText id="username" value="#{credentials.username}" />
-						<h:outputLabel for="password">Password</h:outputLabel>
+						<h:outputLabel for="password">Hasło</h:outputLabel>
 						<h:inputSecret id="password" value="#{credentials.password}" />
 					</h:panelGrid></div>
 					<div id="czerwien"><h:outputLabel value=" "/><s:link id="przypomnienie" value="Zapomniałem hasło" view="/przypomnienieHasla.xhtml">
