@@ -65,7 +65,7 @@
 				</h:form>
 			</rich:panel>
 
-			<div class="actionButtons"><s:button id="done" value="Edytuj"
+			<div class="actionButtons"><s:button id="done" value="Edytuj" rendered="#{s:hasRole('D')}"
 				view="/addGrupaDziekanska.xhtml">
 				<f:param name="grupaDziekanskaId"
 					value="#{grupaDziekanskaHome.instance.id}" />
