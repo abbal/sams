@@ -25,7 +25,7 @@
 			</ul>
 			<div class="actionButtons"><s:button id="back" value="Powrót"
 				view="/wykladowcaList.xhtml" />
-				<s:button id="edit" value="Edytuj" view="/addWykladowca.xhtml" >
+				<s:button id="edit" value="Edytuj" view="/addWykladowca.xhtml" rendered="#{s:hasRole('D')}" >
 				<f:param name="wykladowcaId" value="#{wykladowcaHome.instance.id}" /></s:button>
 			</div>
 			

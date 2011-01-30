@@ -14,11 +14,11 @@
 			<h:outputText value="Nazwisko: " />
 			<h:outputText value="#{dziekanatHome.instance.nazwisko}" />
 
-			<div class="actionButtons"><s:button id="back" value="Powrót"
-				view="/dziekanatList.xhtml" /> <s:button id="done" value="Edytuj"
-				view="/addDziekanat.xhtml">
-				<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
-			</s:button></div>
 		</h:panelGrid>
+		<div class="actionButtons"><s:button id="back" value="Powrót"
+			view="/dziekanatList.xhtml" /> <s:button id="done" value="Edytuj"
+			rendered="#{s:hasRole('D')}" view="/addDziekanat.xhtml">
+			<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
+		</s:button></div>
 	</ui:define>
 </ui:composition>

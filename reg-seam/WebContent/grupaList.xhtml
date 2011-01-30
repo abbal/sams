@@ -13,10 +13,15 @@
 				<h:form>
 					<div class="results"><h:outputText
 						value="Nie ma żadnych grup"
-						rendered="#{empty grupaList.GrupyList(loggedIn.id)}" /> <rich:dataTable
+						rendered="#{empty grupaList.GrupyList(loggedIn.id) and !s:hasRole('D')}" /> 
+						<h:outputText
+						value="Nie ma żadnych grup"
+						rendered="#{empty grupaList.resultList and s:hasRole('D')}" />
+					
+					<rich:dataTable
 						id="grupaList" var="grupa"
 						value="#{grupaList.GrupyList(loggedIn.id)}" rows="15"
-						reRender="ds" rendered="#{!empty grupaList.resultList}"
+						reRender="ds" rendered="#{!empty grupaList.GrupyList(loggedIn.id) and !s:hasRole('D')}"
 						style=" width : 769px;">
 						<f:facet name="header">Lista Grup</f:facet>
 						<rich:column sortBy="#{grupa.przedmiot}">
@@ -56,11 +61,58 @@
 						<f:facet name="footer">
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
-					</rich:dataTable></div>
+					</rich:dataTable>
+					
+					<rich:dataTable
+						id="AllGrupaList" var="grupa"
+						value="#{grupaList.resultList}" rows="15"
+						reRender="ds" rendered="#{!empty grupaList.resultList and s:hasRole('D')}"
+						style=" width : 769px;">
+						<f:facet name="header">Lista Grup</f:facet>
+						<rich:column sortBy="#{grupa.przedmiot}">
+							<f:facet name="header">
+								<h:outputText value="Nazwa przedmiotu" />
+							</f:facet>
+							<s:link id="grupa" value="#{grupa.przedmiot}" propagation="none"
+								view="/grupa.xhtml" style="color: black; text-decoration: none;">
+								<f:param name="grupaId" value="#{grupa.id}" />
+							</s:link>
+						</rich:column>
+						<rich:column sortBy="#{grupa.numerGrupy}">
+							<f:facet name="header">
+								<h:outputText value="Numer grupy" />
+							</f:facet>
+							<h:outputText value="#{grupa.numerGrupy}" />
+						</rich:column>
+						<rich:column sortBy="#{grupa.godzinaStart}">
+							<f:facet name="header">
+								<h:outputText value="Godzina rozpoczęcia" />
+							</f:facet>
+							<h:outputText value="#{grupa.godzinaStart}" />
+						</rich:column>
+						<rich:column sortBy="#{grupa.godzinaStop}">
+							<f:facet name="header">
+								<h:outputText value="Godzina zakończenia" />
+							</f:facet>
+							<h:outputText value="#{grupa.godzinaStop}" />
+						</rich:column>
+						<rich:column sortBy="#{grupa.dzien}">
+							<f:facet name="header">
+								<h:outputText value="Dzień tygodnia" />
+							</f:facet>
+							<h:outputText value="#{grupa.dzien}" />
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
+						</f:facet>
+					</rich:dataTable>
+					</div>
 				</h:form>
-			</rich:panel>
-			<div class="actionButtons"><s:button id="done"
+				<div class="actionButtons"><s:button id="done"
 				value="Dodaj grupę" view="/addGrupa.xhtml" /></div>
+			</rich:panel>
+			
 		</h:panelGrid>
 	</ui:define>
 

@@ -64,7 +64,8 @@
 						rendered="#{grupaHome.managed}">
 						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 					</h:commandButton> <h:commandButton id="delete" value="Usuń"
-						action="#{grupaHome.wyrzuc}" rendered="#{grupaHome.managed}">
+						action="#{grupaHome.wyrzuc}" rendered="#{grupaHome.managed}"
+						onclick="if (!confirm('Czy napewno chcesz usunąć tą grupę?')) return false;">
 						<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 					</h:commandButton> <s:button propagation="end" id="finish" value="Zakończ"
 						view="/grupaList.xhtml" >

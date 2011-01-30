@@ -9,60 +9,66 @@
 
 	<ui:define name="body">
 		<h:panelGrid columns="2">
-			<rich:panel>
-				<h:form>
-					<div class="results"><h:outputText
-						value="Nie ma żadnych studentów"
-						rendered="#{empty grupaDziekanskaHome.instance.studenci}" /> <rich:dataTable
-						id="studentList" var="student"
-						value="#{grupaDziekanskaHome.instance.studenci}" rows="15"
-						reRender="ds"
-						rendered="#{not empty grupaDziekanskaHome.instance.studenci and student.flaga != false}"
-						style=" width : 669px;">
-						<f:facet name="header">
-							<h:outputLabel
-								value="#{grupaDziekanskaHome.instance.nazwa} - Lista Studentów" />
-						</f:facet>
-						<rich:column sortBy="#{student.indeks}" width="50px">
+			<h:form id="grupaDziekanskaForm">
+				<rich:panel>
+					<h:form>
+						<div class="results"><h:outputText
+							value="Nie ma żadnych studentów"
+							rendered="#{empty grupaDziekanskaHome.instance.studenci}" /> <rich:dataTable
+							id="studentList" var="student"
+							value="#{grupaDziekanskaHome.instance.studenci}" rows="15"
+							reRender="ds"
+							rendered="#{not empty grupaDziekanskaHome.instance.studenci and student.flaga != false}"
+							style=" width : 669px;">
 							<f:facet name="header">
-								<h:outputText value="Index" />
+								<h:outputLabel
+									value="#{grupaDziekanskaHome.instance.nazwa} - Lista Studentów" />
 							</f:facet>
-							<s:link id="studentI" value="#{student.indeks}"
-								propagation="none" view="/student.xhtml"
-								style="color: black; text-decoration: none;">
-								<f:param name="studentId" value="#{student.id}" />
-							</s:link>
-						</rich:column>
-						<rich:column filterBy="#{student.imie}" filterEvent="onkeyup"
-							sortBy="#{student.imie}" width="170px">
-							<f:facet name="header">
-								<h:outputText value="Imię" />
+							<rich:column sortBy="#{student.indeks}" width="50px">
+								<f:facet name="header">
+									<h:outputText value="Index" />
+								</f:facet>
+								<s:link id="studentI" value="#{student.indeks}"
+									propagation="none" view="/student.xhtml"
+									style="color: black; text-decoration: none;">
+									<f:param name="studentId" value="#{student.id}" />
+								</s:link>
+							</rich:column>
+							<rich:column filterBy="#{student.imie}" filterEvent="onkeyup"
+								sortBy="#{student.imie}" width="170px">
+								<f:facet name="header">
+									<h:outputText value="Imię" />
+								</f:facet>
+								<s:link id="studentIm" value="#{student.imie}"
+									propagation="none" view="/student.xhtml"
+									style="color: black; text-decoration: none;">
+									<f:param name="studentId" value="#{student.id}" />
+								</s:link>
+							</rich:column>
+							<rich:column filterBy="#{student.nazwisko}" filterEvent="onkeyup"
+								sortBy="#{student.nazwisko}" width="200px">
+								<f:facet name="header">
+									<h:outputText value="Nazwisko" />
+								</f:facet>
+								<s:link id="studentN" value="#{student.nazwisko}"
+									propagation="none" view="/student.xhtml"
+									style=" color: black; text-decoration: none;">
+									<f:param name="studentId" value="#{student.id}" />
+								</s:link>
+							</rich:column>
+							<f:facet name="footer">
+								<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 							</f:facet>
-							<s:link id="studentIm" value="#{student.imie}" propagation="none"
-								view="/student.xhtml"
-								style="color: black; text-decoration: none;">
-								<f:param name="studentId" value="#{student.id}" />
-							</s:link>
-						</rich:column>
-						<rich:column filterBy="#{student.nazwisko}" filterEvent="onkeyup"
-							sortBy="#{student.nazwisko}" width="200px">
-							<f:facet name="header">
-								<h:outputText value="Nazwisko" />
-							</f:facet>
-							<s:link id="studentN" value="#{student.nazwisko}"
-								propagation="none" view="/student.xhtml"
-								style=" color: black; text-decoration: none;">
-								<f:param name="studentId" value="#{student.id}" />
-							</s:link>
-						</rich:column>
-						<f:facet name="footer">
-							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
-						</f:facet>
-					</rich:dataTable></div>
-				</h:form>
-			</rich:panel>
-			<div class="actionButtons"><s:button propagation="end"
-				id="cancel" value="Powrót" view="/grupaDziekanskaList.xhtml" /></div>
+						</rich:dataTable></div>
+					</h:form>
+				</rich:panel>
+				<div class="actionButtons"><s:button id="done" value="Edytuj"
+					rendered="#{s:hasRole('D')}" view="/addGrupaDziekanska.xhtml">
+					<f:param name="grupaDziekanskaId"
+						value="#{grupaDziekanskaHome.instance.id}" />
+				</s:button> <s:button propagation="end" id="cancel" value="Powrót"
+					view="/grupaDziekanskaList.xhtml" /></div>
+			</h:form>
 		</h:panelGrid>
 	</ui:define>
 </ui:composition>

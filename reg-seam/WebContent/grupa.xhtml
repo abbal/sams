@@ -45,30 +45,49 @@
 						value="#{grupaHome.instance.studenci}" rows="15" reRender="dsS"
 						rendered="#{not empty grupaHome.instance.studenci}"
 						style=" width : 669px;">
-						<f:facet name="header">Lista Studentów</f:facet>
+						<f:facet name="header">Lista Studentów Grupy</f:facet>
 						<rich:column sortBy="#{student.indeks}">
 							<f:facet name="header">
 								<h:outputText value="Index" />
 							</f:facet>
-							<h:outputText value="#{student.indeks}" />
+							<s:link id="studentI" value="#{student.indeks}"
+								propagation="none" view="/student.xhtml"
+								style="color: black; text-decoration: none;">
+								<f:param name="studentId" value="#{student.id}" />
+							</s:link>
 						</rich:column>
 						<rich:column sortBy="#{student.imie}">
 							<f:facet name="header">
 								<h:outputText value="Imię" />
 							</f:facet>
-							<h:outputText value="#{student.imie}" />
+							<s:link id="studentIm" value="#{student.imie}" propagation="none"
+								view="/student.xhtml"
+								style="color: black; text-decoration: none;">
+								<f:param name="studentId" value="#{student.id}" />
+							</s:link>
 						</rich:column>
 						<rich:column sortBy="#{student.nazwisko}">
 							<f:facet name="header">
 								<h:outputText value="Nazwisko" />
 							</f:facet>
-							<h:outputText value="#{student.nazwisko}" />
+							<s:link id="studentN" value="#{student.nazwisko}"
+								propagation="none" view="/student.xhtml"
+								style=" color: black; text-decoration: none;">
+								<f:param name="studentId" value="#{student.id}" />
+							</s:link>
 						</rich:column>
 						<rich:column sortBy="#{student.grupaDziekanska.nazwa}">
 							<f:facet name="header">
 								<h:outputText value="Grupa dziekańska" />
 							</f:facet>
 							<h:outputText value="#{student.grupaDziekanska.nazwa}" />
+						</rich:column>
+						<rich:column sortBy="#{student.flaga}">
+							<f:facet name="header">
+								<h:outputText value="Status" />
+							</f:facet>
+							<h:outputText value="Aktywny" rendered="#{student.flaga}" />
+							<h:outputText value="Nie aktywny" rendered="#{!student.flaga}" />
 						</rich:column>
 
 						<f:facet name="footer">
