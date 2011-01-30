@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jboss.seam.annotations.End;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -75,6 +74,19 @@ public class StudentHome extends EntityHome<Student> {
 		return super.persist();
 	}
 
+	public String popraw() {
+		Student poprawiany = super.getInstance();
+		String index = poprawiany.getIndeks();
+		List<?> studenci = super.getEntityManager().createQuery("select student from Student student").getResultList();
+		for (Object student : studenci) {
+			if (((Student) student).getIndeks().equals(index) && ((Student) student).getId() != poprawiany.getId()) {
+				StatusMessages.instance().add("Student o podanym indeksie już istnieje");
+				return null;
+			}
+		}
+		return super.update();
+	}
+
 	@Override
 	public Object getId() {
 		if (studentId == null) {
@@ -89,15 +101,16 @@ public class StudentHome extends EntityHome<Student> {
 	public void create() {
 		super.create();
 	}
-	@Override
-	@End
-	public String remove() {
-		try {
-			super.remove();
-			} catch (Exception e) {
+
+	public String wyrzuc() {
+		Student poprawiany = super.getInstance();
+		if (poprawiany == null) {
+			StatusMessages.instance().add("Nie udało się usunąć studenta");
 			return null;
-			}
-			return "done";
 		}
+		poprawiany.setFlaga(false);
+		super.getEntityManager().persist(poprawiany);
+		return super.update();
+	}
 
 }

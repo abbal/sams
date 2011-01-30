@@ -38,11 +38,15 @@
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
 						id="save" value="Zapisz" action="#{wykladowcaHome.persist}"
 						rendered="#{!wykladowcaHome.managed}" /> <h:commandButton
-						id="update" value="Popraw" action="#{wykladowcaHome.update}"
-						rendered="#{wykladowcaHome.managed}" /> <h:commandButton
-						id="delete" value="Usuń" action="#{wykladowcaHome.remove}"
-						immediate="true" rendered="#{wykladowcaHome.managed}" /> <s:button
-						propagation="end" id="finish" value="Zakończ"
+						id="update" value="Popraw" action="#{wykladowcaHome.popraw}"
+						rendered="#{wykladowcaHome.managed}">
+						<f:param name="wykladowcaId" value="#{wykladowcaHome.instance.id}" />
+					</h:commandButton> <h:commandButton id="delete" value="Usuń"
+						action="#{wykladowcaHome.wyrzuc}"
+						rendered="#{wykladowcaHome.managed}"
+						onclick="if (!confirm('Czy napewno chcesz usunąć tego wykładowcę?')) return false;">
+						<f:param name="wykladowcaId" value="#{wykladowcaHome.instance.id}" />
+					</h:commandButton> <s:button propagation="end" id="finish" value="Zakończ"
 						view="/wykladowcaList.xhtml" /></div>
 				</rich:panel>
 			</h:form>

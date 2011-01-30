@@ -21,22 +21,20 @@
 						<ui:define name="label">Nazwisko</ui:define>
 						<h:outputText id="nazwisko" required="true"
 							value="#{studentHome.instance.nazwisko}" />
-
 					</s:decorate>
 					<s:decorate id="poleUsprawiedliwienie" template="layout/edit.xhtml">
 						<ui:define name="label">Usprawiedliwienie</ui:define>
 						<h:selectOneMenu id="usprawiedliwienia" required="true"
 							value="#{obecnoscHome.instance.komentarz}">
-							<s:selectItems value="#{komentarzeList.komentarze}"
-								var="usp" label="#{usp.label}" noSelectionLabel="-----" />
-							<s:convertEnum  />
+							<s:selectItems value="#{komentarzeList.komentarze}" var="usp"
+								label="#{usp.label}" noSelectionLabel="-----" />
+							<s:convertEnum />
 						</h:selectOneMenu>
 					</s:decorate>
-
 					<div style="clear: both" />
-
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
-						propagation="end" id="update" value="Popraw" view="/ListaObecnosciGrupy.xhtml">
+						propagation="end" id="update" value="Popraw"
+						view="/ListaObecnosciGrupy.xhtml" >
 						<f:param name="obecnoscId" value="#{obecnoscHome.instance.id}" />
 						<f:param name="listaObecnosciId"
 							value="#{obecnoscHome.instance.listaObecnosci.id}" />

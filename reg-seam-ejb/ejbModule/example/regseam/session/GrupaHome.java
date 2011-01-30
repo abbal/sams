@@ -79,6 +79,35 @@ public class GrupaHome extends EntityHome<Grupa> {
 		return super.persist();
 	}
 
+	public String popraw() {
+		Grupa poprawiany = super.getInstance();
+		String nazwa = poprawiany.getPrzedmiot();
+		int numer = poprawiany.getNumerGrupy();
+		List<?> grupy = super.getEntityManager()
+				.createQuery("select grupa from Grupa grupa")
+				.getResultList();
+		for (Object grupa : grupy) {
+			if (((Grupa) grupa).getPrzedmiot().equals(nazwa)
+					&& ((Grupa) grupa).getNumerGrupy() == numer
+					&& ((Grupa) grupa).getId() != poprawiany.getId()) {
+				StatusMessages.instance().add("Grupa o takiej nazwie i numerze już istnieje");
+				return null;
+			}
+		}
+		return super.update();
+	}
+
+	public String wyrzuc() {
+		Grupa poprawiany = super.getInstance();
+		if (poprawiany == null) {
+			StatusMessages.instance().add("Nie udało się usunąć grupy");
+			return null;
+		}
+		poprawiany.setFlaga(false);
+		super.getEntityManager().persist(poprawiany);
+		return super.update();
+	}
+
 	@Override
 	public Object getId() {
 		if (grupaId == null) {

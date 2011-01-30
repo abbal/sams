@@ -10,6 +10,7 @@ import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
 import org.jboss.seam.international.StatusMessages;
 
+import example.regseam.entity.Student;
 import example.regseam.entity.Wykladowca;
 
 @Name("wykladowcaHome")
@@ -45,6 +46,35 @@ public class WykladowcaHome extends EntityHome<Wykladowca>
 			}
 		}
 		return super.persist();
+	}
+
+	public String popraw() {
+		Wykladowca poprawiany = super.getInstance();
+		String imie = poprawiany.getImie();
+		String nazwisko = poprawiany.getNazwisko();
+		List<?> wykladowcy = super.getEntityManager()
+				.createQuery("select wykladowca from Wykladowca wykladowca")
+				.getResultList();
+		for (Object wykladowca : wykladowcy) {
+			if (((Wykladowca) wykladowca).getImie().equals(imie)
+					&& ((Wykladowca) wykladowca).getNazwisko().equals(nazwisko) 
+					&& ((Wykladowca) wykladowca).getId() != poprawiany.getId()) {
+				StatusMessages.instance().add("Taki wykładowca już istnieje");
+				return null;
+			}
+		}
+		return super.update();
+	}
+
+	public String wyrzuc() {
+		Wykladowca poprawiany = super.getInstance();
+		if (poprawiany == null) {
+			StatusMessages.instance().add("Nie udało się usunąć wykładowcy");
+			return null;
+		}
+		poprawiany.setFlaga(false);
+		super.getEntityManager().persist(poprawiany);
+		return super.update();
 	}
 
 	@Override
