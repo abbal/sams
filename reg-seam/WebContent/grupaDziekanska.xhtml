@@ -9,10 +9,10 @@
     template="layout/template.xhtml">
 
 <ui:define name="body">
-
+<h:panelGrid columns="2">
     <h:form id="grupaDziekanskaForm">
 
-       <rich:panel>
+			<rich:panel>
 				<h:form>
 					<div class="results"><h:outputText
 						value="Nie ma żadnych studentów"
@@ -21,8 +21,8 @@
 						rows="15" reRender="ds"
 						rendered="#{not empty studentList.resultList and student.flaga != false}"
 						style=" width : 669px;">
-						<f:facet name="header">Lista Studentów</f:facet>
-
+						<f:facet name="header"><h:outputLabel value="#{grupaDziekanskaHome.instance.nazwa} - Lista Studentów"/> </f:facet>		
+								
 						<rich:column sortBy="#{student.indeks}" width="50px">
 							<f:facet name="header">
 								<h:outputText value="Index" />
@@ -54,6 +54,7 @@
 								style=" color: black; text-decoration: none;">
 								<f:param name="studentId" value="#{student.id}" />
 							</s:link>
+							
 						</rich:column>
 						<f:facet name="footer">
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
@@ -71,7 +72,7 @@
         </div>
 
     </h:form>
-
+</h:panelGrid>
 </ui:define>
 
 </ui:composition>
