@@ -55,7 +55,6 @@ public class StudentHome extends EntityHome<Student> {
 				nieobecny.setListaObecnosci(listaTmp);
 				nieobecny.setObecnosc("Nieobecny");
 
-
 				result.add(nieobecny);
 			}
 		}

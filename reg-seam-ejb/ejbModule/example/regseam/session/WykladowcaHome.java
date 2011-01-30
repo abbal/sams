@@ -23,7 +23,6 @@ public class WykladowcaHome extends EntityHome<Wykladowca>
     Long wykladowcaId;
 
 
-
 	public Wykladowca getCurrent(long id) {
 		EntityManager em = super.getEntityManager();
 		Wykladowca wykladowca = (Wykladowca) em

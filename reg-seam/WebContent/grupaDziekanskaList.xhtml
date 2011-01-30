@@ -23,7 +23,11 @@
 							<f:facet name="header">
 								<h:outputText value="Nazwa grupy" />
 							</f:facet>
-							<h:outputText value="#{grupaDziekanska.nazwa}" />
+							<s:link id="grupaDziekanska" value="#{grupaDziekanska.nazwa}" propagation="none"
+								view="/grupaDziekanska.xhtml"
+								style="color: black; text-decoration: none;">
+								<f:param name="grupaDziekanskaId" value="#{grupaDziekanska.id}" />
+							</s:link>
 						</rich:column>
 
 						<f:facet name="footer">
@@ -31,7 +35,8 @@
 						</f:facet>
 					</rich:dataTable></div>
 					<div class="actionButtons"><s:button id="done"
-						value="Dodaj grupę dziekańską" view="/addGrupaDziekanska.xhtml" rendered="#{s:hasRole('D')}"/></div>
+						value="Dodaj grupę dziekańską" view="/addGrupaDziekanska.xhtml"
+						rendered="#{s:hasRole('D')}" /></div>
 				</h:form>
 			</rich:panel>
 
