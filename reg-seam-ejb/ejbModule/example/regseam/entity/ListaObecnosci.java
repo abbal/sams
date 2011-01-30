@@ -18,6 +18,7 @@ public class ListaObecnosci implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Grupa grupa;
+	private boolean closed;
 /*
 	@ManyToOne
 	public Student getStudent() {
@@ -61,6 +62,13 @@ public class ListaObecnosci implements Serializable {
 	}
 	public void setObecnosci(List<Obecnosc> obecnosci) {
 		this.obecnosci = obecnosci;
+	}
+
+	public boolean isClosed() {
+		return closed;
+	}
+	public void setClosed(boolean closed) {
+		this.closed = closed;
 	}
 
 }

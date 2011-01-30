@@ -26,24 +26,14 @@
 			<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
 			<h:outputText value="Zamknięta"
 				rendered="#{!grupaHome.instance.open}" />
-			<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}"
-				rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<s:button value="Zamknij" action="#{listaObecnosciHome.zamknij}"
-				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}"
-				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<h:outputText value="" rendered="#{!grupaHome.instance.open}" />
-			<s:link view="/ListaObecnosciGrupyList.xhtml" value="Obecność grupy"
-				propagation="none">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:link>
 		</h:panelGrid>
+		<div><h:outputText value=""
+			rendered="#{!grupaHome.instance.open}" /> <s:button id="obecnosci"
+			view="/ListaObecnosciGrupyList.xhtml" value="Obecności"
+			propagation="none">
+			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+		</s:button></div>
+		<div id="space"><p> </p></div>
 
 		<h:panelGrid columns="1">
 			<rich:panel>
@@ -88,16 +78,18 @@
 
 
 				</h:form>
-			</rich:panel>
-			<h:column>
-				<div class="actionButtons"><s:button id="addG"
-					value="Dodaj/usuń grupę" view="/addStudentGroup2.xhtml">
+				<s:button id="addG"
+					value="Dodaj/usuń grupę studentów" view="/addStudentGroup2.xhtml">
 					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 				</s:button> <s:button id="addS" value="Dodaj/usuń studenta"
 					view="/addStudentGroup.xhtml">
 					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 				</s:button> 
-				<s:button id="done" value="Edytuj"
+			</rich:panel>
+			<br />
+			<h:column>
+				<div class="actionButtons">
+				<s:button id="done" value="Edytuj grupę"
 				view="/addGrupa.xhtml">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button><s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>

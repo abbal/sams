@@ -14,6 +14,25 @@
 			value="#{grupaHome.instance.przedmiot} " /> <h:outputText
 			value="#{grupaHome.instance.numerGrupy}" /></div>
 		<br />
+		
+		<h:outputText value="Lista obecności: " />
+			<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
+			<h:outputText value="Zamknięta"
+				rendered="#{!grupaHome.instance.open}" /><br />
+
+		<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}" view="/grupa.xhtml"
+				rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open and !grupaHome.isClose(grupaHome.instance.id)}">
+				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button>
+			<s:button value="Zapisz listę" action="#{listaObecnosciHome.zapisz}" view="/grupa.xhtml"
+				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}">
+				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button>
+			<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}" view="/grupa.xhtml"
+				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}">
+				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button><br /><br />
+			
 		<h:panelGrid columns="1">
 			<rich:panel>
 				<f:facet name="header">
@@ -34,11 +53,11 @@
 						<f:param name="listaObecnosciId" value="#{listaObecnosci.id}" />
 					</s:link>
 				</ui:repeat></div>
-				<div class="actionButtons"><s:button id="back" value="Powrót"
+			</rich:panel>
+			<div class="actionButtons"><s:button id="back" value="Powrót"
 					view="/grupa.xhtml">
 					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 				</s:button></div>
-			</rich:panel>
 
 		</h:panelGrid>
 	</ui:define>
