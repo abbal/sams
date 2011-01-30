@@ -13,19 +13,12 @@ import org.jboss.seam.international.StatusMessages;
 import example.regseam.entity.Wykladowca;
 
 @Name("wykladowcaHome")
-<<<<<<< HEAD
 public class WykladowcaHome extends EntityHome<Wykladowca>
 {
 
 	private static final long serialVersionUID = 1L;
 	@RequestParameter 
     Long wykladowcaId;
-=======
-public class WykladowcaHome extends EntityHome<Wykladowca> {
-	private static final long serialVersionUID = 1L;
-	@RequestParameter
-	Long wykladowcaId;
->>>>>>> 6d188089eb0732a6cd126942791e4423eab74f62
 
 	public Wykladowca getCurrent(long id) {
 		EntityManager em = super.getEntityManager();
