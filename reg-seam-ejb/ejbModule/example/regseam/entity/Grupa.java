@@ -17,6 +17,10 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.validator.Digits;
 import org.hibernate.validator.Length;
+import org.hibernate.validator.Max;
+import org.hibernate.validator.Min;
+import org.hibernate.validator.Pattern;
+import org.jboss.beans.metadata.api.annotations.Value;
 
 import example.regseam.session.DzienTygodnia;
 
@@ -45,6 +49,7 @@ public class Grupa implements Serializable {
 	}
 
 	@Length(max = 20)
+	@Pattern(regex="^\\p{Lu}\\p{Ll}+[- \\p{L}]*$", message="tylko litery")
 	public String getPrzedmiot() {
 		return przedmiot;
 	}
@@ -52,7 +57,8 @@ public class Grupa implements Serializable {
 		this.przedmiot = przedmiot;
 	}
 
-	@Digits(integerDigits=2)
+	@Min(0) 
+	@Max(50)
 	public int getNumerGrupy() {
 		return numerGrupy;
 	}
@@ -60,6 +66,7 @@ public class Grupa implements Serializable {
 		this.numerGrupy = numerGrupy;
 	}
 
+	@Pattern(regex="^([0-9]|[0-1][0-9]|[2][0-3]):([0-5][0-9])$", message="godzina w formacie HH:MM")
 	public String getGodzinaStart() {
 		Calendar godz = Calendar.getInstance();
 		godz.setTime(new Date(godzinaStart));
@@ -77,7 +84,8 @@ public class Grupa implements Serializable {
 		}
 		this.godzinaStart = godz.getTime();
 	}
-	
+
+	@Pattern(regex="^([0-9]|[0-1][0-9]|[2][0-3]):([0-5][0-9])$", message="godzina w formacie HH:MM")
 	public String getGodzinaStop() {
 		Calendar godz = Calendar.getInstance();
 		godz.setTime(new Date(godzinaStop));
