@@ -13,15 +13,13 @@
 				<h:form>
 					<div class="results"><h:outputText
 						value="Nie ma żadnych grup"
-						rendered="#{empty grupaList.GrupyList(loggedIn.id) and !s:hasRole('D')}" /> 
-						<h:outputText
-						value="Nie ma żadnych grup"
-						rendered="#{empty grupaList.resultList and s:hasRole('D')}" />
-					
-					<rich:dataTable
+						rendered="#{empty grupaList.GrupyList(loggedIn.id) and !s:hasRole('D')}" />
+					<h:outputText value="Nie ma żadnych grup"
+						rendered="#{empty grupaList.resultList and s:hasRole('D')}" /> <rich:dataTable
 						id="grupaList" var="grupa"
 						value="#{grupaList.GrupyList(loggedIn.id)}" rows="15"
-						reRender="ds" rendered="#{!empty grupaList.GrupyList(loggedIn.id) and !s:hasRole('D')}"
+						reRender="ds"
+						rendered="#{!empty grupaList.GrupyList(loggedIn.id) and !s:hasRole('D')}"
 						style=" width : 769px;">
 						<f:facet name="header">Lista Grup</f:facet>
 						<rich:column sortBy="#{grupa.przedmiot}">
@@ -61,12 +59,9 @@
 						<f:facet name="footer">
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
-					</rich:dataTable>
-					
-					<rich:dataTable
-						id="AllGrupaList" var="grupa"
-						value="#{grupaList.resultList}" rows="15"
-						reRender="ds" rendered="#{!empty grupaList.resultList and s:hasRole('D')}"
+					</rich:dataTable> <rich:dataTable id="AllGrupaList" var="grupa"
+						value="#{grupaList.resultList}" rows="15" reRender="ds"
+						rendered="#{!empty grupaList.resultList and s:hasRole('D')}"
 						style=" width : 769px;">
 						<f:facet name="header">Lista Grup</f:facet>
 						<rich:column sortBy="#{grupa.przedmiot}">
@@ -106,13 +101,12 @@
 						<f:facet name="footer">
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
-					</rich:dataTable>
-					</div>
+					</rich:dataTable></div>
 				</h:form>
-				<div class="actionButtons"><s:button id="done"
-				value="Dodaj grupę" view="/addGrupa.xhtml" /></div>
+
 			</rich:panel>
-			
+			<div class="actionButtons"><s:button id="done"
+				value="Dodaj grupę" view="/addGrupa.xhtml" /></div>
 		</h:panelGrid>
 	</ui:define>
 

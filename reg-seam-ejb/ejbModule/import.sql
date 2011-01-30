@@ -4,7 +4,7 @@ insert into grupadziekanska (id, flaga, nazwa) values (2, TRUE, 'GID201');
 insert into grupadziekanska (id, flaga, nazwa) values (3, TRUE, 'GID301');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (1, TRUE, 'pass1234', 'Jaś', 'login', 'Fasola', 'S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (2, TRUE, 'pass1234', 'Bonawentura', 'nowak', 'Nowak', 'S');
-insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (3,TRUE, 'pass1234', 'Delfina','muc', 'Muc','S');
+insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (3,FALSE, 'pass1234', 'Delfina','muc', 'Muc','S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (4,TRUE, 'pass1234', 'Emeryk','robak', 'Robak','S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (5,TRUE, 'pass1234', 'Filipina', 'gazda', 'Gazda', 'S');
 insert into osoba (id, flaga, imie, nazwisko) values (6, TRUE, 'Gracja', 'Roztocka');

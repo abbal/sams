@@ -10,20 +10,17 @@
 
 <ui:define name="body">
 <h:panelGrid columns="2">
-    <h:form id="grupaDziekanskaForm">
-
+    
 			<rich:panel>
-				<h:form>
+				<h:form id="grupaDziekanskaForm">
+				
 					<div class="results"><h:outputText
 						value="Nie ma żadnych studentów"
 						rendered="#{empty studentList.resultList}" /> <rich:dataTable
 						id="studentList" var="student" value="#{grupaDziekanskaHome.instance.studenci}"
 						rows="15" reRender="ds"
 						rendered="#{not empty studentList.resultList and student.flaga != false}"
-						style=" width : 669px;">
-						<f:facet name="header"><h:outputLabel value="#{grupaDziekanskaHome.instance.nazwa} - Lista Studentów"/> </f:facet>		
-								
-						<rich:column sortBy="#{student.indeks}" width="50px">
+						style=" width : 669px;">		
 
 							<f:facet name="header">
 								<h:outputLabel
@@ -61,16 +58,7 @@
 									<f:param name="studentId" value="#{student.id}" />
 								</s:link>
 							</rich:column>
-							<f:facet name="footer">
-								<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
-							</f:facet>
-							<s:link id="studentN" value="#{student.nazwisko}"
-								propagation="none" view="/student.xhtml"
-								style=" color: black; text-decoration: none;">
-								<f:param name="studentId" value="#{student.id}" />
-							</s:link>
-							
-						</rich:column>
+						
 						<f:facet name="footer">
 							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
@@ -86,7 +74,7 @@
                              view="/grupaDziekanskaList.xhtml"/>
         </div>
 
-    </h:form>
+    
 </h:panelGrid>
 </ui:define>
 

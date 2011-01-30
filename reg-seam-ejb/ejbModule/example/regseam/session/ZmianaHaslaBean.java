@@ -32,7 +32,7 @@ public class ZmianaHaslaBean implements ZmianaHasla {
 
 	@In("#{statusMessages}")
 	private StatusMessages sm;
-	@In(create = true, required = false)
+	@In
 	private IdentityStore identityStore;
 	@In
 	private Identity identity;
@@ -41,15 +41,6 @@ public class ZmianaHaslaBean implements ZmianaHasla {
 	private String oldPassword;
 	private String password;
 	private String repeatedPassword;
-	private Osoba osoba;
-	
-	public Osoba getOsoba() {
-		return osoba;
-	}
-
-	public void setOsoba(Osoba osoba) {
-		this.osoba = osoba;
-	}
 
 	@Override
 	public String getLogin() {

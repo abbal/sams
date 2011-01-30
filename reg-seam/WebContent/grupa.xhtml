@@ -40,10 +40,6 @@
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
 			<div id="obecności"> <h:outputText value="" rendered="#{!grupaHome.instance.open}" /></div>
-			<s:link view="/ListaObecnosciGrupyList.xhtml" value="Obecność grupy"
-				propagation="none">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:link>
 
 		</h:panelGrid>
 		<div><h:outputText value=""
