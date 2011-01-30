@@ -29,7 +29,7 @@ public class ObecnoscHome extends EntityHome<Obecnosc> {
 	public void usprawiedliw(String usp) {
 		Obecnosc obecnosc = super.getEntityManager().find(Obecnosc.class, obecnoscId);
 		obecnosc.setUsprawiedliwienie(usp);
-		super.getEntityManager().persist(obecnosc);
+		super.getEntityManager().persist(obecnosc);		
 	}
 
 	public void obecny() {

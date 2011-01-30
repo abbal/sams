@@ -68,7 +68,7 @@ select {
 	margin-left: 3px;
 }
 
-
+/*
 .message li.infomsg {
 	background-image: url(../img/msginfo.png);
 }
@@ -80,7 +80,7 @@ select {
 .message li.warnmsg {
 	background-image: url(../img/msgwarn.png);
 }
-
+*/
 .name {
 	vertical-align: top;
 	font-weight: bold;
@@ -386,6 +386,10 @@ th,.dr-table-headercell {
 	font-size: 18px;
 }
 #czerwien a{
+	color: black;
+	text-decoration: none;
+}
+#czerwien a:HOVER{
 	color: #C80000;
 	text-decoration: none;
 }

@@ -35,7 +35,6 @@ public class WyslijMaila {
 		return pass;
 	}
 	public void setPass(String pass) {
-		Osoba osoba = (Osoba)entityManager.createQuery("select haslo from Osoba haslo where student.indeks = :index");
 		this.pass = pass;
 	}
 	public String getAddress() {
@@ -49,6 +48,9 @@ public class WyslijMaila {
 	}
 	public void setIndex(String index) {
 		this.address = index + "@pjwstk.edu.pl";
+		Osoba id = (Osoba)entityManager.createQuery("select id from Student id where indeks = :index").setParameter("index", index).getSingleResult();
+		Osoba passwd = (Osoba)entityManager.createQuery("select haslo from Osoba haslo where id = :id" ).setParameter("id", id).getSingleResult();
+		this.pass = passwd.toString(); 
 		this.index = index;
 	}
 	public void send(String index) {

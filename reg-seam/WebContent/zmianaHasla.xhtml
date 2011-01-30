@@ -9,37 +9,38 @@
 
 
 	<ui:define name="body">
-
-
+		<h:panelGrid columns="2">
+		
 			<h:form id="zmienhaslo">
-			<div class="dialog"><h:panelGrid columns="2">
+			
 				<rich:panel>
-					<f:facet name="header">Zmiana hasła</f:facet>
-					<div><h:outputLabel value="Login  :" /> <h:inputText
-						id="login" required="true" value="#{zmianaHasla.login}" /></div>
-					<div><h:outputLabel value="Stare hasło  :" /> <h:inputSecret
+				<f:facet name="header">Zmiana hasła</f:facet>
+				<h:panelGrid columns="2">
+					
+					<h:outputLabel value="Login  :" /> <h:inputText
+						id="login" required="true" value="#{zmianaHasla.login}" />
+					<h:outputLabel value="Stare hasło  :" /> <h:inputSecret
 						id="oldPassword" required="true"
-						value="#{zmianaHasla.oldPassword}" /></div>
-					<div><h:outputLabel value="Nowe hasło  :" /> <h:inputSecret
-						id="password1" required="true" value="#{zmianaHasla.password}" /></div>
-					<div><h:outputLabel value="Powtórz nowe hasło  :" /> <h:inputSecret
+						value="#{zmianaHasla.oldPassword}" />
+					<h:outputLabel value="Nowe hasło  :" /> <h:inputSecret
+						id="password1" required="true" value="#{zmianaHasla.password}" />
+					<h:outputLabel value="Powtórz nowe hasło  :" /> <h:inputSecret
 						id="passwoed2" required="true"
-						value="#{zmianaHasla.repeatedPassword}" /></div>
+						value="#{zmianaHasla.repeatedPassword}" />
+						</h:panelGrid>
 				</rich:panel>
 
 				<div class="actionButtons"><h:commandButton
 					id="changePassword" value="Wprowadź zmiany"
 					action="#{zmianaHasla.changePassword}">
-					<f:param name="zmianaHaslaLogin" value="#{zmianaHasla.login}" />
-					<f:param name="zmianaHaslaOldPassword"
-						value="#{zmianaHasla.oldPassword}" />
-					<f:param name="zmianaHaslaPassword" value="#{zmianaHasla.password}" />
-					<f:param name="zmianaHaslaRepeatedPassword"
-						value="#{zmianaHasla.repeatedPassword}" />
-				</h:commandButton> <s:button id="back" value="Wróć" view="/home.xhtml" /></div>
-				</h:panelGrid>
-</div>
-			</h:form>
+					<f:param name="zmianaHaslaLogin" value="#{zmianaHasla.login}"/>
+						<f:param name="zmianaHaslaOldPassword" value="#{zmianaHasla.oldPassword}"/>
+							<f:param name="zmianaHaslaPassword" value="#{zmianaHasla.password}"/>
+								<f:param name="zmianaHaslaRepeatedPassword" value="#{zmianaHasla.repeatedPassword}"/>
+							</h:commandButton> <s:button id="back"
+					value="Wróć" view="/home.xhtml" /></div>
 
+			</h:form>
+		</h:panelGrid>
 	</ui:define>
 </ui:composition>
