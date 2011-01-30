@@ -23,11 +23,11 @@
 				<li><s:link
 					value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}"
 					action="#{obecnoscHome.obecny}"
-					rendered="#{obecnosc.listaObecnosci.grupa.open and obecnosc.usprawiedliwienie eq 'nieobecny'}">
+					rendered="#{obecnosc.listaObecnosci.grupa.open and obecnosc.obecnosc eq 'nieobecny'}">
 					<f:param name="grupaId" value="#{obecnosc.listaObecnosci.grupa.id}" />
 					<f:param name="studentId" value="#{loggedIn.id}" />
 				</s:link> <h:outputText value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}"
-					rendered="#{!obecnosc.listaObecnosci.grupa.open or obecnosc.usprawiedliwienie ne 'nieobecny'}" /></li>
+					rendered="#{!obecnosc.listaObecnosci.grupa.open or obecnosc.obecnosc ne 'nieobecny'}" /></li>
 			</ui:repeat>
 		</ul>
 		</div>
