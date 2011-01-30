@@ -12,15 +12,15 @@
 			<h:form id="przypomnienieHaslaForm">
 				<rich:panel>
 					<f:facet name="header">Przypomnienie hasła</f:facet>
-
 					<div class="dialog"><h:outputLabel id="podaj">Podaj swój nr indexu : </h:outputLabel>
-					<h:inputText id="address" value="#{wyslijMaila.index}" /></div>
+					<h:inputText id="address" value="#{wyslijMaila.index}" required="TRUE">
+					</h:inputText></div>
 					<h:messages infoStyle="info" errorStyle="error" fatalStyle="fatal"
 						warnStyle="warn" />
 					<div><h:commandButton id="wyślij" value="Wyślij"
-						action="#{wyslijMaila.send}"></h:commandButton> <s:button 
+						action="#{wyslijMaila.send}"></h:commandButton> <s:button
 						id="back" value="Wróć" view="/login.xhtml" /></div>
-					
+
 				</rich:panel>
 			</h:form>
 		</h:panelGrid>

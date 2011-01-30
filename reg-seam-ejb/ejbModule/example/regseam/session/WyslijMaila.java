@@ -7,6 +7,7 @@ import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Logger;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
+import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.faces.Renderer;
 import org.jboss.seam.log.Log;
@@ -43,6 +44,7 @@ public class WyslijMaila {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 	public String getIndex() {
 		return index;
 	}
@@ -53,6 +55,7 @@ public class WyslijMaila {
 		this.pass = passwd.toString(); 
 		this.index = index;
 	}
+	@RequestParameter
 	public void send(String index) {
 		try {
 			renderer.render("/email.xhtml");

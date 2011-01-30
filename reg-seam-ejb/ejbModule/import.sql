@@ -22,7 +22,7 @@ insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (16, TR
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (17, TRUE, 'pass1234', 'Ewa', 'ewa', 'Cytawa', 'D');
 insert into student (indeks, id, grupadziekanska_id) values ('s1234', 1, 1);
 insert into student (indeks, id, grupadziekanska_id) values ('s1235', 2, 2);
-insert into student (indeks, id, grupadziekanska_id) values ('s1236', 3, 3);
+insert into student (indeks, id, grupadziekanska_id) values ('s5503', 3, 3);
 insert into student (indeks, id, grupadziekanska_id) values ('s1232', 4, 1);
 insert into student (indeks, id, grupadziekanska_id) values ('s1134', 5, 2);
 insert into student (indeks, id, grupadziekanska_id) values ('s4234', 6, 3);

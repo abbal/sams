@@ -15,6 +15,7 @@
 					<s:decorate id="poleStudent" template="layout/edit.xhtml">
 						<h:selectManyCheckbox id="studentZListy" required="true"
 							value="#{studentHome.instance.imie} #{studentHome.instance.nazwisko} #{studentHome.instance.indeks} #{studentHome.instance.grupaDziekanska.nazwa} #{studentHome.instance.login} #{studentHome.instance.haslo}"
+
 							layout="pageDirection">
 							<s:selectItems value="#{studentList.resultList}" var="student"
 								label="#{student.indeks} #{student.imie} #{student.nazwisko} #{studentHome.instance.grupaDziekanska.nazwa}" />
@@ -35,3 +36,7 @@
 	</ui:define>
 
 </ui:composition>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f79b31e95659380812398004ccc7b4ce7ea7130
