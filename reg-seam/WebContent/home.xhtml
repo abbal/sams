@@ -14,7 +14,7 @@
 
 		<div id="obecności">
 		
-		<h:outputLabel value ="Lista Przedmiotów" rendered="#{identity.isLoggedIn() and s:hasRole('S')}">></h:outputLabel>
+		<h:outputLabel value ="Lista Przedmiotów" rendered="#{identity.isLoggedIn() and s:hasRole('S')}"></h:outputLabel>
 		<ul>
 			<ui:repeat var="obecnosc"
 				value="#{studentHome.obecnyDzis(loggedIn.id)}"

@@ -68,7 +68,7 @@ select {
 	margin-left: 3px;
 }
 
-/*
+
 .message li.infomsg {
 	background-image: url(../img/msginfo.png);
 }
@@ -80,7 +80,7 @@ select {
 .message li.warnmsg {
 	background-image: url(../img/msgwarn.png);
 }
-*/
+
 .name {
 	vertical-align: top;
 	font-weight: bold;
@@ -97,8 +97,9 @@ select {
 }
 
 .error {
-	float: left;
+/*	float: left;*/
 	padding: 5px;
+	color: #FF0000;
 }
 
 .errors {

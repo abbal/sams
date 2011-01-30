@@ -9,9 +9,10 @@
 
 
 	<ui:define name="body">
-		<h:panelGrid columns="2">
-		
+
+
 			<h:form id="zmienhaslo">
+			<div class="dialog"><h:panelGrid columns="2">
 				<rich:panel>
 					<f:facet name="header">Zmiana hasła</f:facet>
 					<div><h:outputLabel value="Login  :" /> <h:inputText
@@ -28,10 +29,17 @@
 
 				<div class="actionButtons"><h:commandButton
 					id="changePassword" value="Wprowadź zmiany"
-					action="#{zmianaHasla.changePassword}" /><s:button id="back"
-					value="Wróć" view="/home.xhtml" /></div>
-
+					action="#{zmianaHasla.changePassword}">
+					<f:param name="zmianaHaslaLogin" value="#{zmianaHasla.login}" />
+					<f:param name="zmianaHaslaOldPassword"
+						value="#{zmianaHasla.oldPassword}" />
+					<f:param name="zmianaHaslaPassword" value="#{zmianaHasla.password}" />
+					<f:param name="zmianaHaslaRepeatedPassword"
+						value="#{zmianaHasla.repeatedPassword}" />
+				</h:commandButton> <s:button id="back" value="Wróć" view="/home.xhtml" /></div>
+				</h:panelGrid>
+</div>
 			</h:form>
-		</h:panelGrid>
+
 	</ui:define>
 </ui:composition>

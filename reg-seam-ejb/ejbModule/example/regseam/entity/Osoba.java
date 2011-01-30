@@ -3,6 +3,7 @@ package example.regseam.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -24,7 +25,7 @@ public abstract class Osoba implements Serializable{
 	private String imie;
 	private String nazwisko; 
 	private String login; 
-/*	 @NotNull  
+/*	@NotNull   
 	 @Length(min = 8)  
 	 @UserPassword(hash = "md5")*/
 	private String haslo;
@@ -39,6 +40,7 @@ public abstract class Osoba implements Serializable{
 	public void setFlaga(boolean flaga) {
 		this.flaga = flaga;
 	}
+
 	public String getRola() {
 		return rola;
 	}
