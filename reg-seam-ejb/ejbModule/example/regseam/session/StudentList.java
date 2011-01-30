@@ -10,6 +10,6 @@ public class StudentList extends EntityQuery<Student> {
 
 	public StudentList()
     {
-        setEjbql("select student from Student student");
+        setEjbql("select student from Student student where student.flaga is true");
     }
 }

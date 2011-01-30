@@ -7,8 +7,10 @@ import example.regseam.entity.GrupaDziekanska;
 @Name("grupaDziekanskaList")
 public class GrupaDziekanskaList extends EntityQuery<GrupaDziekanska>
 {
-    public GrupaDziekanskaList()
+	private static final long serialVersionUID = 1L;
+
+	public GrupaDziekanskaList()
     {
-        setEjbql("select grupaDziekanska from GrupaDziekanska grupaDziekanska");
+        setEjbql("select grupaDziekanska from GrupaDziekanska grupaDziekanska  where grupaDziekanska.flaga is true");
     }
 }

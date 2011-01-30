@@ -16,6 +16,9 @@
 			<h:outputText value="#{studentHome.instance.nazwisko}" />
 			<h:outputText value="Index: " />
 			<h:outputText value="#{studentHome.instance.indeks}" />
+			<h:outputText value="Status: " />
+			<h:outputText value="Aktywny" rendered="#{studentHome.instance.flaga}" />
+			<h:outputText value="Nie aktywny" rendered="#{!studentHome.instance.flaga}" />
 			<h:outputText value="Numer grupy: " />
 			<h:outputText value="#{studentHome.instance.grupaDziekanska.nazwa}" />
 			<h:outputText value="Grupy: " />
@@ -26,6 +29,7 @@
 						value="#{grupa.przedmiot} #{grupa.numerGrupy}" escape="false" /></li>
 				</ui:repeat>
 			</ul>
+
 				<div class="actionButtons"> <s:button id="done" value="Edytuj"
 					view="/editStudent.xhtml" >
 					</s:button> <s:button propagation="end"

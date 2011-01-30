@@ -37,6 +37,7 @@ public class GrupaHome extends EntityHome<Grupa> {
 		Grupa nowa = super.getInstance();
 		String nazwa = nowa.getPrzedmiot();
 		int numer = nowa.getNumerGrupy();
+		nowa.setFlaga(true);
 		List<?> grupy = super.getEntityManager().createQuery("select grupa from Grupa grupa").getResultList();
 		for (Object grupa : grupy) {
 			if (((Grupa) grupa).getPrzedmiot().equals(nazwa) && ((Grupa) grupa).getNumerGrupy() == numer) {

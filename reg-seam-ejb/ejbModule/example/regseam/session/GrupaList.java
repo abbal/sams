@@ -10,9 +10,11 @@ import example.regseam.entity.Grupa;
 @Name("grupaList")
 public class GrupaList extends EntityQuery<Grupa>
 {
-    public GrupaList()
+	private static final long serialVersionUID = 1L;
+
+	public GrupaList()
     {
-        setEjbql("select grupa from Grupa grupa");
+        setEjbql("select grupa from Grupa grupa  where grupa.flaga is true");
     }
     
     public List<Grupa> GrupyList(long id)

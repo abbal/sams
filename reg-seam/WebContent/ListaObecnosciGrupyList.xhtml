@@ -15,7 +15,7 @@
 			value="#{grupaHome.instance.numerGrupy}" /></div>
 		<br />
 		
-		<h:outputText value="Lista obecności: " />
+		<h:outputText value="Lista obecności w dniu dzisiejszym: " />
 			<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
 			<h:outputText value="Zamknięta"
 				rendered="#{!grupaHome.instance.open}" /><br />
@@ -29,7 +29,8 @@
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button>
 			<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}" view="/grupa.xhtml"
-				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}">
+				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}"
+				onclick="if (!confirm('Czy napewno chcesz odrzucić listę?')) return false;">
 				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 			</s:button><br /><br />
 			

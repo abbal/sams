@@ -7,8 +7,10 @@ import example.regseam.entity.Dziekanat;
 @Name("dziekanatList")
 public class DziekanatList extends EntityQuery<Dziekanat>
 {
-    public DziekanatList()
+	private static final long serialVersionUID = 1L;
+
+	public DziekanatList()
     {
-        setEjbql("select dziekanat from Dziekanat dziekanat");
+        setEjbql("select dziekanat from Dziekanat dziekanat  where dziekanat.flaga is true");
     }
 }

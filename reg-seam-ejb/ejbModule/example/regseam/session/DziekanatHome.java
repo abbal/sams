@@ -2,8 +2,6 @@ package example.regseam.session;
 
 import java.util.List;
 
-import org.hibernate.validator.InvalidStateException;
-import org.hibernate.validator.InvalidValue;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -23,6 +21,7 @@ public class DziekanatHome extends EntityHome<Dziekanat> {
 		Dziekanat nowy = super.getInstance();
 		String imie = nowy.getImie();
 		String nazwisko = nowy.getNazwisko();
+		nowy.setFlaga(true);
 		List<?> pracownicy = super.getEntityManager()
 				.createQuery("select dziekanat from Dziekanat dziekanat")
 				.getResultList();

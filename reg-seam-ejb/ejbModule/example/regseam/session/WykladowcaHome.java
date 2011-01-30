@@ -10,7 +10,6 @@ import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.framework.EntityHome;
 import org.jboss.seam.international.StatusMessages;
 
-import example.regseam.entity.Student;
 import example.regseam.entity.Wykladowca;
 
 @Name("wykladowcaHome")
@@ -37,6 +36,7 @@ public class WykladowcaHome extends EntityHome<Wykladowca>
 		Wykladowca nowy = super.getInstance();
 		String imie = nowy.getImie();
 		String nazwisko = nowy.getNazwisko();
+		nowy.setFlaga(true);
 		List<?> wykladowcy = super.getEntityManager()
 				.createQuery("select wykladowca from Wykladowca wykladowca")
 				.getResultList();

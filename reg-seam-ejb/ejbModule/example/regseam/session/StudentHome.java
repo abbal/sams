@@ -65,6 +65,7 @@ public class StudentHome extends EntityHome<Student> {
 	public String persist() {
 		Student nowy = super.getInstance();
 		String index = nowy.getIndeks();
+		nowy.setFlaga(true);
 		List<?> studenci = super.getEntityManager().createQuery("select student from Student student").getResultList();
 		for (Object student : studenci) {
 			if (((Student) student).getIndeks().equals(index)) {
