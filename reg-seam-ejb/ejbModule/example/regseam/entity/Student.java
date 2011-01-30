@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.validator.Length;
+import org.hibernate.validator.Pattern;
 
 @Entity
 @DiscriminatorValue("S")
@@ -21,6 +22,7 @@ public class Student extends Osoba {
 	private List<Obecnosc> obecnosci;
 
 	@Length(max = 15)
+	@Pattern(regex="^s\\d{1,4}$", message="niepoprawny format")
 	public String getIndeks() {
 		return indeks;
 	}

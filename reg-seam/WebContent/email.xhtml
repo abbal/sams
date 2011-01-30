@@ -2,11 +2,11 @@
 	xmlns:m="http://jboss.com/products/seam/mail"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-	<m:from name="S.A.M.S.">sams@example.com
+	<m:from name="S.A.M.S.">s.a.m.s.pjwstk@gmail.com
 </m:from>
 	<m:to name="#{wyslijMaila.index}"> #{wyslijMaila.address}
 </m:to>
 	<m:subject>[S.A.M.S.] Przypomnienie hasła </m:subject>
 	<m:header name="#{wyslijMaila.index}">Twoje hasło to</m:header>
-	<m:body>tu haslo</m:body>
+	<m:body> #{wyslijMaila.pass} </m:body>
 </m:message>

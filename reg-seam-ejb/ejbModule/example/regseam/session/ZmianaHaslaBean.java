@@ -20,6 +20,7 @@ import org.jboss.seam.security.Identity;
 import org.jboss.seam.security.management.IdentityStore;
 import org.jboss.security.integration.password.Password;
 
+import example.regseam.entity.Osoba;
 import example.regseam.entity.ZmianaHasla;
 
 @Stateful
@@ -40,6 +41,15 @@ public class ZmianaHaslaBean implements ZmianaHasla {
 	private String oldPassword;
 	private String password;
 	private String repeatedPassword;
+	private Osoba osoba;
+	
+	public Osoba getOsoba() {
+		return osoba;
+	}
+
+	public void setOsoba(Osoba osoba) {
+		this.osoba = osoba;
+	}
 
 	@Override
 	public String getLogin() {
@@ -47,13 +57,13 @@ public class ZmianaHaslaBean implements ZmianaHasla {
 	}
 
 	@Override
-	public void setLogin(String login) {
+	public void setLogin(String login){
 		this.login = login;
 	}
 
 	@Override
 	public String getOldPassword() {
-		// TODO Auto-generated method stub
+		
 		return oldPassword;
 	}
 

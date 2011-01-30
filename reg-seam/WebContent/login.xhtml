@@ -12,18 +12,19 @@
 			<h:form id="loginForm">
 
 				<rich:panel>
-					<f:facet name="header">Login</f:facet>
-
-					<p>Please login here</p>
+					<f:facet name="header">Logowanie</f:facet>
 
 					<div class="dialog"><h:panelGrid columns="2"
 						rowClasses="prop" columnClasses="name,value">
-						<h:outputLabel for="username">Username</h:outputLabel>
-						<h:inputText id="username" value="#{credentials.username}" />
-						<h:outputLabel for="password">Password</h:outputLabel>
-						<h:inputSecret id="password" value="#{credentials.password}" />
+						<h:outputLabel for="username">Nazwa użytkownika</h:outputLabel>
+						<h:inputText id="username" value="#{credentials.username}" required="true"/>
+						<h:outputLabel for="password">Hasło</h:outputLabel>
+						<h:inputSecret id="password" value="#{credentials.password}" required="true"/>
+						<h:messages infoStyle="info" errorStyle="error" fatalStyle="fatal"
+						warnStyle="warn" />
+
 					</h:panelGrid></div>
-					<div><h:outputLabel value=" "/><s:link id="przypomnienie" value="Zapomniałem hasło" view="/przypomnienieHasla.xhtml">
+					<div id="czerwien"><h:outputLabel value=" "/><s:link id="przypomnienie" value="Zapomniałem hasło" view="/przypomnienieHasla.xhtml">
 					</s:link></div>
 					<div class="actionButtons"><h:commandButton id="submit"
 						value="Login" action="#{identity.login}" /></div>
