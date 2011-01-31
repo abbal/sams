@@ -27,18 +27,6 @@
 			<h:outputText value="Zamknięta"
 				rendered="#{!grupaHome.instance.open}" />
 
-			<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}"
-				rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<s:button value="Zamknij" action="#{listaObecnosciHome.zamknij}"
-				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}"
-				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
 			<div id="obecności"> <h:outputText value="" rendered="#{!grupaHome.instance.open}" /></div>
 
 		</h:panelGrid>

@@ -23,6 +23,11 @@
 						<h:inputText id="nazwisko" required="true"
 							value="#{dziekanatHome.instance.nazwisko}" />
 					</s:decorate>
+					<s:decorate id="poleLogin" template="layout/edit.xhtml">
+						<ui:define name="label">Login</ui:define>
+						<h:inputText id="login" required="true"
+							value="#{dziekanatHome.instance.login}" />
+					</s:decorate>
 
 					<div style="clear: both" />
 

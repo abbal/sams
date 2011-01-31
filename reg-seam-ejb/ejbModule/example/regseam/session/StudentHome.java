@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.domain.regseam.session.Authenticator;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -66,6 +67,10 @@ public class StudentHome extends EntityHome<Student> {
 		Student nowy = super.getInstance();
 		String index = nowy.getIndeks();
 		nowy.setFlaga(true);
+		nowy.setRola("S");
+		nowy.setLogin(nowy.getIndeks());
+		String haslo = "stud" + nowy.getImie().substring(0, 2).toLowerCase() + nowy.getNazwisko().substring(0, 2).toLowerCase();
+		nowy.setHaslo(Authenticator.generateMD5(haslo));
 		List<?> studenci = super.getEntityManager().createQuery("select student from Student student").getResultList();
 		for (Object student : studenci) {
 			if (((Student) student).getIndeks().equals(index)) {

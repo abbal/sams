@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.domain.regseam.session.Authenticator;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -37,6 +38,9 @@ public class WykladowcaHome extends EntityHome<Wykladowca>
 		String imie = nowy.getImie();
 		String nazwisko = nowy.getNazwisko();
 		nowy.setFlaga(true);
+		nowy.setRola("W");
+		String haslo = "wykl" + nowy.getImie().substring(0, 2).toLowerCase() + nowy.getNazwisko().substring(0, 2).toLowerCase();
+		nowy.setHaslo(Authenticator.generateMD5(haslo));
 		List<?> wykladowcy = super.getEntityManager()
 				.createQuery("select wykladowca from Wykladowca wykladowca")
 				.getResultList();

@@ -74,7 +74,7 @@
 					value="Dodaj studenta" view="/addStudent.xhtml" /></div>
 			</h:column>
 			<h:form enctype="multipart/form-data" rendered="#{s:hasRole('D')}">
-				<h:outputText value="Wczytywanie studentów z pliku CSV" />
+				<h:outputText value="Wczytywanie studentów z pliku CSV" /><br />
 				<s:fileUpload data="#{dataUpload.data}" accept="text/csv" />
 				<h:commandButton value="Upload" action="#{dataUpload.upload}"/> 
 			</h:form>

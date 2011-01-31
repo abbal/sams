@@ -56,7 +56,8 @@ public class WyslijMaila {
 			return;
 		}
 		this.address = index + "@pjwstk.edu.pl";
-		this.pass = "newpass1"; 
+		String haslo = "stud" + student.getImie().substring(0, 2).toLowerCase() + student.getNazwisko().substring(0, 2).toLowerCase();
+		this.pass = haslo; 
 		this.index = index;
 	}
 	

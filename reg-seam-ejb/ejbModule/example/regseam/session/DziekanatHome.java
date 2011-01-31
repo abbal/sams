@@ -2,6 +2,7 @@ package example.regseam.session;
 
 import java.util.List;
 
+import org.domain.regseam.session.Authenticator;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Begin;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -22,6 +23,9 @@ public class DziekanatHome extends EntityHome<Dziekanat> {
 		String imie = nowy.getImie();
 		String nazwisko = nowy.getNazwisko();
 		nowy.setFlaga(true);
+		nowy.setRola("D");
+		String haslo = "dzie" + nowy.getImie().substring(0, 2).toLowerCase() + nowy.getNazwisko().substring(0, 2).toLowerCase();
+		nowy.setHaslo(Authenticator.generateMD5(haslo));
 		List<?> pracownicy = super.getEntityManager()
 				.createQuery("select dziekanat from Dziekanat dziekanat")
 				.getResultList();

@@ -3,7 +3,6 @@ package example.regseam.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -11,7 +10,7 @@ import javax.persistence.InheritanceType;
 
 import org.hibernate.validator.Length;
 import org.hibernate.validator.Pattern;
-import org.jboss.security.integration.password.Password;
+import org.jboss.seam.annotations.security.management.UserPassword;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -76,7 +75,7 @@ public abstract class Osoba implements Serializable{
 	}
 	
 	@Length(min = 8)
-	@Password(methodName = "md5")
+	@UserPassword(hash = "md5")
 	public String getHaslo() {
 		return haslo;
 	}

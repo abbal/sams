@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 
+import org.domain.regseam.session.Authenticator;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
@@ -53,7 +54,8 @@ public class Upload {
 				}
 				student.setGrupaDziekanska(grupaDziekanska);
 				student.setFlaga(true);
-				student.setHaslo("pass1234");
+				String haslo = "stud" + fields[0].substring(0, 2).toLowerCase() + fields[1].substring(0, 2).toLowerCase();
+				student.setHaslo(Authenticator.generateMD5(haslo));
 				student.setImie(fields[0]);
 				student.setNazwisko(fields[1]);
 				student.setIndeks(fields[2]);
