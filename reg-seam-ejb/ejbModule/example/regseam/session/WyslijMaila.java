@@ -2,17 +2,15 @@ package example.regseam.session;
 
 import javax.persistence.EntityManager;
 
-import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Logger;
 import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.web.RequestParameter;
 import org.jboss.seam.faces.FacesMessages;
 import org.jboss.seam.faces.Renderer;
 import org.jboss.seam.log.Log;
 
-import example.regseam.entity.Osoba;
+import example.regseam.entity.Student;
 
 @Name("wyslijMaila")
 
@@ -26,11 +24,15 @@ public class WyslijMaila {
 
 	@In
 	private Renderer renderer;
+	
+	@RequestParameter
 	private String index;
+	
 	private String address;
 	private String pass;
-	@In EntityManager entityManager;
 	
+	@In 
+	EntityManager entityManager;
 	
 	public String getPass() {
 		return pass;
@@ -49,20 +51,22 @@ public class WyslijMaila {
 		return index;
 	}
 	public void setIndex(String index) {
+		Student student = (Student)entityManager.createQuery("select student from Student student where indeks = :index").setParameter("index", index).getSingleResult();
+		if (student == null) {
+			return;
+		}
 		this.address = index + "@pjwstk.edu.pl";
-		Osoba id = (Osoba)entityManager.createQuery("select id from Student id where indeks = :index").setParameter("index", index).getSingleResult();
-		Osoba passwd = (Osoba)entityManager.createQuery("select haslo from Osoba haslo where id = :id" ).setParameter("id", id).getSingleResult();
-		this.pass = passwd.toString(); 
+		this.pass = "newpass1"; 
 		this.index = index;
 	}
-	@RequestParameter
-	public void send(String index) {
+	
+	public void send() {
 		try {
 			renderer.render("/email.xhtml");
-			facesMessages.add("Email sent successfully");
+			facesMessages.add("Email został wysłany");
 		} catch (Exception e) {
-			log.error("Error sending mail", e);
-			facesMessages.add("Email sending failed: " + e.getMessage());
+			log.error("Wyslanie nie powiodło się", e);
+			facesMessages.add("Wyslanie nie powiodło się");
 		}
 	}
 }

@@ -4,7 +4,7 @@ insert into grupadziekanska (id, flaga, nazwa) values (2, TRUE, 'GID201');
 insert into grupadziekanska (id, flaga, nazwa) values (3, TRUE, 'GID301');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (1, TRUE, 'pass1234', 'Jaś', 'login', 'Fasola', 'S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (2, TRUE, 'pass1234', 'Bonawentura', 'nowak', 'Nowak', 'S');
-insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (3,FALSE, 'pass1234', 'Delfina','muc', 'Muc','S');
+insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (3,TRUE, 'pass1234', 'Delfina','muc', 'Muc','S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (4,TRUE, 'pass1234', 'Emeryk','robak', 'Robak','S');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (5,TRUE, 'pass1234', 'Filipina', 'gazda', 'Gazda', 'S');
 insert into osoba (id, flaga, imie, nazwisko) values (6, TRUE, 'Gracja', 'Roztocka');
@@ -12,7 +12,7 @@ insert into osoba (id, flaga, imie, nazwisko) values (7, TRUE, 'Hildegarda', 'vo
 insert into osoba (id, flaga, imie, nazwisko) values (8, TRUE, 'Idzi', 'Brzęczyszczykiewicz');
 insert into osoba (id, flaga, imie, nazwisko) values (9, TRUE, 'Wierzchosława', 'Złotopolska-Aleksandrowicz');
 insert into osoba (id, flaga, imie, nazwisko) values (10, TRUE, 'Kunegunda', 'Sobieska');
-insert into osoba (id, flaga, imie, nazwisko) values (11, FALSE, 'Leontyna', 'Dzierżyńska');
+insert into osoba (id, flaga, imie, nazwisko) values (11, TRUE, 'Leontyna', 'Dzierżyńska');
 insert into osoba (id, flaga, imie, nazwisko) values (12, TRUE, 'Leontyna', 'Niesiołowska');
 insert into osoba (id, flaga, haslo, imie, login, nazwisko, rola) values (13, TRUE, 'pass1234','Stanisław','szejko', 'Szejko', 'W');
 insert into osoba (id, flaga, imie, nazwisko) values (14, TRUE, 'Jakub', 'Neumann');

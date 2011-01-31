@@ -1,4 +1,4 @@
-package example.regseam.entity;
+package example.regseam.session;
 
 import javax.ejb.Local;
 

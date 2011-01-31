@@ -21,7 +21,6 @@ import org.jboss.seam.security.management.IdentityStore;
 import org.jboss.security.integration.password.Password;
 
 import example.regseam.entity.Osoba;
-import example.regseam.entity.ZmianaHasla;
 
 @Stateful
 @Scope(EVENT)
@@ -48,26 +47,24 @@ public class ZmianaHaslaBean implements ZmianaHasla {
 	}
 
 	@Override
-	public void setLogin(String login){
+	public void setLogin(String login) {
 		this.login = login;
 	}
 
 	@Override
 	public String getOldPassword() {
-		
 		return oldPassword;
 	}
 
 	@Override
 	public void setOldPassword(String password) {
-		this.oldPassword = oldPassword;
+		this.oldPassword = password;
 	}
 
 	@Override
 	@Length(min = 8)
 	@Password(methodName = "md5")
 	public String getPassword() {
-
 		return password;
 	}
 
@@ -79,13 +76,12 @@ public class ZmianaHaslaBean implements ZmianaHasla {
 	@Override
 	@UserPassword(hash = "md5")
 	public String getRepeatedPassword() {
-
 		return repeatedPassword;
 	}
 
 	@Override
 	public void setRepeatedPassword(String password) {
-		this.repeatedPassword = repeatedPassword;
+		this.repeatedPassword = password;
 	}
 
 	@Create

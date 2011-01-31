@@ -4,9 +4,8 @@
 
 	<m:from name="S.A.M.S.">s.a.m.s.pjwstk@gmail.com
 </m:from>
-	<m:to name="#{wyslijMaila.index}"> #{wyslijMaila.address}
+	<m:to name="#{wyslijMaila.index}">#{wyslijMaila.address}
 </m:to>
 	<m:subject>[S.A.M.S.] Przypomnienie hasła </m:subject>
-	<m:header name="#{wyslijMaila.index}">Twoje hasło to</m:header>
-	<m:body> #{wyslijMaila.pass} </m:body>
+	<m:body>Twoje hasło to #{wyslijMaila.pass} </m:body>
 </m:message>
