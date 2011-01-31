@@ -2,6 +2,7 @@ package example.regseam.session;
 
 import javax.persistence.EntityManager;
 
+import org.domain.regseam.session.Authenticator;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Logger;
 import org.jboss.seam.annotations.Name;
@@ -56,7 +57,10 @@ public class WyslijMaila {
 			return;
 		}
 		this.address = index + "@pjwstk.edu.pl";
-		String haslo = "stud" + student.getImie().substring(0, 2).toLowerCase() + student.getNazwisko().substring(0, 2).toLowerCase();
+		String haslo = password();
+		student.setHaslo(Authenticator.generateMD5(haslo));
+		entityManager.persist(student);
+		System.out.println("#################"+haslo+"#####");
 		this.pass = haslo; 
 		this.index = index;
 	}
@@ -69,5 +73,16 @@ public class WyslijMaila {
 			log.error("Wyslanie nie powiodło się", e);
 			facesMessages.add("Wyslanie nie powiodło się");
 		}
+	}
+
+	private String password() {
+		String all = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		char[] array = all.toCharArray();
+		String haslo = "";
+		for (int i = 0; i < 8; i ++) {
+			int los = (int) (Math.random()*62);
+			haslo += array[los];
+		}
+		return haslo;
 	}
 }

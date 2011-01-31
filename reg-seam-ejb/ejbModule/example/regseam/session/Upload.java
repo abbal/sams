@@ -1,5 +1,6 @@
 package example.regseam.session;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +17,8 @@ import example.regseam.entity.Student;
 
 @Scope(ScopeType.SESSION)
 @Name("dataUpload")
-public class Upload {
+public class Upload implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private byte[] data;
 
 	@In 

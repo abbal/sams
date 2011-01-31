@@ -15,7 +15,7 @@
     	
         <h:outputText id="menuWelcomeId" value="zalogowany jako: #{loggedIn.imie} #{loggedIn.nazwisko}" rendered="#{identity.loggedIn}"/>
         <s:link id="menuLoginId" view="/login.xhtml" value="Zaloguj" rendered="#{not identity.loggedIn}" propagation="none"/>
-        <s:link id="zmianaHasla" view="/zmianaHasla.xhtml" value="Zmiana Hasła" rendered="#{identity.loggedIn}" propagation="none"/>
+        <s:link id="zmianaHasla" view="/haslo.xhtml" value="Zmiana Hasła" rendered="#{identity.loggedIn}" propagation="none"/>
         <s:link id="menuLogoutId" view="/home.xhtml" action="#{identity.logout}" value="Wyloguj" rendered="#{identity.loggedIn}" propagation="none"/>
     </rich:toolBarGroup>
   
