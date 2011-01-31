@@ -1,14 +1,14 @@
 package example.regseam.session;
 
 public enum DzienTygodnia {
-	 
-	PONIEDZIALEK (0, "Poniedziałek"), 
-	WTOREK  (1, "Wtorek"), 
-	SRODA  (2, "Środa"), 
-	CZWATREK (3, "Czwartek"), 
-	PIATEK  (4, "Piątek"), 
-	SOBOTA  (5, "Sobota"),
-	NIEDZIELA(6, "Niedziela");
+	
+	NIEDZIELA (1, "Niedziela"),
+	PONIEDZIALEK (2, "Poniedziałek"),
+	WTOREK (3, "Wtorek"),
+	SRODA (4, "Środa"),
+	CZWATREK (5, "Czwartek"),
+	PIATEK (6, "Piątek"),
+	SOBOTA (7, "Sobota");
 	
 	private String ivLabel = null;
 	private int ivOridinal = -1;

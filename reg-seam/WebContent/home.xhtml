@@ -13,9 +13,8 @@
 			style="height : 191px; width : 600px;" />
 
 
-		<div id="obecności">
-		
-		<h:outputLabel value ="Lista Przedmiotów" rendered="#{identity.isLoggedIn() and s:hasRole('S')}"></h:outputLabel>
+		<div id="obecności"><h:outputLabel value="Lista Przedmiotów"
+			rendered="#{identity.isLoggedIn() and s:hasRole('S')}"></h:outputLabel>
 		<ul>
 			<ui:repeat var="obecnosc"
 				value="#{studentHome.obecnyDzis(loggedIn.id)}"
@@ -26,10 +25,19 @@
 					rendered="#{obecnosc.listaObecnosci.grupa.open and obecnosc.obecnosc eq 'nieobecny'}">
 					<f:param name="grupaId" value="#{obecnosc.listaObecnosci.grupa.id}" />
 					<f:param name="studentId" value="#{loggedIn.id}" />
-				</s:link> <h:outputText value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}"
+				</s:link> <h:outputText
+					value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}"
 					rendered="#{!obecnosc.listaObecnosci.grupa.open or obecnosc.obecnosc ne 'nieobecny'}" /></li>
 			</ui:repeat>
 		</ul>
 		</div>
+		<ui:repeat var="grupa"
+			value="#{grupaHome.aktualna(loggedIn.id)}"
+			rendered="#{identity.isLoggedIn() and s:hasRole('W')}">
+			<h:outputLabel value="Aktualne przedmioty" /><br />
+			<s:link value="#{grupa.przedmiot} #{grupa.numerGrupy}" view="/grupa.xhtml" >
+				<f:param name="grupaId" value="#{grupa.id}" />
+			</s:link>
+		</ui:repeat>
 	</ui:define>
 </ui:composition>

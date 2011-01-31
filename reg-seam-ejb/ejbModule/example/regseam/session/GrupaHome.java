@@ -1,6 +1,8 @@
 package example.regseam.session;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.jboss.seam.annotations.Name;
@@ -78,6 +80,29 @@ public class GrupaHome extends EntityHome<Grupa> {
 		poprawiany.setFlaga(false);
 		super.getEntityManager().persist(poprawiany);
 		return super.update();
+	}
+
+	public List<Grupa> aktualna(long id) {
+		Wykladowca wykladowca = super.getEntityManager().find(Wykladowca.class, id);
+		List<Grupa> wynik = new ArrayList<Grupa>();
+		List<Grupa> grupy = wykladowca.getWykladowcyGrupy();
+		Calendar teraz = Calendar.getInstance();
+		teraz.setTime(new java.util.Date());
+		int dzienTygodnia = teraz.get(Calendar.DAY_OF_WEEK);
+		int godzina = teraz.get(Calendar.HOUR_OF_DAY);
+		int minuty = teraz.get(Calendar.MINUTE);
+		for (Grupa grupa : grupy) {
+			String[] start = grupa.getGodzinaStart().split(":"); 
+			String[] stop = grupa.getGodzinaStop().split(":"); 
+			if(grupa.getDzien().getOridinal() == dzienTygodnia 
+					&& (Integer.parseInt(start[0]) < godzina
+							|| (Integer.parseInt(start[0]) == godzina && Integer.parseInt(start[1]) < minuty))
+					&& (Integer.parseInt(stop[0]) > godzina
+							|| (Integer.parseInt(stop[0]) == godzina && Integer.parseInt(stop[1]) > minuty))) {
+				wynik.add(grupa);
+			}
+		}
+		return wynik;
 	}
 
 	@Override
