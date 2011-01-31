@@ -31,14 +31,9 @@
 			</ul>
 
 				<div class="actionButtons"> <s:button id="done" value="Edytuj"
-					view="/editStudent.xhtml" >
-					</s:button> <s:button propagation="end"
-					id="delete" value="Usuń" 
-					immediate="true" action="#{studentHome.remove}"
-					view="/studentList.xhtml"
-					onclick="if (!confirm('Czy napewno chcesz usunąć tego studenta z listy?')) return false;">
-
-				</s:button></div>
+					view="/addStudent.xhtml" >
+					<f:param name="studentId" value="#{student.id}" />
+					</s:button></div>
 
 		</h:panelGrid>
 

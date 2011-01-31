@@ -45,7 +45,7 @@ public class ObecnoscHome extends EntityHome<Obecnosc> {
 			if (l.getData().toString().equals(new Date(dzisiaj.getTime()).toString())) {
 				for (Obecnosc o : l.getObecnosci()) {
 					if (o.getStudent().getId() == studentId) {
-						o.setObecnosc("jest");
+						o.setObecnosc("Obecny");
 						super.getEntityManager().persist(o);
 						return;
 					}

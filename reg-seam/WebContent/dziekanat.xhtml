@@ -13,12 +13,13 @@
 			<h:outputText value="#{dziekanatHome.instance.imie}" />
 			<h:outputText value="Nazwisko: " />
 			<h:outputText value="#{dziekanatHome.instance.nazwisko}" />
-
 		</h:panelGrid>
-		<div class="actionButtons"><s:button id="back" value="Powrót"
-			view="/dziekanatList.xhtml" /> <s:button id="done" value="Edytuj"
-			rendered="#{s:hasRole('D')}" view="/addDziekanat.xhtml">
-			<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
-		</s:button></div>
+		<h:panelGrid columns="3">
+			<div class="actionButtons"><s:button id="back" value="Powrót"
+				view="/dziekanatList.xhtml" /> <s:button id="done" value="Edytuj"
+				rendered="#{s:hasRole('D')}" view="/addDziekanat.xhtml">
+				<f:param name="dziekanatId" value="#{dziekanatHome.instance.id}" />
+			</s:button></div>
+		</h:panelGrid>
 	</ui:define>
 </ui:composition>

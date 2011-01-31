@@ -65,14 +65,16 @@
 					</rich:dataTable></div>
 
 				</h:form>
+				<div class="actionButtons"><s:button id="done" value="Edytuj"
+ 					rendered="#{s:hasRole('D')}" view="/addGrupaDziekanska.xhtml">
+ 					<f:param name="grupaDziekanskaId"
+ 						value="#{grupaDziekanskaHome.instance.id}" />
+ 				</s:button> </div>
 			</rich:panel>
-
-        <div class="actionButtons">
-                        <s:button propagation="end"
-                               id="cancel"
-                            value="Powrót"
-                             view="/grupaDziekanskaList.xhtml"/>
-        </div>
+<div class="actionButtons">
+<s:button propagation="end" id="cancel" value="Powrót"
+ 					view="/grupaDziekanskaList.xhtml" />
+</div>
 
     
 </h:panelGrid>

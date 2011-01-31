@@ -60,7 +60,6 @@ public class WyslijMaila {
 		String haslo = password();
 		student.setHaslo(Authenticator.generateMD5(haslo));
 		entityManager.persist(student);
-		System.out.println("#################"+haslo+"#####");
 		this.pass = haslo; 
 		this.index = index;
 	}
