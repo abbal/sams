@@ -1,0 +1,31 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
+
+	<ui:define name="body">
+		<h:form id="zmienHaslo">
+			<h:panelGrid columns="2">
+
+				<h:outputText value="Login: " />
+				<h:inputText id="login" value="#{haslo.login}" required="TRUE" />
+				<h:outputText value="Stare haslo: " />
+				<h:inputSecret id="haslo" value="#{haslo.haslo}" required="TRUE" />
+				<h:outputText value="Nowe haslo: " />
+				<h:inputSecret id="nowe" value="#{haslo.nowe}" required="TRUE" />
+				<h:outputText value="Potwierdź haslo: " />
+				<h:inputSecret id="potwierdzenie" value="#{haslo.potwierdzenie}"
+					required="TRUE" />
+			</h:panelGrid>
+			<h:messages infoStyle="info" errorStyle="error" fatalStyle="fatal"
+				warnStyle="warn" />
+			<div class="actionButtons"><h:commandButton value="Zmień"
+				action="#{haslo.zmien(loggedIn.id)}" /> <s:button id="back"
+				value="Powrót" view="/home.xhtml" /></div>
+		</h:form>
+	</ui:define>
+</ui:composition>
