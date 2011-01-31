@@ -13,8 +13,8 @@
 				<rich:panel>
 					<f:facet name="header">Dodanie grupy dziekańskiej do grupy</f:facet>
 					<s:decorate id="poleStudent" template="layout/edit.xhtml">
-						<h:selectManyCheckbox id="studentDoGrupy" required="true"
-							value="#{grupaHome.instance.studenci}" layout="pageDirection">
+						<h:selectManyCheckbox id="studenciDoGrupy" required="true"
+							value="#{studenciDoGrupy.lista}" layout="pageDirection">
 							<s:selectItems value="#{grupaDziekanskaList.resultList}"
 								var="nazwa" label="#{nazwa.nazwa}" />
 							<s:convertEntity />
@@ -23,11 +23,9 @@
 
 					<div style="clear: both" />
 					<div class="actionButtons" style="margin-left: 15%;"><h:commandButton
-						id="save" value="Zapisz" action="#{grupaHome.persist}"
-						rendered="#{!grupaHome.managed}" /> <h:commandButton id="update"
-						value="Popraw" action="#{grupaHome.update}"
-						rendered="#{grupaHome.managed}" /><s:button propagation="end"
-						id="finish" value="Zakończ" view="/grupa.xhtml" /></div>
+						id="save" value="Zapisz" action="#{studenciDoGrupy.zapisz(grupaHome.instance.id)}" />
+						<s:button propagation="end" id="finish" value="Zakończ" view="/grupa.xhtml" >
+						<f:param name="grupaId" value="#{grupaHome.instance.id}" /></s:button></div>
 				</rich:panel>
 			</h:form>
 		</h:panelGrid>

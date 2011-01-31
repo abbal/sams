@@ -1,7 +1,12 @@
 package example.regseam.session;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.framework.EntityQuery;
+
+import example.regseam.entity.Grupa;
 import example.regseam.entity.Student;
 
 @Name("studentList")
