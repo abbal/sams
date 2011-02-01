@@ -28,13 +28,13 @@
 									var="obecnosc">
 									<td style="background-color:white;">
 									<h:outputText style="color: green;" value="+" title="#{obecnosc.listaObecnosci.data}"
-										rendered="#{obecnosc.obecnosc eq 'Obecny'}" /> <h:outputText
+										rendered="#{obecnosc.obecnosc eq 'Obecny' and empty obecnosc.komentarz}" /> <h:outputText
 										style="color: red;" value="–" title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and empty obecnosc.komentarz}" />
 									<h:outputText style="color: green;" value="s" title="#{obecnosc.listaObecnosci.data}"
-										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'SP'}" />
+										rendered="#{not empty obecnosc.komentarz and obecnosc.komentarz eq 'SP'}" />
 									<h:outputText style="color: red;" value="u" title="#{obecnosc.listaObecnosci.data}"
-										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'UC'}" />
+										rendered="#{not empty obecnosc.komentarz and obecnosc.komentarz eq 'UC'}" />
 									<h:outputText style="color: blue;" value="o" title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ODR'}" />
 									<h:outputText style="color: blue;" value="p" title="#{obecnosc.listaObecnosci.data}"
