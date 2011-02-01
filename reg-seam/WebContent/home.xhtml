@@ -31,6 +31,7 @@
 			</ui:repeat>
 		</ul>
 		</div>
+		<div id="obecności">
 		<ui:repeat var="grupa"
 			value="#{grupaHome.aktualna(loggedIn.id)}"
 			rendered="#{identity.isLoggedIn() and s:hasRole('W')}">
@@ -39,5 +40,6 @@
 				<f:param name="grupaId" value="#{grupa.id}" />
 			</s:link>
 		</ui:repeat>
+		</div>
 	</ui:define>
 </ui:composition>

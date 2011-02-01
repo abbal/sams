@@ -14,51 +14,57 @@
 			value="#{grupaHome.instance.przedmiot} " /> <h:outputText
 			value="#{grupaHome.instance.numerGrupy}" /></div>
 		<br />
-		
-		<h:outputText value="Lista obecności w dniu dzisiejszym: " />
-			<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
-			<h:outputText value="Zamknięta"
-				rendered="#{!grupaHome.instance.open}" /><br />
 
-		<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}" view="/grupa.xhtml"
-				rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open and !grupaHome.isClose(grupaHome.instance.id)}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<s:button value="Zapisz listę" action="#{listaObecnosciHome.zapisz}" view="/grupa.xhtml"
-				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button>
-			<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}" view="/grupa.xhtml"
-				rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}"
-				onclick="if (!confirm('Czy napewno chcesz odrzucić listę?')) return false;">
-				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-			</s:button><br /><br />
-			
+		<h:outputText value="Lista obecności w dniu dzisiejszym: " />
+		<h:outputText value="Otwarta" rendered="#{grupaHome.instance.open}" />
+		<h:outputText value="Zamknięta" rendered="#{!grupaHome.instance.open}" />
+		<br />
+
+		<s:button value="Otwórz" action="#{listaObecnosciHome.nowa}"
+			view="/grupa.xhtml"
+			rendered="#{identity.loggedIn and s:hasRole('W') and !grupaHome.instance.open and !grupaHome.isClose(grupaHome.instance.id)}">
+			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+		</s:button>
+		<s:button value="Zapisz listę" action="#{listaObecnosciHome.zapisz}"
+			view="/grupa.xhtml"
+			rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}">
+			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+		</s:button>
+		<s:button value="Odrzuć listę" action="#{listaObecnosciHome.odrzuc}"
+			view="/grupa.xhtml"
+			rendered="#{identity.loggedIn and s:hasRole('W') and grupaHome.instance.open  and !grupaHome.isClose(grupaHome.instance.id)}"
+			onclick="if (!confirm('Czy napewno chcesz odrzucić listę?')) return false;">
+			<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+		</s:button>
+		<br />
+		<br />
+
 		<h:panelGrid columns="1">
 			<rich:panel>
 				<f:facet name="header">
 					<h:outputText value="Data" />
 				</f:facet>
+				
 				<h:outputText value="Nie ma jeszcze żadnych obecności"
 					rendered="#{empty grupaHome.instance.obecnosci}" />
 				<f:facet name="header">
 					<h:outputText value="Listy Obecności" />
-				</f:facet>
-
-
-				<div class="results"><ui:repeat
-					value="#{grupaHome.instance.obecnosci}" var="listaObecnosci"
-					rendered="#{not empty grupaHome.instance.obecnosci}">
-					<s:link value="#{listaObecnosci.data}" propagation="none"
-						view="/ListaObecnosciGrupy.xhtml">
-						<f:param name="listaObecnosciId" value="#{listaObecnosci.id}" />
-					</s:link>
-				</ui:repeat></div>
+				</f:facet>			
+					<div class="results"><ui:repeat
+						value="#{grupaHome.instance.obecnosci}" var="listaObecnosci"
+						rendered="#{not empty grupaHome.instance.obecnosci}">
+						<br />
+						<s:link value="#{listaObecnosci.data}" propagation="none"
+							view="/ListaObecnosciGrupy.xhtml">
+							<f:param name="listaObecnosciId" value="#{listaObecnosci.id}" />
+						</s:link>
+						<br />
+					</ui:repeat></div>
 			</rich:panel>
 			<div class="actionButtons"><s:button id="back" value="Powrót"
-					view="/grupa.xhtml">
-					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
-				</s:button></div>
+				view="/grupa.xhtml">
+				<f:param name="grupaId" value="#{grupaHome.instance.id}" />
+			</s:button></div>
 
 		</h:panelGrid>
 	</ui:define>
