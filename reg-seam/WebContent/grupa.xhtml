@@ -5,6 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
 	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
 	<ui:define name="body">
@@ -41,63 +42,56 @@
 		<h:panelGrid columns="1">
 			<rich:panel>
 				<h:form id="grupaViewFormS">
-					<div class="results"><h:outputText
+					<!-- <div class="results"><h:outputText
 						value="Nie ma żadnych studentów"
 						rendered="#{empty grupaHome.instance.studenci}" /> <rich:dataTable
 						id="grupaStudentList" var="student"
 						value="#{grupaHome.instance.studenci}" rows="15" reRender="dsS"
 						rendered="#{not empty grupaHome.instance.studenci}"
 						style=" width : 669px;">
-						<f:facet name="header">Lista Studentów Grupy</f:facet>
-						<rich:column sortBy="#{student.indeks}">
-							<f:facet name="header">
-								<h:outputText value="Index" />
-							</f:facet>
-							<s:link id="studentI" value="#{student.indeks}"
-								propagation="none" view="/student.xhtml"
-								style="color: black; text-decoration: none;">
-								<f:param name="studentId" value="#{student.id}" />
-							</s:link>
-						</rich:column>
+						<f:facet name="header">Obecność Studentów Grupy</f:facet>
 						<rich:column sortBy="#{student.imie}">
 							<f:facet name="header">
-								<h:outputText value="Imię" />
+								<h:outputText value="Imię i Nazwisko" />
 							</f:facet>
-							<s:link id="studentIm" value="#{student.imie}" propagation="none"
+							<s:link id="studentIm" value="#{student.imie} #{student.nazwisko}" propagation="none"
 								view="/student.xhtml"
 								style="color: black; text-decoration: none;">
 								<f:param name="studentId" value="#{student.id}" />
 							</s:link>
 						</rich:column>
-						<rich:column sortBy="#{student.nazwisko}">
-							<f:facet name="header">
-								<h:outputText value="Nazwisko" />
-							</f:facet>
-							<s:link id="studentN" value="#{student.nazwisko}"
-								propagation="none" view="/student.xhtml"
-								style=" color: black; text-decoration: none;">
-								<f:param name="studentId" value="#{student.id}" />
-							</s:link>
-						</rich:column>
-						<rich:column sortBy="#{student.grupaDziekanska.nazwa}">
-							<f:facet name="header">
-								<h:outputText value="Grupa dziekańska" />
-							</f:facet>
-							<h:outputText value="#{student.grupaDziekanska.nazwa}" />
-						</rich:column>
-						<rich:column sortBy="#{student.flaga}">
-							<f:facet name="header">
-								<h:outputText value="Status" />
-							</f:facet>
-							<h:outputText value="Aktywny" rendered="#{student.flaga}" />
-							<h:outputText value="Nie aktywny" rendered="#{!student.flaga}" />
-						</rich:column>
+			
+								
+
 
 						<f:facet name="footer">
 							<rich:datascroller id="dsS" renderIfSinglePage="false"></rich:datascroller>
 						</f:facet>
-					</rich:dataTable></div>
+					</rich:dataTable></div>-->
 
+					<table border="1">
+					<tr><td><h:outputText value="Imię i Nazwisko" /></td>
+					<c:forEach var="i" begin="1" end="15">
+						<td><h:outputText value="${i}" /> </td>
+					</c:forEach>
+					</tr>
+					<ui:repeat 
+						value="#{grupaHome.instance.studenci}" var="student">
+						<tr><td><h:outputText value="#{student.imie} #{student.nazwisko}" /></td>
+					
+								<ui:repeat value="#{grupaHome.instance.getObecnoscStudent(student.id)}" var="obecnosc">
+									<td><h1><h:outputText style="color: green;" value="+" rendered="#{obecnosc.obecnosc eq 'Obecny'}" />
+									<h:outputText style="color: red;" value="–" rendered="#{obecnosc.obecnosc eq 'nieobecny' and empty obecnosc.komentarz}" />
+									<h:outputText style="color: green;" value="s" rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz ne 'spóżnienie'}" />
+									<h:outputText style="color: red;" value="u" rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ucieczka'}" />
+									<h:outputText style="color: blue;" value="o" rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'odrobione'}" />
+									<h:outputText style="color: blue;" value="p" rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'usprawiedliwiony'}" />
+								</h1></td>
+								</ui:repeat>
+							
+						</tr>
+					</ui:repeat>
+					</table>
 
 				</h:form>
 				<s:button id="addG"

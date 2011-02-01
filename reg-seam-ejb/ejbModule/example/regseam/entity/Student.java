@@ -1,5 +1,7 @@
 package example.regseam.entity;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
@@ -53,8 +55,28 @@ public class Student extends Osoba {
 	public void setObecnosci(List<Obecnosc> obecnosci) {
 		this.obecnosci = obecnosci;
 	}
-	public void addByGrupa(){
-		
-		
+
+	public List<Obecnosc> getObecnoscGrupa(long grupaId) {
+		List<Obecnosc> wynik = new ArrayList<Obecnosc>();
+		List<Obecnosc> tmp = new ArrayList<Obecnosc>();
+		for (Obecnosc ob : obecnosci) {
+			if (ob.getListaObecnosci().getGrupa().getId() == grupaId) {
+				tmp.add(ob);
+			}
+		}
+		List<Long> daty = new ArrayList<Long>();
+		for (Obecnosc ob : tmp) {
+			daty.add(ob.getListaObecnosci().getData().getTime());
+		}
+		Collections.sort(daty);
+		for (Long data : daty) {
+			for (Obecnosc ob : tmp) {
+				if (ob.getListaObecnosci().getData().getTime() == data) {
+					wynik.add(ob);
+					break;
+				}
+			}
+		}
+		return wynik;
 	}
 }

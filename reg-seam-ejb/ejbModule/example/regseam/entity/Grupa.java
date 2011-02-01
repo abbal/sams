@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -146,6 +148,32 @@ public class Grupa implements Serializable {
 	}
 	public void setFlaga(boolean flaga) {
 		this.flaga = flaga;
+	}
+
+	public List<Obecnosc> getObecnoscStudent(long studentId) {
+		List<Obecnosc> wynik = new ArrayList<Obecnosc>();
+		List<Obecnosc> tmp = new ArrayList<Obecnosc>();
+		for (ListaObecnosci listaOb : obecnosci) {
+			for (Obecnosc obecnosc : listaOb.getObecnosci()) {
+				if (obecnosc.getStudent().getId() == studentId) {
+					wynik.add(obecnosc);
+				}
+			}
+		}
+		List<Long> daty = new ArrayList<Long>();
+		for (Obecnosc ob : tmp) {
+			daty.add(ob.getListaObecnosci().getData().getTime());
+		}
+		Collections.sort(daty);
+		for (Long data : daty) {
+			for (Obecnosc ob : tmp) {
+				if (ob.getListaObecnosci().getData().getTime() == data) {
+					wynik.add(ob);
+					break;
+				}
+			}
+		}
+		return wynik;
 	}
 
 }

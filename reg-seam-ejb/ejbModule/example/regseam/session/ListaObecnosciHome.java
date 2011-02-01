@@ -34,12 +34,14 @@ public class ListaObecnosciHome extends EntityHome<ListaObecnosci> {
 		super.persist();
 
 		for (Student s : grupa.getStudenci()) {
-			ObecnoscHome oh = new ObecnoscHome();
-			Obecnosc o = oh.getInstance();
-			o.setListaObecnosci(super.getInstance());
-			o.setStudent(s);
-			o.setObecnosc("nieobecny");
-			super.getEntityManager().persist(o);
+			if (s.isFlaga()) {
+				ObecnoscHome oh = new ObecnoscHome();
+				Obecnosc o = oh.getInstance();
+				o.setListaObecnosci(super.getInstance());
+				o.setStudent(s);
+				o.setObecnosc("nieobecny");
+				super.getEntityManager().persist(o);
+			}
 		}
 		
 		grupa.setOpen(true);
