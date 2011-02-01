@@ -56,7 +56,7 @@ public class Student extends Osoba {
 		this.obecnosci = obecnosci;
 	}
 
-	public List<Obecnosc> getObecnoscGrupa(long grupaId) {
+	public List<Obecnosc> obecnoscGrupa(long grupaId) {
 		List<Obecnosc> wynik = new ArrayList<Obecnosc>();
 		List<Obecnosc> tmp = new ArrayList<Obecnosc>();
 		for (Obecnosc ob : obecnosci) {
@@ -76,6 +76,26 @@ public class Student extends Osoba {
 					break;
 				}
 			}
+		}
+		return wynik;
+	}
+
+	public List<Integer> dlugosc() {
+		List<Integer> wynik = new ArrayList<Integer>();
+		int max = 0;
+		for (Grupa grupa : studenciGrupy) {
+			int tmp = 0;
+			for (Obecnosc obecnosc : obecnosci) {
+				if (obecnosc.getListaObecnosci().getGrupa().getId() == grupa.getId()) {
+					tmp++;
+				}
+			}
+			if (tmp > max) {
+				max = tmp;
+			}
+		}
+		for (int i = 1; i <= max; i++) {
+			wynik.add(i);
 		}
 		return wynik;
 	}

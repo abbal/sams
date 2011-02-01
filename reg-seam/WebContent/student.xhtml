@@ -31,9 +31,9 @@
 			</ul>
 
 				<div class="actionButtons"> <s:button id="done" value="Edytuj"
-					view="/addStudent.xhtml" >
+					view="/addStudent.xhtml" rendered="#{s:hasRole('D')}" >
 					<f:param name="studentId" value="#{student.id}" />
-					</s:button></div>
+					</s:button><s:button id="back" value="Powrót" view="/studentList.xhtml" /></div>
 
 		</h:panelGrid>
 
