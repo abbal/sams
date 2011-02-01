@@ -1,3 +1,16 @@
+/*
+ * Projekt inżynierski Polsko-Japońskiej Wyższej Szkoły Technik Komputerowych w Gdańsku
+ * "Projekt i implementacja systemu monitorowania obecności       studentów na zajęciach"
+ * 
+ * Autorzy:
+ *     Adam Balcerzak
+ *     Tomasz Masztalerz
+ *     Piotr Niesiołowski
+ *
+ * Gdańsk, 2011
+ *
+ */
+
 package example.regseam.session;
 
 import java.io.Serializable;
