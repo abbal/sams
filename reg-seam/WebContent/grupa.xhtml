@@ -52,17 +52,21 @@
 							<ui:repeat
 								value="#{grupaHome.instance.obecnoscStudent(grupaHome.instance.studenci[0].id)}"
 								var="data" >
-								<th><h:outputLabel id="blank" value="     "/></th>
+								<th><s:link style="text-decoration: none; color: white;" value="#{data.listaObecnosci.data.day}/#{data.listaObecnosci.data.month}"> 
+									<f:param name="listaObecnosciId"
+										value="#{data.listaObecnosci.id}" />
+										</s:link>
+								</th>
 							</ui:repeat>
 						</tr>
 						<ui:repeat value="#{grupaHome.instance.studenci}" var="student">
 							<tr>
-								<td><s:link id="studentIm"
+								<td><h:outputLabel id="studentIm"
 									value="#{student.imie} #{student.nazwisko}" propagation="none"
 									view="/student.xhtml">
 									
 									<f:param name="studentId" value="#{student.id}" />
-								</s:link></td>
+								</h:outputLabel> </td>
 								<ui:repeat
 									value="#{grupaHome.instance.obecnoscStudent(student.id)}"
 									var="obecnosc">
