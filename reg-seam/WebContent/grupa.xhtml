@@ -57,51 +57,68 @@
 		<h:panelGrid columns="1">
 			<rich:panel>
 				<h:form id="grupaViewFormS">
-					
-					<div id="tab_obec"><table border="2">
-						<tr style="font-style:italic;">
-							<th><h:outputText value="Imię i Nazwisko" rendered="#{not empty grupaHome.instance.studenci}"/></th>
+
+					<div id="tab_obec">
+					<table border="2">
+						<tr style="font-style: italic;">
+							<th><h:outputText value="Imię i Nazwisko"
+								rendered="#{not empty grupaHome.instance.studenci}" /></th>
 							<ui:repeat
 								value="#{grupaHome.instance.obecnoscStudent(grupaHome.instance.studenci[0].id)}"
-								var="data" >
-								<th><s:link style="text-decoration: none; color: white;" value="#{data.listaObecnosci.data.day}/#{data.listaObecnosci.data.month}"> 
+								var="data">
+								<th><s:link style="text-decoration: none; color: white;" view="/ListaObecnosciGrupy.xhtml">
+									<h:graphicImage value="/img/dtpick.gif" />
+									<f:param name="listaObecnosciId"
+										value="#{data.listaObecnosci.id}" />
+								</s:link></th>
+							</ui:repeat>
+						</tr>
+						
+						<s:link style="text-decoration: none; color: white;" value="#{data.listaObecnosci.data.day}/#{data.listaObecnosci.data.month}"> 
 									<f:param name="listaObecnosciId"
 										value="#{data.listaObecnosci.id}" />
 										</s:link>
-								</th>
-							</ui:repeat>
-						</tr>
+						
+						
 						<ui:repeat value="#{grupaHome.instance.studenci}" var="student">
 							<tr>
 								<td><h:outputLabel id="studentIm"
 									value="#{student.imie} #{student.nazwisko}" propagation="none"
 									view="/student.xhtml">
-									
+
 									<f:param name="studentId" value="#{student.id}" />
-								</h:outputLabel> </td>
+								</h:outputLabel></td>
 								<ui:repeat
 									value="#{grupaHome.instance.obecnoscStudent(student.id)}"
 									var="obecnosc">
-									<td style="background-color:white; text-align: center;">
-									<h:outputText style="color: green;" value="+" title="#{obecnosc.listaObecnosci.data}"
-										rendered="#{obecnosc.obecnosc eq 'Obecny' and empty obecnosc.komentarz}" /> <h:outputText
-										style="color: red;" value="–" title="#{obecnosc.listaObecnosci.data}"
+									<td style="background-color: white; text-align: center;">
+									<h:outputText style="color: green;" value="+"
+										title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'Obecny' and empty obecnosc.komentarz}" />
+									<h:outputText style="color: red;" value="–"
+										title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and empty obecnosc.komentarz}" />
-									<h:outputText style="color: green;" value="s" title="#{obecnosc.listaObecnosci.data}"
+									<h:outputText style="color: green;" value="s"
+										title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{not empty obecnosc.komentarz and obecnosc.komentarz eq 'SP'}" />
-									<h:outputText style="color: red;" value="u" title="#{obecnosc.listaObecnosci.data}"
+									<h:outputText style="color: red;" value="u"
+										title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{not empty obecnosc.komentarz and obecnosc.komentarz eq 'UC'}" />
-									<h:outputText style="color: blue;" value="o" title="#{obecnosc.listaObecnosci.data}"
+									<h:outputText style="color: blue;" value="o"
+										title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ODR'}" />
-									<h:outputText style="color: blue;" value="p" title="#{obecnosc.listaObecnosci.data}"
+									<h:outputText style="color: blue;" value="p"
+										title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'USP'}" />
-									
+
 									</td>
 								</ui:repeat>
 							</tr>
 						</ui:repeat>
-					</table></div>
-					<h:outputText value="W grupie nie ma żadnych studentów." rendered="#{empty grupaHome.instance.studenci}"/>
+					</table>
+					</div>
+					<h:outputText value="W grupie nie ma żadnych studentów."
+						rendered="#{empty grupaHome.instance.studenci}" />
 
 				</h:form>
 				<s:button id="addG" value="Dodaj grupę studentów"
@@ -119,14 +136,26 @@
 					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 				</s:button><s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 			</h:column>
-		</h:panelGrid><br />
-		
-		<h:outputText style="color: green;" value="+" /><h:outputText value=" - Obecny" /><br />
-		<h:outputText style="color: red;" value="–" /><h:outputText value=" - Nieobecny" /><br />
-		<h:outputText style="color: green;" value="s" /><h:outputText value=" - Spóźniony" /><br />
-		<h:outputText style="color: red;" value="u" /><h:outputText value=" - Ucieczka" /><br />
-		<h:outputText style="color: blue;" value="o" /><h:outputText value=" - Obecność odrobiona" /><br />
-		<h:outputText style="color: blue;" value="p" /><h:outputText value=" - Nieobecny usprawiedliwiony" />
-		
+		</h:panelGrid>
+		<br />
+
+		<h:outputText style="color: green;" value="+" />
+		<h:outputText value=" - Obecny" />
+		<br />
+		<h:outputText style="color: red;" value="–" />
+		<h:outputText value=" - Nieobecny" />
+		<br />
+		<h:outputText style="color: green;" value="s" />
+		<h:outputText value=" - Spóźniony" />
+		<br />
+		<h:outputText style="color: red;" value="u" />
+		<h:outputText value=" - Ucieczka" />
+		<br />
+		<h:outputText style="color: blue;" value="o" />
+		<h:outputText value=" - Obecność odrobiona" />
+		<br />
+		<h:outputText style="color: blue;" value="p" />
+		<h:outputText value=" - Nieobecny usprawiedliwiony" />
+
 	</ui:define>
 </ui:composition>
