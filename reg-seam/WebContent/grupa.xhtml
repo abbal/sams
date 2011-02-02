@@ -69,8 +69,8 @@
 						</f:facet>
 					</rich:dataTable></div>-->
 
-					<table border="1">
-					<tr><td><h:outputText value="Imię i Nazwisko" /></td>
+					<div id="tab_obec"><table border="2">
+					<tr style="font-style:italic;"><td><h:outputText value="Imię i Nazwisko"/></td>
 					<c:forEach var="i" begin="1" end="15">
 						<td><h:outputText value="${i}" /> </td>
 					</c:forEach>
@@ -80,7 +80,7 @@
 						<tr><td><h:outputText value="#{student.imie} #{student.nazwisko}" /></td>
 					
 								<ui:repeat value="#{grupaHome.instance.getObecnoscStudent(student.id)}" var="obecnosc">
-									<td><h1><h:outputText style="color: green;" value="+" rendered="#{obecnosc.obecnosc eq 'Obecny'}" />
+									<td style="background-color:white;"><h1><h:outputText style="color: green;" value="+" rendered="#{obecnosc.obecnosc eq 'Obecny'}" />
 									<h:outputText style="color: red;" value="–" rendered="#{obecnosc.obecnosc eq 'nieobecny' and empty obecnosc.komentarz}" />
 									<h:outputText style="color: green;" value="s" rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz ne 'spóżnienie'}" />
 									<h:outputText style="color: red;" value="u" rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ucieczka'}" />
@@ -92,7 +92,7 @@
 						</tr>
 					</ui:repeat>
 					</table>
-
+</div>
 				</h:form>
 				<s:button id="addG"
 					value="Dodaj/usuń grupę studentów" view="/addStudentGroup2.xhtml">
