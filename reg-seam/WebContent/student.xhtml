@@ -20,6 +20,7 @@
 	xmlns:rich="http://richfaces.org/rich" template="layout/template.xhtml">
 
 	<ui:define name="body">
+	<h:form>
 		<h:panelGrid columns="2">
 
 			<h:outputText value="Imię: " />
@@ -42,13 +43,19 @@
 				</ui:repeat>
 			</ul>
 
+			<div>
+			<s:link view="/listaObecnosciList.seam" value="Obecność studenta" 
+			propagation="none" rendered="#{identity.loggedIn and s:hasRole('D')}" >
+			<f:param name="studentId" value="#{studentHome.instance.id}" />
+			</s:link>
+			</div>
 				<div class="actionButtons"> <s:button id="done" value="Edytuj"
 					view="/addStudent.xhtml" rendered="#{s:hasRole('D')}" >
-					<f:param name="studentId" value="#{student.id}" />
+					<f:param name="studentId" value="#{studentHome.instance.id}" />
 					</s:button><s:button id="back" value="Powrót" view="/studentList.xhtml" /></div>
 
 		</h:panelGrid>
-
+	</h:form>
 	</ui:define>
 
 </ui:composition>

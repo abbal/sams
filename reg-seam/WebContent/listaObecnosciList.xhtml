@@ -27,16 +27,16 @@
 					<div id="tab_obec">
 					<table>
 						<tr>
-							<th><h:outputText value="Przedmiot" /></th>
-							<ui:repeat value="#{studentHome.getCurrent(loggedIn.id).dlugosc()}" var="numer">
+							<th><h:outputText value="Przedmiot" rendered="#{not empty studentHome.instance.studenciGrupy}"/></th>
+							<ui:repeat value="#{studentHome.instance.dlugosc()}" var="numer">
 								<th><h:outputText value="#{numer}" /></th>
 							</ui:repeat>
 						</tr>
-						<ui:repeat value="#{studentHome.getCurrent(loggedIn.id).studenciGrupy}" var="grupa">
+						<ui:repeat value="#{studentHome.instance.studenciGrupy}" var="grupa">
 							<tr>
 								<td><h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" /></td>
 								<ui:repeat
-									value="#{studentHome.getCurrent(loggedIn.id).obecnoscGrupa(grupa.id)}"
+									value="#{studentHome.instance.obecnoscGrupa(grupa.id)}"
 									var="obecnosc">
 									<td style="background-color:white;">
 									<h:outputText style="color: green;" value="+" title="#{obecnosc.listaObecnosci.data}"
