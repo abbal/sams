@@ -45,69 +45,52 @@
 		<h:panelGrid columns="1">
 			<rich:panel>
 				<h:form id="grupaViewFormS">
-					<!-- <div class="results"><h:outputText
-						value="Nie ma żadnych studentów"
-						rendered="#{empty grupaHome.instance.studenci}" /> <rich:dataTable
-						id="grupaStudentList" var="student"
-						value="#{grupaHome.instance.studenci}" rows="15" reRender="dsS"
-						rendered="#{not empty grupaHome.instance.studenci}"
-						style=" width : 669px;">
-						<f:facet name="header">Obecność Studentów Grupy</f:facet>
-						<rich:column sortBy="#{student.imie}">
-							<f:facet name="header">
-								<h:outputText value="Imię i Nazwisko" />
-							</f:facet>
-							<s:link id="studentIm" value="#{student.imie} #{student.nazwisko}" propagation="none"
-								view="/student.xhtml"
-								style="color: black; text-decoration: none;">
-								<f:param name="studentId" value="#{student.id}" />
-							</s:link>
-						</rich:column>
-			
-								
-
-
-						<f:facet name="footer">
-							<rich:datascroller id="dsS" renderIfSinglePage="false"></rich:datascroller>
-						</f:facet>
-					</rich:dataTable></div>-->
-
-					<div id="tab_obec">
-					<table border="2">
-						<tr style="font-style: italic;">
-							<td><h:outputText value="Imię i Nazwisko" /></td>
-							<c:forEach var="i" begin="1" end="15">
-								<td><h:outputText value="${i}" /></td>
-							</c:forEach>
+					
+					<div id="tab_obec"><table border="2">
+						<tr style="font-style:italic;">
+							<th><h:outputText value="Imię i Nazwisko" rendered="#{not empty grupaHome.instance.studenci}"/></th>
+							<ui:repeat
+								value="#{grupaHome.instance.obecnoscStudent(grupaHome.instance.studenci[0].id)}"
+								var="data" >
+								<th><s:link style="color: white;" value="#{data.listaObecnosci.data.day}/#{data.listaObecnosci.data.month}"
+									propagation="none" view="/ListaObecnosciGrupy.xhtml">
+									<f:param name="listaObecnosciId"
+										value="#{data.listaObecnosci.id}" />
+								</s:link></th>
+							</ui:repeat>
 						</tr>
 						<ui:repeat value="#{grupaHome.instance.studenci}" var="student">
 							<tr>
-								<td><h:outputText
-									value="#{student.imie} #{student.nazwisko}" /></td>
+								<td><s:link id="studentIm"
+									value="#{student.imie} #{student.nazwisko}" propagation="none"
+									view="/student.xhtml"
+									style="color: black; text-decoration: none;">
+									<f:param name="studentId" value="#{student.id}" />
+								</s:link></td>
 								<ui:repeat
-									value="#{grupaHome.instance.getObecnoscStudent(student.id)}"
+									value="#{grupaHome.instance.obecnoscStudent(student.id)}"
 									var="obecnosc">
-									<td style="background-color: white;">
-									<h1><h:outputText style="color: green;" value="+"
+									<td style="background-color:white; text-align: center;">
+									<h:outputText style="color: green;" value="+" title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'Obecny'}" /> <h:outputText
-										style="color: red;" value="–"
+										style="color: red;" value="–" title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and empty obecnosc.komentarz}" />
-									<h:outputText style="color: green;" value="s"
-										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz ne 'spóżnienie'}" />
-									<h:outputText style="color: red;" value="u"
-										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ucieczka'}" />
-									<h:outputText style="color: blue;" value="o"
-										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'odrobione'}" />
-									<h:outputText style="color: blue;" value="p"
-										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'usprawiedliwiony'}" />
-
-									</h1>
+									<h:outputText style="color: green;" value="s" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'SP'}" />
+									<h:outputText style="color: red;" value="u" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'UC'}" />
+									<h:outputText style="color: blue;" value="o" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ODR'}" />
+									<h:outputText style="color: blue;" value="p" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'USP'}" />
+									
 									</td>
 								</ui:repeat>
 							</tr>
 						</ui:repeat>
-					</table>
-					</div>
+					</table></div>
+					<h:outputText value="W grupie nie ma żadnych studentów." rendered="#{empty grupaHome.instance.studenci}"/>
+
 				</h:form>
 				<s:button id="addG" value="Dodaj grupę studentów"
 					view="/addStudentGroup2.xhtml">

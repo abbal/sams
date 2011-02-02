@@ -410,15 +410,16 @@ th,.dr-table-headercell {
 	-webkit-border-radius: 20px;
 	-khtml-border-radius: 20px;
 	}
-#tab_obec td{
+#tab_obec td,#tab_obec td tr, #tab_obec tr td a, #tab_obec tr th{
 	border-color: #C80000;
 	border-style: solid;
 	background-color: #C80000;
 	color: #efefef;
-			-moz-border-radius: 20px;
+	-moz-border-radius: 20px;
 	border-radius: 20px 20px;
 	-khtml-border-radius: 20px;
 	-icab-border-radius: 20px;
 	-webkit-border-radius: 20px;
 	-khtml-border-radius: 20px;
+	text-decoration: none;
 	}
