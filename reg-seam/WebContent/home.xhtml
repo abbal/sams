@@ -31,15 +31,15 @@
 			</ui:repeat>
 		</ul>
 		</div>
-		<div id="obecności">
-		<ui:repeat var="grupa"
+		<div id="obecności"><ui:repeat var="grupa"
 			value="#{grupaHome.aktualna(loggedIn.id)}"
 			rendered="#{identity.isLoggedIn() and s:hasRole('W')}">
-			<h:outputLabel value="Aktualne przedmioty" /><br />
-			<s:link value="#{grupa.przedmiot} #{grupa.numerGrupy}" view="/grupa.xhtml" >
+			<h:outputLabel value="Aktualne przedmioty" />
+			<br />
+			<s:link value="#{grupa.przedmiot} #{grupa.numerGrupy}"
+				view="/grupa.xhtml">
 				<f:param name="grupaId" value="#{grupa.id}" />
 			</s:link>
-		</ui:repeat>
-		</div>
+		</ui:repeat></div>
 	</ui:define>
 </ui:composition>
