@@ -100,6 +100,7 @@
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'odrobione'}" />
 									<h:outputText style="color: blue;" value="p"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'usprawiedliwiony'}" />
+
 									</h1>
 									</td>
 								</ui:repeat>
@@ -123,6 +124,14 @@
 					<f:param name="grupaId" value="#{grupaHome.instance.id}" />
 				</s:button><s:button id="back" value="Powrót" view="/grupaList.xhtml" /></div>
 			</h:column>
-		</h:panelGrid>
+		</h:panelGrid><br />
+		
+		<h:outputText style="color: green;" value="+" /><h:outputText value=" - Obecny" /><br />
+		<h:outputText style="color: red;" value="–" /><h:outputText value=" - Nieobecny" /><br />
+		<h:outputText style="color: green;" value="s" /><h:outputText value=" - Spóźniony" /><br />
+		<h:outputText style="color: red;" value="u" /><h:outputText value=" - Ucieczka" /><br />
+		<h:outputText style="color: blue;" value="o" /><h:outputText value=" - Obecność odrobiona" /><br />
+		<h:outputText style="color: blue;" value="p" /><h:outputText value=" - Nieobecny usprawiedliwiony" />
+		
 	</ui:define>
 </ui:composition>

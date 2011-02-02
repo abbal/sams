@@ -150,7 +150,7 @@ public class Grupa implements Serializable {
 		this.flaga = flaga;
 	}
 
-	public List<Obecnosc> getObecnoscStudent(long studentId) {
+	public List<Obecnosc> obecnoscStudent(long studentId) {
 		List<Obecnosc> wynik = new ArrayList<Obecnosc>();
 		List<Obecnosc> tmp = new ArrayList<Obecnosc>();
 		for (ListaObecnosci listaOb : obecnosci) {

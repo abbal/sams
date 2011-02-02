@@ -12,45 +12,52 @@
 		<h:panelGrid columns="2">
 			<rich:panel>
 				<h:form>
-					<div class="results"><h:outputText
-						value="Lista obecności jest pusta"
-						rendered="#{empty studentHome.getCurrent(loggedIn.id).obecnosci}" />
-					<rich:dataTable id="listaObecnosciList" var="obecnosc"
-						value="#{studentHome.getCurrent(loggedIn.id).obecnosci}" rows="15"
-						reRender="ds"
-						rendered="#{not empty studentHome.getCurrent(loggedIn.id).obecnosci}"
-						style=" width : 669px;">
-						<f:facet name="header">Obecność Studenta</f:facet>
-						<rich:column sortBy="#{obecnosc.listaObecnosci.grupa.przedmiot}">
-							<f:facet name="header">
-								<h:outputText value="Grupa" />
-							</f:facet>
-							<h:outputText
-								value="#{obecnosc.listaObecnosci.grupa.przedmiot} #{obecnosc.listaObecnosci.grupa.numerGrupy}" />
-						</rich:column>
-						<rich:column sortBy="#{obecnosc.listaObecnosci.data}">
-							<f:facet name="header">
-								<h:outputText value="data" />
-							</f:facet>
-							<h:outputText value="#{obecnosc.listaObecnosci.data}" />
-						</rich:column>
-						<rich:column sortBy="#{obecnosc.obecnosc}">
-							<f:facet name="header">
-								<h:outputText value="Status na zajęciach" />
-							</f:facet>
-							<h:outputText value="#{obecnosc.obecnosc}" />
-<!--							<h:outputText value="#{obecnosc.obecnosc}" rendered="#{obecnosc.obecnosc}"/>-->
-<!--							<h:outputText value="―" rendered="#{!obecnosc.obecnosc}"/>-->
-						</rich:column>
-
-						<f:facet name="footer">
-							<rich:datascroller id="ds" renderIfSinglePage="false"></rich:datascroller>
-						</f:facet>
-					</rich:dataTable></div>
+					
+					<table>
+						<tr>
+							<th><h:outputText value="Przedmiot" /></th>
+							<ui:repeat value="#{studentHome.getCurrent(loggedIn.id).dlugosc()}" var="numer">
+								<th><h:outputText value="#{numer}" /></th>
+							</ui:repeat>
+						</tr>
+						<ui:repeat value="#{studentHome.getCurrent(loggedIn.id).studenciGrupy}" var="grupa">
+							<tr>
+								<td><h:outputText value="#{grupa.przedmiot} #{grupa.numerGrupy}" /></td>
+								<ui:repeat
+									value="#{studentHome.getCurrent(loggedIn.id).obecnoscGrupa(grupa.id)}"
+									var="obecnosc">
+									<td>
+									<h1><h:outputText style="color: green;" value="+" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'Obecny'}" /> <h:outputText
+										style="color: red;" value="–" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and empty obecnosc.komentarz}" />
+									<h:outputText style="color: green;" value="s" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'SP'}" />
+									<h:outputText style="color: red;" value="u" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'UC'}" />
+									<h:outputText style="color: blue;" value="o" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ODR'}" />
+									<h:outputText style="color: blue;" value="p" title="#{obecnosc.listaObecnosci.data}"
+										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'USP'}" />
+									</h1>
+									</td>
+								</ui:repeat>
+							</tr>
+						</ui:repeat>
+					</table>
+					
+					
 				</h:form>
 			</rich:panel>
+		</h:panelGrid><br />
+		
+		<h:outputText style="color: green;" value="+" /><h:outputText value=" - Obecny" /><br />
+		<h:outputText style="color: red;" value="–" /><h:outputText value=" - Nieobecny" /><br />
+		<h:outputText style="color: green;" value="s" /><h:outputText value=" - Spóźniony" /><br />
+		<h:outputText style="color: red;" value="u" /><h:outputText value=" - Ucieczka" /><br />
+		<h:outputText style="color: blue;" value="o" /><h:outputText value=" - Obecność odrobiona" /><br />
+		<h:outputText style="color: blue;" value="p" /><h:outputText value=" - Nieobecny usprawiedliwiony" />
 
-		</h:panelGrid>
 	</ui:define>
 
 </ui:composition>
