@@ -12,7 +12,7 @@
 		<h:panelGrid columns="2">
 			<rich:panel>
 				<h:form>
-					
+					<div id="tab_obec">
 					<table>
 						<tr>
 							<th><h:outputText value="Przedmiot" /></th>
@@ -26,8 +26,8 @@
 								<ui:repeat
 									value="#{studentHome.getCurrent(loggedIn.id).obecnoscGrupa(grupa.id)}"
 									var="obecnosc">
-									<td>
-									<h1><h:outputText style="color: green;" value="+" title="#{obecnosc.listaObecnosci.data}"
+									<td style="background-color:white;">
+									<h:outputText style="color: green;" value="+" title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'Obecny'}" /> <h:outputText
 										style="color: red;" value="–" title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and empty obecnosc.komentarz}" />
@@ -39,13 +39,13 @@
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'ODR'}" />
 									<h:outputText style="color: blue;" value="p" title="#{obecnosc.listaObecnosci.data}"
 										rendered="#{obecnosc.obecnosc eq 'nieobecny' and not empty obecnosc.komentarz and obecnosc.komentarz eq 'USP'}" />
-									</h1>
+									
 									</td>
 								</ui:repeat>
 							</tr>
 						</ui:repeat>
 					</table>
-					
+					</div>
 					
 				</h:form>
 			</rich:panel>
